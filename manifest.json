@@ -1,0 +1,524 @@
+{
+  "games": [
+    {
+      "name": "Space Waves",
+      "url": "/games/space-waves.html",
+      "img": "/games/thumbs/space-waves.jpeg",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Chat Bot AI",
+      "url": "/games/chat-bot-ai.html",
+      "img": "/games/thumbs/chat-bot-ai.png",
+      "genre": "Toy",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Jacksmith",
+      "url": "/games/jacksmith.html",
+      "img": "/games/thumbs/jacksmith.jpeg",
+      "genre": "Strategy",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Orange Roulette",
+      "url": "/games/orange-roulette.html",
+      "img": "/games/thumbs/orange-roulette.webp",
+      "genre": "Chance",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Mario 64",
+      "url": "/games/mario-64.html",
+      "img": "/games/thumbs/mario-64.jpeg",
+      "genre": "Adventure",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Cookie Clicker",
+      "url": "/games/cookie-clicker.html",
+      "img": "/games/thumbs/cookie-clicker.webp",
+      "genre": "Idle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Getting Over It",
+      "url": "/games/getting-over-it.html",
+      "img": "/games/thumbs/getting-over-it.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Gunspin",
+      "url": "/games/gunspin.html",
+      "img": "/games/thumbs/gunspin.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Gladihoppers",
+      "url": "/games/gladihoppers.html",
+      "img": "/games/thumbs/gladihoppers.png",
+      "genre": "Fighting",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Johnny Upgrade",
+      "url": "/games/johnny-upgrade.html",
+      "img": "/games/thumbs/johnny-upgrade.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "A Dance of Fire and Ice",
+      "url": "/games/adofai.html",
+      "img": "/games/thumbs/adofai.jpeg",
+      "genre": "Rhythm",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "CSGO Clicker",
+      "url": "/games/csgo-clicker.html",
+      "img": "/games/thumbs/csgo-clicker.png",
+      "genre": "Idle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Dadish",
+      "url": "/games/dadish.html",
+      "img": "/games/thumbs/dadish.png",
+      "genre": "Platformer",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Minecraft PE",
+      "url": "/games/minecraft-pe.html",
+      "img": "/games/thumbs/minecraft-pe.png",
+      "genre": "Sandbox",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Stardew Valley",
+      "url": "/games/stardew-valley.html",
+      "img": "/games/thumbs/stardew-valley.png",
+      "genre": "Simulation",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Cut the Rope",
+      "url": "/games/cut-the-rope.html",
+      "img": "/games/thumbs/cut-the-rope.png",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "The Impossible Quiz",
+      "url": "/games/impossible-quiz.html",
+      "img": "/games/thumbs/impossible-quiz.png",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "The Impossible Quiz 2",
+      "url": "/games/impossible-quiz-2.html",
+      "img": "/games/thumbs/impossible-quiz-2.jpeg",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Celeste Classic",
+      "url": "/games/celeste-pico.html",
+      "img": "/games/thumbs/celeste-pico.png",
+      "genre": "Platformer",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Brotato",
+      "url": "/games/brotato.html",
+      "img": "/games/thumbs/brotato.jpeg",
+      "genre": "Roguelite",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Balatro",
+      "url": "/games/balatro.html",
+      "img": "/games/thumbs/balatro.jpeg",
+      "genre": "Card",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Buckshot Roulette",
+      "url": "/games/buckshot-roulette.html",
+      "img": "/games/thumbs/buckshot-roulette.png",
+      "genre": "Horror",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Pizza Tower",
+      "url": "/games/pizza-tower.html",
+      "img": "/games/thumbs/pizza-tower.png",
+      "genre": "Platformer",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Antonblast",
+      "url": "/games/antonblast.html",
+      "img": "/games/thumbs/antonblast.png",
+      "genre": "Arcade",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "OMORI",
+      "url": "/games/omori.html",
+      "img": "/games/thumbs/omori.png",
+      "genre": "RPG",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Crazy Cattle 3D",
+      "url": "/games/crazycattle3d.html",
+      "img": "/games/thumbs/crazycattle3d.jpeg",
+      "genre": "Arcade",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Minesweeper Plus",
+      "url": "/games/minesweeper-plus.html",
+      "img": "/games/thumbs/minesweeper-plus.jpeg",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Yume Nikki",
+      "url": "/games/yume-nikki.html",
+      "img": "/games/thumbs/yume-nikki.png",
+      "genre": "Adventure",
+      "device": "mobile+pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "ULTRAKILL",
+      "url": "/games/ultrakill.html",
+      "img": "/games/thumbs/ultrakill.png",
+      "genre": "Shooter",
+      "device": "pc",
+      "added": "2026-05-30"
+    },
+    {
+      "name": "Idle Dice",
+      "url": "/games/idle-dice.html",
+      "img": "/games/thumbs/idle-dice.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Soundboard",
+      "url": "/games/soundboard.html",
+      "img": "/games/thumbs/soundboard.webp",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Karlson",
+      "url": "/games/karlson.html",
+      "img": "/games/thumbs/karlson.png",
+      "genre": "Shooter",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Block Blast",
+      "url": "/games/block-blast.html",
+      "img": "/games/thumbs/block-blast.jpeg",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Deltarune",
+      "url": "/games/deltarune.html",
+      "img": "/games/thumbs/deltarune.jpeg",
+      "genre": "RPG",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Undertale Yellow",
+      "url": "/games/undertale-yellow.html",
+      "img": "/games/thumbs/undertale-yellow.jpeg",
+      "genre": "RPG",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Madness Accelerant",
+      "url": "/games/madness-accelerant.html",
+      "img": "/games/thumbs/madness-accelerant.jpeg",
+      "genre": "Action",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Minecraft Tower Defense",
+      "url": "/games/minecraft-tower-defense.html",
+      "img": "/games/thumbs/minecraft-tower-defense.jpeg",
+      "genre": "Strategy",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "The Binding of Isaac Demo",
+      "url": "/games/tboi-demo.html",
+      "img": "/games/thumbs/tboi-demo.webp",
+      "genre": "Roguelike",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "The Binding of Isaac: Wrath of the Lamb",
+      "url": "/games/tboi-wrath-of-the-lamb.html",
+      "img": "/games/thumbs/tboi-wrath-of-the-lamb.webp",
+      "genre": "Roguelike",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bloons Tower Defense 1",
+      "url": "/games/btd-1.html",
+      "img": "/games/thumbs/btd-1.jpeg",
+      "genre": "Strategy",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bloons Tower Defense 2",
+      "url": "/games/btd-2.html",
+      "img": "/games/thumbs/btd-2.jpeg",
+      "genre": "Strategy",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bloons Tower Defense 3",
+      "url": "/games/btd-3.html",
+      "img": "/games/thumbs/btd-3.png",
+      "genre": "Strategy",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bloons Tower Defense 4",
+      "url": "/games/btd-4.html",
+      "img": "/games/thumbs/btd-4.webp",
+      "genre": "Strategy",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Angry Birds",
+      "url": "/games/angry-birds.html",
+      "img": "/games/thumbs/angry-birds.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Angry Birds 2",
+      "url": "/games/angry-birds-2.html",
+      "img": "/games/thumbs/angry-birds-2.webp",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Angry Birds Showdown",
+      "url": "/games/angry-birds-showdown.html",
+      "img": "/games/thumbs/angry-birds-showdown.webp",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Angry Birds Slingshot Frenzy",
+      "url": "/games/angry-birds-slingshot-frenzy.html",
+      "img": "/games/thumbs/angry-birds-slingshot-frenzy.webp",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Angry Birds Space",
+      "url": "/games/angry-birds-space.html",
+      "img": "/games/thumbs/angry-birds-space.webp",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bad Piggies 2018",
+      "url": "/games/bad-piggies-2018.html",
+      "img": "/games/thumbs/bad-piggies-2018.png",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Bad Piggies Latest",
+      "url": "/games/bad-piggies-latest.html",
+      "img": "/games/thumbs/bad-piggies-latest.png",
+      "genre": "Puzzle",
+      "device": "pc",
+      "added": "2026-05-31"
+    },
+    {
+      "name": "Riddle School",
+      "url": "/games/riddle-school.html",
+      "img": "/games/thumbs/riddle-school.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle School 2",
+      "url": "/games/riddle-school-2.html",
+      "img": "/games/thumbs/riddle-school-2.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle School 3",
+      "url": "/games/riddle-school-3.html",
+      "img": "/games/thumbs/riddle-school-3.jpeg",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle School 4",
+      "url": "/games/riddle-school-4.html",
+      "img": "/games/thumbs/riddle-school-4.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle School 5",
+      "url": "/games/riddle-school-5.html",
+      "img": "/games/thumbs/riddle-school-5.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle Transfer",
+      "url": "/games/riddle-transfer.html",
+      "img": "/games/thumbs/riddle-transfer.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Riddle Transfer 2",
+      "url": "/games/riddle-transfer-2.html",
+      "img": "/games/thumbs/riddle-transfer-2.webp",
+      "genre": "Puzzle",
+      "device": "mobile+pc",
+      "added": "2026-06-05"
+    },
+    {
+      "name": "Paper.io 2",
+      "url": "/games/paper-io-2.html",
+      "img": "/games/thumbs/paper-io-2.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Half-Life",
+      "url": "/games/half-life.html",
+      "img": "/games/thumbs/half-life.png",
+      "genre": "Shooter",
+      "device": "pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Half-Life: Opposing Force",
+      "url": "/games/half-life-opposing-force.html",
+      "img": "/games/thumbs/half-life-opposing-force.png",
+      "genre": "Shooter",
+      "device": "pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Fruit Ninja",
+      "url": "/games/fruit-ninja.html",
+      "img": "/games/thumbs/fruit-ninja.png",
+      "genre": "Arcade",
+      "device": "mobile+pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Slime Rancher",
+      "url": "/games/slime-rancher.html",
+      "img": "/games/thumbs/slime-rancher.png",
+      "genre": "Adventure",
+      "device": "pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Bloodmoney",
+      "url": "/games/bloodmoney.html",
+      "img": "/games/thumbs/bloodmoney.png",
+      "genre": "Psychological Horror",
+      "device": "mobile+pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Untitled Goose Game",
+      "url": "/games/untitled-goose-game.html",
+      "img": "/games/thumbs/untitled-goose-game.png",
+      "genre": "Puzzle",
+      "device": "pc",
+      "added": "2026-06-10"
+    },
+    {
+      "name": "Cyber Fusion",
+      "url": "/games/cyber-fusion.html",
+      "img": "/games/thumbs/cyber-fusion.svg",
+      "genre": "Sci-Fi",
+      "device": "pc",
+      "added": "2026-07-05"
+    }
+  ]
+}

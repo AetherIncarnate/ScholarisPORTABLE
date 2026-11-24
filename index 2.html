@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scholaris Learning — Online Education Platform</title>
+<meta name="description" content="Scholaris offers free courses in mathematics, science, literature, and history for learners of all ages.">
+<meta property="og:title" content="Scholaris Learning — Online Education Platform">
+<meta property="og:description" content="Free, rigorous courses in mathematics, science, literature, and history — taught by experienced educators.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230c1722'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23e2cfa9' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --radius:.25rem;
+  --ink:#0c1722; --paper:#f4eee1; --brass:#ad8748; --brass-soft:#e2cfa9; --steel:#2c4962;
+  --background:#f4eee1; --foreground:#0c1722; --card:#fcfaf4; --card-foreground:#0c1722;
+  --primary:#0c1722; --primary-foreground:#f7f3e9; --muted:#e8e2d5; --muted-foreground:#4f5964;
+  --accent:#ad8748; --accent-foreground:#0c1722; --destructive:#ba2b28; --destructive-foreground:#fbf8f1;
+  --border:rgba(12,23,34,.14); --input:rgba(12,23,34,.2); --ring:#ad8748;
+  --font-display:"Libre Baskerville","Iowan Old Style",Georgia,serif;
+  --font-body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+}
+html.dark{
+  --ink:#0c1722; --paper:#f4eee1; --brass:#c7a669; --brass-soft:#e2cfa9; --steel:#708aa0;
+  --background:#08111b; --foreground:#f1ece1; --card:#111d29; --card-foreground:#f1ece1;
+  --primary:#f1ece1; --primary-foreground:#08111b; --muted:#192532; --muted-foreground:#9aa6b3;
+  --accent:#c7a669; --accent-foreground:#08111b; --destructive:#ec5b57;
+  --border:rgba(244,238,225,.16); --input:rgba(244,238,225,.22); --ring:#c7a669;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--background);color:var(--foreground);font-family:var(--font-body);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+.font-display{font-family:var(--font-display)}
+.eyebrow{font-family:var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted-foreground);font-size:.6875rem;font-weight:600}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.topbar{background:var(--ink);color:var(--paper)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem 1.5rem;max-width:72rem;margin:0 auto;font-size:11px;letter-spacing:.04em}
+.topbar .eyebrow{color:rgba(244,238,225,.7)}
+.topbar-right{color:rgba(244,238,225,.6)}
+@media(max-width:767px){.topbar-right{display:none}}
+header.site{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--border);background:color-mix(in oklab,var(--background) 92%,transparent);backdrop-filter:blur(8px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1rem 1.5rem;max-width:72rem;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.75rem}
+.crest{width:2.25rem;height:2.25rem;border-radius:2px;background:var(--ink);color:var(--brass-soft);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.25rem;border:1px solid var(--border)}
+.brand-name{font-family:var(--font-display);font-size:1.125rem;letter-spacing:-.01em;line-height:1}
+.brand-sub{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-foreground);font-weight:600;margin-top:.25rem}
+nav.main{display:flex;align-items:center;gap:1.75rem;font-size:.875rem}
+nav.main a{color:color-mix(in oklab,var(--foreground) 80%,transparent);transition:color .15s;position:relative}
+nav.main a:hover{color:var(--foreground)}
+nav.main a.active{color:var(--brass);font-weight:500}
+nav.main a.active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--brass)}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.625rem 1.25rem;font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:all .15s;border:1px solid transparent}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--steel)}
+html.dark .btn-ink{background:var(--brass);color:var(--ink)}
+html.dark .btn-ink:hover{background:var(--brass-soft)}
+.btn-outline{border-color:var(--input);color:var(--foreground)}
+.btn-outline:hover{border-color:var(--brass);color:var(--brass)}
+.btn-brass{background:var(--brass);color:var(--ink)}
+.btn-brass:hover{background:var(--brass-soft)}
+.btn-ghost{color:var(--muted-foreground)}
+.btn-ghost:hover{color:var(--foreground)}
+.btn-sm{padding:.5rem .9rem;font-size:.6875rem}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.hamburger{display:none;padding:.5rem}
+@media(max-width:900px){nav.main{display:none}nav.main.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--background);border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start;padding:1rem 1.5rem;gap:1rem}.hamburger{display:block}}
+.hero{padding:4rem 0 3rem;border-bottom:1px solid var(--border)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.1;letter-spacing:-.02em;margin-top:1rem}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero p.lede{margin-top:1.25rem;max-width:42rem;font-size:1rem;line-height:1.7;color:var(--muted-foreground)}
+.hero-cta{display:flex;gap:.75rem;margin-top:2rem;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3rem}
+.stat{background:var(--card);padding:1.25rem;text-align:center}
+.stat b{font-family:var(--font-display);font-size:1.75rem;display:block}
+.stat span{font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-foreground);font-weight:600}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+.section{padding:4rem 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.section-head h2{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-.01em;margin-top:.5rem}
+.featured{border:1px solid var(--border);background:var(--card);padding:2rem;display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
+.featured h3{font-family:var(--font-display);font-size:1.75rem;margin:.5rem 0}
+.featured p{color:var(--muted-foreground);font-size:.875rem;line-height:1.7}
+.featured-art{background:linear-gradient(135deg,var(--ink),var(--steel));color:var(--paper);min-height:180px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:3rem;border:1px solid var(--border)}
+@media(max-width:768px){.featured{grid-template-columns:1fr}}
+.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(max-width:768px){.subjects{grid-template-columns:1fr}}
+.subject{border:1px solid var(--border);background:var(--card);padding:1.5rem;transition:border-color .15s}
+.subject:hover{border-color:var(--brass)}
+.subject-num{font-family:var(--font-display);color:var(--brass);font-size:.875rem}
+.subject h3{font-family:var(--font-display);font-size:1.375rem;margin:.25rem 0 .5rem}
+.subject p{font-size:.875rem;color:var(--muted-foreground);line-height:1.6}
+.subject-meta{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;font-size:.75rem;color:var(--muted-foreground)}
+.subject ul{margin-top:.75rem;border-top:1px solid var(--border);padding-top:.75rem;display:none;list-style:none}
+.subject.open ul{display:block}
+.subject li{font-size:.8125rem;padding:.25rem 0;color:var(--muted-foreground)}
+.subject li::before{content:"— ";color:var(--brass)}
+.theatre-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:768px){.theatre-grid{grid-template-columns:1fr}}
+.lesson-card{border:1px solid var(--border);background:var(--card);padding:1.5rem}
+.lesson-card h3{font-family:var(--font-display);font-size:1.25rem;margin:.5rem 0}
+.lesson-card p{font-size:.8125rem;color:var(--muted-foreground)}
+.video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;overflow:hidden;border:1px solid var(--border);margin-top:1rem}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;background:linear-gradient(135deg,var(--ink),var(--steel));color:var(--paper);text-align:center;padding:1rem}
+.play-btn{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--brass);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:1.25rem}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:900px){.quotes{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.quotes{grid-template-columns:1fr}}
+.quote{border:1px solid var(--border);background:var(--card);padding:1.5rem}
+.quote blockquote{font-family:var(--font-display);font-size:.9375rem;line-height:1.6;font-style:italic}
+.quote footer{margin-top:1rem;font-size:.75rem;color:var(--muted-foreground)}
+.quote footer b{color:var(--foreground);display:block;font-size:.8125rem}
+.schools{display:flex;flex-wrap:wrap;gap:.5rem}
+.school{border:1px solid var(--border);background:var(--card);padding:.5rem 1rem;font-size:.8125rem}
+.faq-cat{margin-bottom:2rem}
+.faq-cat h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+details.faq{border-bottom:1px solid var(--border)}
+details.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;padding:1rem 0;font-size:.9375rem;font-weight:500}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary .plus{color:var(--brass);transition:transform .3s;font-size:1.125rem}
+details.faq[open] summary .plus{transform:rotate(45deg)}
+details.faq p{padding:0 0 1.25rem;font-size:.875rem;line-height:1.7;color:var(--muted-foreground);max-width:48rem}
+footer.site{border-top:1px solid var(--border);background:color-mix(in oklab,var(--card) 60%,transparent);padding:3rem 0 2rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-grid h4{font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-foreground);margin-bottom:.75rem}
+.footer-grid a,.footer-grid button{display:block;font-size:.875rem;padding:.25rem 0;color:color-mix(in oklab,var(--foreground) 80%,transparent);text-align:left}
+.footer-grid a:hover,.footer-grid button:hover{color:var(--brass)}
+.footer-bottom{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--muted-foreground);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.modal-backdrop{position:fixed;inset:0;z-index:50;background:rgba(12,23,34,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem;animation:fadeIn .2s}
+.modal{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);width:100%;max-width:28rem;max-height:90vh;overflow-y:auto;padding:1.75rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);animation:zoomIn .3s}
+.modal.wide{max-width:56rem}
+.modal h2{font-family:var(--font-display);font-size:1.375rem;margin:.5rem 0 1rem}
+.field{margin-bottom:1rem}
+.field label{display:block;font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted-foreground);margin-bottom:.375rem}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--input);background:var(--background);padding:.625rem .75rem;font-size:.875rem;border-radius:2px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ring);outline-offset:1px;border-color:var(--brass)}
+.field .hint{font-size:.75rem;color:var(--muted-foreground);margin-top:.375rem}
+.field .error{font-size:.75rem;color:var(--destructive);margin-top:.375rem}
+.code-input{font-family:var(--font-mono);font-size:1.5rem!important;letter-spacing:.5em;text-align:center}
+.toast{position:fixed;bottom:1.25rem;left:50%;transform:translateX(-50%);z-index:100;background:var(--ink);color:var(--paper);padding:.75rem 1.25rem;font-size:.875rem;border:1px solid var(--border);box-shadow:0 10px 25px rgba(0,0,0,.2);animation:fadeIn .2s;max-width:90vw;text-align:center}
+html.dark .toast{background:var(--brass);color:var(--ink)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.rise{animation:rise .5s ease both}
+.practice-layout{display:grid;grid-template-columns:280px 1fr;gap:2rem;align-items:start}
+@media(max-width:900px){.practice-layout{grid-template-columns:1fr}}
+.topic-btn{display:block;width:100%;border:1px solid var(--border);background:color-mix(in oklab,var(--card) 60%,transparent);padding:.75rem 1rem;text-align:left;transition:all .15s;margin-bottom:.375rem}
+.topic-btn:hover{border-color:color-mix(in oklab,var(--brass) 50%,transparent);color:var(--foreground)}
+.topic-btn.active{border-color:var(--brass);background:color-mix(in oklab,var(--brass) 10%,transparent);color:var(--foreground)}
+.topic-btn .t{font-family:var(--font-display);font-size:.875rem;font-weight:600}
+.topic-btn .l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-foreground);font-weight:600;margin-top:.25rem}
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;text-align:center;margin-bottom:1.5rem}
+.stat3>div{border:1px solid var(--border);background:var(--card);padding:.75rem 1rem}
+.stat3 b{font-family:var(--font-display);font-size:1.5rem;display:block}
+.choice{display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px solid var(--border);background:var(--background);padding:.875rem 1.25rem;text-align:left;font-size:.875rem;width:100%;transition:all .15s;margin-bottom:.5rem}
+.choice:hover:not(:disabled){border-color:var(--brass);background:color-mix(in oklab,var(--brass) 5%,transparent)}
+.choice.correct{border-color:#00bb7f;background:rgba(0,187,127,.1);font-weight:500}
+.choice.wrong{border-color:var(--destructive);background:color-mix(in oklab,var(--destructive) 10%,transparent);color:var(--destructive);font-weight:500}
+.choice:disabled{cursor:not-allowed}
+.choice.dim{opacity:.5}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
+.plan{position:relative;border:1px solid var(--border);background:var(--card);padding:2rem;display:flex;flex-direction:column;transition:border-color .15s}
+.plan:hover{border-color:color-mix(in oklab,var(--brass) 50%,transparent)}
+.plan.highlight{border-color:var(--brass)}
+.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brass);color:var(--ink);padding:.25rem .75rem;font-family:var(--font-display);font-size:10px;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.plan h2{font-family:var(--font-display);font-size:1.5rem}
+.plan .tag{font-size:.75rem;color:var(--muted-foreground);margin-top:.5rem;min-height:2.5rem;line-height:1.5}
+.plan .price{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 0;margin:1.5rem 0}
+.plan .price b{font-family:var(--font-display);font-size:2.25rem}
+.plan ul{list-style:none;flex:1;margin-bottom:2rem}
+.plan li{display:flex;gap:.625rem;align-items:baseline;font-size:.75rem;color:var(--muted-foreground);padding:.375rem 0}
+.plan li::before{content:"✓";color:var(--brass);font-weight:700}
+.toggle{display:inline-flex;border:1px solid var(--border);background:var(--card);padding:.25rem;gap:.25rem}
+.toggle button{padding:.5rem 1rem;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.toggle button.on{background:var(--ink);color:var(--paper)}
+html.dark .toggle button.on{background:var(--brass);color:var(--ink)}
+.institutional{background:var(--ink);color:var(--paper);padding:2rem;margin-top:5rem}
+html.dark .institutional{background:var(--card);border:1px solid var(--border)}
+.institutional-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center}
+@media(max-width:900px){.institutional-grid{grid-template-columns:1fr}}
+.seat{border:1px solid rgba(244,238,225,.15);background:rgba(244,238,225,.05);padding:1.25rem;margin-bottom:1rem}
+html.dark .seat{border-color:var(--border);background:var(--muted)}
+.games-toolbar{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem}
+.games-toolbar input[type=search]{flex:1;min-width:200px;border:1px solid var(--input);background:var(--card);padding:.625rem .875rem;font-size:.875rem}
+.games-toolbar select{border:1px solid var(--input);background:var(--card);padding:.625rem .75rem;font-size:.875rem}
+.games-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+@media(max-width:1000px){.games-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.games-grid{grid-template-columns:repeat(2,1fr)}}
+.game-card{border:1px solid var(--border);background:var(--card);overflow:hidden;cursor:pointer;transition:border-color .15s,transform .15s;text-align:left;padding:0;width:100%}
+.game-card:hover{border-color:var(--brass);transform:translateY(-2px)}
+.game-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2rem;color:#fff;position:relative;overflow:hidden}
+.game-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.game-info{padding:.75rem}
+.game-info h4{font-size:.875rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.game-info .meta{font-size:.6875rem;color:var(--muted-foreground);display:flex;justify-content:space-between;margin-top:.25rem}
+.genre-tag{display:inline-block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.125rem .5rem;color:#fff}
+.player-bar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:1rem}
+.player-frame{width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--border)}
+.player-frame iframe{width:100%;height:100%;border:0}
+.vote-btn{border:1px solid var(--input);padding:.375rem .75rem;font-size:.75rem}
+.vote-btn.on{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.panic{position:fixed;bottom:3rem;right:.75rem;z-index:60;width:3.5rem;height:3.5rem;border-radius:50%;background:#dc2626;color:#fff;font-weight:700;font-size:.625rem;letter-spacing:.05em;box-shadow:0 4px 12px rgba(220,0,0,.5);cursor:grab;display:flex;align-items:center;justify-content:center;user-select:none;touch-action:none}
+.panic:active{cursor:grabbing}
+.admin-shell{background:#09090b;color:#f4f4f5;min-height:100vh;padding:2.5rem 1.5rem}
+.admin-shell .card{border:1px solid #27272a;background:#18181b;padding:1.5rem;margin-bottom:1.5rem}
+.admin-shell input,.admin-shell select,.admin-shell textarea{background:#09090b;border:1px solid #3f3f46;color:#f4f4f5;padding:.5rem .75rem;font-size:.875rem;width:100%;border-radius:.375rem}
+.admin-shell label{font-size:.75rem;color:#a1a1aa;display:block;margin-bottom:.375rem}
+.admin-shell .btn-admin{background:linear-gradient(90deg,#fbbf24,#3b82f6);color:#000;font-weight:600;padding:.5rem 1rem;font-size:.8125rem;border-radius:.375rem}
+.admin-shell .btn-admin:disabled{opacity:.4}
+.admin-shell .btn-ghost2{border:1px solid #3f3f46;padding:.5rem 1rem;font-size:.8125rem;border-radius:.375rem;color:#e4e4e7}
+.admin-shell .btn-ghost2:hover{border-color:#fff}
+.admin-game{display:flex;gap:1rem;align-items:center;border:1px solid #27272a;background:#18181b;padding:.75rem;margin-bottom:.5rem;flex-wrap:wrap}
+.admin-game img{width:4rem;height:2.5rem;object-fit:cover;border-radius:.25rem;background:#27272a}
+.chat-shell{display:grid;grid-template-columns:240px 1fr;min-height:60vh;border:1px solid var(--border);background:var(--card)}
+@media(max-width:700px){.chat-shell{grid-template-columns:1fr}.chat-side{display:none}}
+.chat-side{border-right:1px solid var(--border);padding:1rem;background:color-mix(in oklab,var(--card) 60%,transparent)}
+.chat-main{display:flex;flex-direction:column;min-height:400px}
+.chat-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem;max-height:420px}
+.msg{font-size:.875rem}
+.msg .who{font-weight:600;font-size:.8125rem}
+.msg .when{font-size:.6875rem;color:var(--muted-foreground);margin-left:.5rem}
+.chat-input{display:flex;gap:.5rem;padding:.75rem;border-top:1px solid var(--border)}
+.chat-input input{flex:1;border:1px solid var(--input);background:var(--background);padding:.5rem .75rem;font-size:.875rem}
+.banner{background:var(--brass);color:var(--ink);padding:.625rem 1.5rem;font-size:.8125rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.banner button{font-weight:700}
+.kbd{border:1px solid var(--input);border-bottom-width:2px;padding:0 .375rem;font-size:.6875rem;font-family:var(--font-mono);border-radius:3px;background:var(--card)}
+.progress-bar{height:.5rem;background:var(--muted);overflow:hidden}
+.progress-bar>div{height:100%;background:var(--brass);transition:width .3s}
+.table{width:100%;border-collapse:collapse;font-size:.8125rem}
+.table th,.table td{border:1px solid var(--border);padding:.5rem .75rem;text-align:left}
+.table th{background:var(--muted);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div id="banner-slot"></div>
+<div class="topbar"><div class="topbar-inner"><span class="eyebrow">Est. 2014 · ISO 21001:2018 Accredited</span><span class="topbar-right"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="adc5c8c1ddeddecec5c2c1ccdfc4de80c1c8ccdfc3c4c3ca83c2dfca">[email&#160;protected]</a> · +1 (800) 555-0199</span></div></div>
+<header class="site">
+  <div class="header-inner">
+    <a href="#/" class="brand"><span class="crest" aria-hidden="true">S</span><span><span class="brand-name">Scholaris</span><span class="brand-sub" style="display:block">Learning Institute</span></span></a>
+    <nav class="main" id="mainnav" aria-label="Primary">
+      <a href="#/" data-nav="/">Home</a>
+      <a href="#/practice" data-nav="/practice">Practice</a>
+      <a href="#/pricing" data-nav="/pricing">Pricing</a>
+      <a href="#/games" data-nav="/games">Games</a>
+      <a href="#/community" data-nav="/community">Community</a>
+    </nav>
+    <div class="nav-actions">
+      <span id="auth-slot"></span>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+<main id="app"></main>
+<footer class="site" id="site-footer"></footer>
+<div id="modal-slot"></div>
+<div id="panic-slot"></div>
+<div id="toast-slot"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+"use strict";
+/* ============================================================
+   Scholaris — single-file portable build
+   Storage: IndexedDB (scholaris-db) + localStorage (compat keys)
+   No backend. All Supabase / edge-function behaviour is local.
+   ============================================================ */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+const nowISO=()=>new Date().toISOString();
+async function sha256(text){const buf=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text));return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("")}
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;$("#toast-slot").appendChild(t);setTimeout(()=>t.remove(),3200)}
+function openModal(html,wide){$("#modal-slot").innerHTML=`<div class="modal-backdrop" id="modal-back"><div class="modal${wide?" wide":""}" role="dialog" aria-modal="true">${html}</div></div>`;$("#modal-back").addEventListener("click",e=>{if(e.target.id==="modal-back")closeModal()});const f=$("#modal-slot input,#modal-slot select,#modal-slot textarea,#modal-slot button");if(f)f.focus()}
+function closeModal(){$("#modal-slot").innerHTML=""}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+
+/* ---------- IndexedDB ---------- */
+const DB_NAME="scholaris-db",DB_VER=1;
+const STORES=["users","sessions","progress","adminGames","customGames","gameStats","votes","messages","channels","settings","broadcasts","contacts","enrollments","audit"];
+let _db=null;
+function dbOpen(){return new Promise((res,rej)=>{if(_db)return res(_db);const r=indexedDB.open(DB_NAME,DB_VER);r.onupgradeneeded=()=>{const d=r.result;for(const s of STORES){if(!d.objectStoreNames.contains(s))d.createObjectStore(s,{keyPath:"id"})}};r.onsuccess=()=>{_db=r.result;res(_db)};r.onerror=()=>rej(r.error)})}
+async function dbGet(store,id){const d=await dbOpen();return new Promise((res,rej)=>{const tx=d.transaction(store,"readonly");const rq=tx.objectStore(store).get(id);rq.onsuccess=()=>res(rq.result||null);rq.onerror=()=>rej(rq.error)})}
+async function dbAll(store){const d=await dbOpen();return new Promise((res,rej)=>{const tx=d.transaction(store,"readonly");const rq=tx.objectStore(store).getAll();rq.onsuccess=()=>res(rq.result||[]);rq.onerror=()=>rej(rq.error)})}
+async function dbPut(store,obj){const d=await dbOpen();return new Promise((res,rej)=>{const tx=d.transaction(store,"readwrite");const rq=tx.objectStore(store).put(obj);rq.onsuccess=()=>res(obj);rq.onerror=()=>rej(rq.error)})}
+async function dbDel(store,id){const d=await dbOpen();return new Promise((res,rej)=>{const tx=d.transaction(store,"readwrite");const rq=tx.objectStore(store).delete(id);rq.onsuccess=()=>res(true);rq.onerror=()=>rej(rq.error)})}
+async function dbClear(store){const d=await dbOpen();return new Promise((res,rej)=>{const tx=d.transaction(store,"readwrite");const rq=tx.objectStore(store).clear();rq.onsuccess=()=>res(true);rq.onerror=()=>rej(rq.error)})}
+async function audit(action,detail){try{await dbPut("audit",{id:uid(),action,detail:String(detail||""),at:nowISO()})}catch(e){}}
+/* localStorage compat helpers (same keys as original build) */
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+/* Cross-tab sync (replaces Supabase Realtime) */
+const bc=("BroadcastChannel" in window)?new BroadcastChannel("scholaris-sync"):null;
+function broadcast(type,payload){try{bc&&bc.postMessage({type,payload,at:Date.now()})}catch(e){}}
+if(bc)bc.onmessage=e=>{const{type}=e.data||{};if(type==="games"||type==="broadcast"||type==="settings"||type==="chat")render();renderBanner();renderAuthSlot();renderPanic()};
+
+/* ---------- Accessibility (a11y.textSize / a11y.theme) ---------- */
+function applyA11y(){const size=Number(LS.get("a11y.textSize",100));const theme=LS.get("a11y.theme","light");document.documentElement.style.fontSize=(16*size/100)+"px";document.documentElement.classList.toggle("dark",theme==="dark")}
+function setTextSize(v){LS.set("a11y.textSize",v);applyA11y()}
+function setTheme(v){LS.set("a11y.theme",v);applyA11y()}
+
+/* ---------- Seed: Practice (exact copy from live build) ---------- */
+const PRACTICE=[
+{id:"math-fractions",subject:"Math",title:"Adding fractions with unlike denominators",level:"Grade 5",questions:[
+{prompt:"What is 1/3 + 1/4 ?",choices:["2/7","7/12","1/12","5/12"],answer:1,explain:"Common denominator is 12. 1/3 = 4/12 and 1/4 = 3/12, so 4/12 + 3/12 = 7/12."},
+{prompt:"What is 2/5 + 1/2 ?",choices:["9/10","3/7","3/10","4/7"],answer:0,explain:"Common denominator is 10. 2/5 = 4/10 and 1/2 = 5/10, so the sum is 9/10."},
+{prompt:"What is 3/4 + 1/6 ?",choices:["4/10","10/12","11/12","1"],answer:2,explain:"Common denominator is 12. 3/4 = 9/12 and 1/6 = 2/12, so the sum is 11/12."},
+{prompt:"What is 5/8 + 1/4 ?",choices:["6/8","6/12","7/8","9/8"],answer:2,explain:"1/4 = 2/8, so 5/8 + 2/8 = 7/8."}]},
+{id:"math-equations",subject:"Math",title:"Solve one-step linear equations",level:"Grade 7",questions:[
+{prompt:"Solve for x: x + 7 = 12",choices:["4","5","19","−5"],answer:1,explain:"Subtract 7 from both sides: x = 12 − 7 = 5."},
+{prompt:"Solve for x: 3x = 21",choices:["7","18","24","63"],answer:0,explain:"Divide both sides by 3: x = 21 ÷ 3 = 7."},
+{prompt:"Solve for x: x − 9 = −2",choices:["−11","7","11","−7"],answer:1,explain:"Add 9 to both sides: x = −2 + 9 = 7."},
+{prompt:"Solve for x: x/4 = 5",choices:["1.25","9","20","−20"],answer:2,explain:"Multiply both sides by 4: x = 5 × 4 = 20."}]},
+{id:"sci-method",subject:"Science",title:"The Scientific Method",level:"Middle school",questions:[
+{prompt:"What is the first step of the scientific method?",choices:["Form a hypothesis","Ask a question / make an observation","Run an experiment","Publish results"],answer:1,explain:"It begins with observing the world and asking a specific question."},
+{prompt:"A hypothesis is best described as…",choices:["A proven fact","A testable prediction","A final conclusion","A random guess"],answer:1,explain:"A hypothesis is a testable, falsifiable prediction — not a proven fact or a wild guess."},
+{prompt:"Which is the *independent* variable in an experiment?",choices:["What you measure","What you change","What you keep constant","The control group"],answer:1,explain:"Independent = what the scientist deliberately changes. Dependent = what they measure."},
+{prompt:"Why do scientists repeat experiments?",choices:["To waste time","Because computers are slow","To confirm reliability of results","To use up materials"],answer:2,explain:"Repetition confirms the result is reliable and not due to chance."}]},
+{id:"sci-cells",subject:"Science",title:"Cell biology basics",level:"Grade 8",questions:[
+{prompt:"Which organelle produces most of a cell's ATP?",choices:["Nucleus","Ribosome","Mitochondrion","Golgi body"],answer:2,explain:"Mitochondria are the cell's powerhouses — they generate most ATP via cellular respiration."},
+{prompt:"Plant cells have a structure animal cells lack:",choices:["Cell membrane","Cell wall","Nucleus","Cytoplasm"],answer:1,explain:"Cell walls (made of cellulose) provide structural support in plant cells."},
+{prompt:"DNA is found primarily in the…",choices:["Cytoplasm","Nucleus","Mitochondrial matrix only","Cell membrane"],answer:1,explain:"The nucleus houses the cell's chromosomes; small amounts of DNA also live in mitochondria."}]},
+{id:"eng-grammar",subject:"English",title:"Subject-verb agreement",level:"Grade 6",questions:[
+{prompt:'Choose the correct verb: "The team ___ practicing."',choices:["are","is","be","were"],answer:1,explain:'"Team" is a collective noun treated as singular in American English: "is practicing".'},
+{prompt:'Choose the correct verb: "Neither of the answers ___ right."',choices:["is","are","be","were"],answer:0,explain:'"Neither" is singular, so the verb takes the singular form "is".'},
+{prompt:'Choose the correct verb: "The books on the shelf ___ dusty."',choices:["is","was","are","be"],answer:2,explain:'The subject is "books" (plural). The phrase "on the shelf" doesn\'t change it.'}]}
+];
+const PLANS=[
+{name:"Curious",tagline:"For casual learners exploring a subject.",priceMonthly:0,priceYearly:0,cta:"Start free",features:["18,000+ free lessons","Community forums","Daily practice problems","Progress tracking","Ad-supported"]},
+{name:"Scholar",tagline:"For students serious about mastery.",priceMonthly:12,priceYearly:108,badge:"Most popular",highlight:true,cta:"Start 14-day trial",features:["Everything in Curious","Unlimited adaptive quizzes","Personalized study plans","Live office hours (4/mo)","Downloadable worksheets","Ad-free experience"]},
+{name:"Family",tagline:"Up to 5 learners under one roof.",priceMonthly:24,priceYearly:228,cta:"Try Family",features:["5 individual profiles","Parent dashboard","Homeschool curriculum maps","Weekly progress reports","All Scholar features"]}
+];
+const SEATS=[{seats:"10–49",price:"$9/seat/mo",note:"Small teams, departments, after-school programs."},{seats:"50–499",price:"$7/seat/mo",note:"Schools, districts, mid-size businesses."},{seats:"500+",price:"Custom",note:"Enterprise SSO, dedicated CSM, invoiced annually."}];
+const PRICING_FAQ=[["Can I cancel anytime?","Yes — cancel from your account settings at any point. Your access continues uninterrupted until the end of the active period."],["Do you offer student or teacher discounts?","Verified students and educators receive 50% off Scholar membership tiers."],["What payment methods do you accept?","We accept all major credit cards, Apple Pay, Google Pay, and direct bank transfers for institutional accounts."],["Is there a refund policy?","If you are not satisfied within 30 days of subscribing, we issue a complete refund — no questions asked."]];
+
+/* ---------- Seed: Built-in games library (from /games/manifest.json, 65 titles) ---------- */
+const BUILTIN_GAMES=[{"name": "Space Waves", "url": "/games/space-waves.html", "img": "/games/thumbs/space-waves.jpeg", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Chat Bot AI", "url": "/games/chat-bot-ai.html", "img": "/games/thumbs/chat-bot-ai.png", "genre": "Toy", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Jacksmith", "url": "/games/jacksmith.html", "img": "/games/thumbs/jacksmith.jpeg", "genre": "Strategy", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Orange Roulette", "url": "/games/orange-roulette.html", "img": "/games/thumbs/orange-roulette.webp", "genre": "Chance", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Mario 64", "url": "/games/mario-64.html", "img": "/games/thumbs/mario-64.jpeg", "genre": "Adventure", "device": "pc", "added": "2026-05-30"}, {"name": "Cookie Clicker", "url": "/games/cookie-clicker.html", "img": "/games/thumbs/cookie-clicker.webp", "genre": "Idle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Getting Over It", "url": "/games/getting-over-it.html", "img": "/games/thumbs/getting-over-it.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Gunspin", "url": "/games/gunspin.html", "img": "/games/thumbs/gunspin.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Gladihoppers", "url": "/games/gladihoppers.html", "img": "/games/thumbs/gladihoppers.png", "genre": "Fighting", "device": "pc", "added": "2026-05-30"}, {"name": "Johnny Upgrade", "url": "/games/johnny-upgrade.html", "img": "/games/thumbs/johnny-upgrade.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "A Dance of Fire and Ice", "url": "/games/adofai.html", "img": "/games/thumbs/adofai.jpeg", "genre": "Rhythm", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "CSGO Clicker", "url": "/games/csgo-clicker.html", "img": "/games/thumbs/csgo-clicker.png", "genre": "Idle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Dadish", "url": "/games/dadish.html", "img": "/games/thumbs/dadish.png", "genre": "Platformer", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Minecraft PE", "url": "/games/minecraft-pe.html", "img": "/games/thumbs/minecraft-pe.png", "genre": "Sandbox", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Stardew Valley", "url": "/games/stardew-valley.html", "img": "/games/thumbs/stardew-valley.png", "genre": "Simulation", "device": "pc", "added": "2026-05-30"}, {"name": "Cut the Rope", "url": "/games/cut-the-rope.html", "img": "/games/thumbs/cut-the-rope.png", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "The Impossible Quiz", "url": "/games/impossible-quiz.html", "img": "/games/thumbs/impossible-quiz.png", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "The Impossible Quiz 2", "url": "/games/impossible-quiz-2.html", "img": "/games/thumbs/impossible-quiz-2.jpeg", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Celeste Classic", "url": "/games/celeste-pico.html", "img": "/games/thumbs/celeste-pico.png", "genre": "Platformer", "device": "pc", "added": "2026-05-30"}, {"name": "Brotato", "url": "/games/brotato.html", "img": "/games/thumbs/brotato.jpeg", "genre": "Roguelite", "device": "pc", "added": "2026-05-30"}, {"name": "Balatro", "url": "/games/balatro.html", "img": "/games/thumbs/balatro.jpeg", "genre": "Card", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Buckshot Roulette", "url": "/games/buckshot-roulette.html", "img": "/games/thumbs/buckshot-roulette.png", "genre": "Horror", "device": "pc", "added": "2026-05-30"}, {"name": "Pizza Tower", "url": "/games/pizza-tower.html", "img": "/games/thumbs/pizza-tower.png", "genre": "Platformer", "device": "pc", "added": "2026-05-30"}, {"name": "Antonblast", "url": "/games/antonblast.html", "img": "/games/thumbs/antonblast.png", "genre": "Arcade", "device": "pc", "added": "2026-05-30"}, {"name": "OMORI", "url": "/games/omori.html", "img": "/games/thumbs/omori.png", "genre": "RPG", "device": "pc", "added": "2026-05-30"}, {"name": "Crazy Cattle 3D", "url": "/games/crazycattle3d.html", "img": "/games/thumbs/crazycattle3d.jpeg", "genre": "Arcade", "device": "pc", "added": "2026-05-30"}, {"name": "Minesweeper Plus", "url": "/games/minesweeper-plus.html", "img": "/games/thumbs/minesweeper-plus.jpeg", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "Yume Nikki", "url": "/games/yume-nikki.html", "img": "/games/thumbs/yume-nikki.png", "genre": "Adventure", "device": "mobile+pc", "added": "2026-05-30"}, {"name": "ULTRAKILL", "url": "/games/ultrakill.html", "img": "/games/thumbs/ultrakill.png", "genre": "Shooter", "device": "pc", "added": "2026-05-30"}, {"name": "Idle Dice", "url": "/games/idle-dice.html", "img": "/games/thumbs/idle-dice.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Soundboard", "url": "/games/soundboard.html", "img": "/games/thumbs/soundboard.webp", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Karlson", "url": "/games/karlson.html", "img": "/games/thumbs/karlson.png", "genre": "Shooter", "device": "pc", "added": "2026-05-31"}, {"name": "Block Blast", "url": "/games/block-blast.html", "img": "/games/thumbs/block-blast.jpeg", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Deltarune", "url": "/games/deltarune.html", "img": "/games/thumbs/deltarune.jpeg", "genre": "RPG", "device": "pc", "added": "2026-05-31"}, {"name": "Undertale Yellow", "url": "/games/undertale-yellow.html", "img": "/games/thumbs/undertale-yellow.jpeg", "genre": "RPG", "device": "pc", "added": "2026-05-31"}, {"name": "Madness Accelerant", "url": "/games/madness-accelerant.html", "img": "/games/thumbs/madness-accelerant.jpeg", "genre": "Action", "device": "pc", "added": "2026-05-31"}, {"name": "Minecraft Tower Defense", "url": "/games/minecraft-tower-defense.html", "img": "/games/thumbs/minecraft-tower-defense.jpeg", "genre": "Strategy", "device": "pc", "added": "2026-05-31"}, {"name": "The Binding of Isaac Demo", "url": "/games/tboi-demo.html", "img": "/games/thumbs/tboi-demo.webp", "genre": "Roguelike", "device": "pc", "added": "2026-05-31"}, {"name": "The Binding of Isaac: Wrath of the Lamb", "url": "/games/tboi-wrath-of-the-lamb.html", "img": "/games/thumbs/tboi-wrath-of-the-lamb.webp", "genre": "Roguelike", "device": "pc", "added": "2026-05-31"}, {"name": "Bloons Tower Defense 1", "url": "/games/btd-1.html", "img": "/games/thumbs/btd-1.jpeg", "genre": "Strategy", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Bloons Tower Defense 2", "url": "/games/btd-2.html", "img": "/games/thumbs/btd-2.jpeg", "genre": "Strategy", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Bloons Tower Defense 3", "url": "/games/btd-3.html", "img": "/games/thumbs/btd-3.png", "genre": "Strategy", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Bloons Tower Defense 4", "url": "/games/btd-4.html", "img": "/games/thumbs/btd-4.webp", "genre": "Strategy", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Angry Birds", "url": "/games/angry-birds.html", "img": "/games/thumbs/angry-birds.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Angry Birds 2", "url": "/games/angry-birds-2.html", "img": "/games/thumbs/angry-birds-2.webp", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Angry Birds Showdown", "url": "/games/angry-birds-showdown.html", "img": "/games/thumbs/angry-birds-showdown.webp", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Angry Birds Slingshot Frenzy", "url": "/games/angry-birds-slingshot-frenzy.html", "img": "/games/thumbs/angry-birds-slingshot-frenzy.webp", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Angry Birds Space", "url": "/games/angry-birds-space.html", "img": "/games/thumbs/angry-birds-space.webp", "genre": "Arcade", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Bad Piggies 2018", "url": "/games/bad-piggies-2018.html", "img": "/games/thumbs/bad-piggies-2018.png", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-05-31"}, {"name": "Bad Piggies Latest", "url": "/games/bad-piggies-latest.html", "img": "/games/thumbs/bad-piggies-latest.png", "genre": "Puzzle", "device": "pc", "added": "2026-05-31"}, {"name": "Riddle School", "url": "/games/riddle-school.html", "img": "/games/thumbs/riddle-school.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle School 2", "url": "/games/riddle-school-2.html", "img": "/games/thumbs/riddle-school-2.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle School 3", "url": "/games/riddle-school-3.html", "img": "/games/thumbs/riddle-school-3.jpeg", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle School 4", "url": "/games/riddle-school-4.html", "img": "/games/thumbs/riddle-school-4.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle School 5", "url": "/games/riddle-school-5.html", "img": "/games/thumbs/riddle-school-5.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle Transfer", "url": "/games/riddle-transfer.html", "img": "/games/thumbs/riddle-transfer.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Riddle Transfer 2", "url": "/games/riddle-transfer-2.html", "img": "/games/thumbs/riddle-transfer-2.webp", "genre": "Puzzle", "device": "mobile+pc", "added": "2026-06-05"}, {"name": "Paper.io 2", "url": "/games/paper-io-2.html", "img": "/games/thumbs/paper-io-2.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-06-10"}, {"name": "Half-Life", "url": "/games/half-life.html", "img": "/games/thumbs/half-life.png", "genre": "Shooter", "device": "pc", "added": "2026-06-10"}, {"name": "Half-Life: Opposing Force", "url": "/games/half-life-opposing-force.html", "img": "/games/thumbs/half-life-opposing-force.png", "genre": "Shooter", "device": "pc", "added": "2026-06-10"}, {"name": "Fruit Ninja", "url": "/games/fruit-ninja.html", "img": "/games/thumbs/fruit-ninja.png", "genre": "Arcade", "device": "mobile+pc", "added": "2026-06-10"}, {"name": "Slime Rancher", "url": "/games/slime-rancher.html", "img": "/games/thumbs/slime-rancher.png", "genre": "Adventure", "device": "pc", "added": "2026-06-10"}, {"name": "Bloodmoney", "url": "/games/bloodmoney.html", "img": "/games/thumbs/bloodmoney.png", "genre": "Psychological Horror", "device": "mobile+pc", "added": "2026-06-10"}, {"name": "Untitled Goose Game", "url": "/games/untitled-goose-game.html", "img": "/games/thumbs/untitled-goose-game.png", "genre": "Puzzle", "device": "pc", "added": "2026-06-10"}, {"name": "Cyber Fusion", "url": "/games/cyber-fusion.html", "img": "/games/thumbs/cyber-fusion.svg", "genre": "Sci-Fi", "device": "pc", "added": "2026-07-05"}];
+
+const GENRE_HUES={shooter:25,action:40,racing:75,platformer:140,sports:155,casual:175,adventure:195,simulation:215,strategy:250,puzzle:265,rpg:285,horror:300,rhythm:315,arcade:330,fighting:5,chance:340,toy:95,tool:205,idle:60,clicker:60,custom:235,sandbox:120};
+function genreStyle(g){const t=(g||"").trim().toLowerCase();const h=GENRE_HUES[t]??((()=>{let x=0;for(let i=0;i<(t||"custom").length;i++)x=(x*37+(t||"custom").charCodeAt(i))%24;return x*15})());return{hue:h,color:`oklch(0.85 0.26 ${h})`,soft:`oklch(0.85 0.26 ${h} / 0.22)`,glow:`oklch(0.8 0.3 ${h} / 0.75)`}}
+const SPLASH_MEMES=["matthew is a chud fr","matthew larps laufey","HAPPY BIRTHDAY DANIEL!","we are ALL larping re:zero 🤤","matthew goons to yuuri","sami goons to yuri","certified benjamin netanyahu","sami larps call of the night","MATTHEW STOP PICKPOCKETING!!!","officially endorsed by triple t","all shits and giggles till someone giggles and shits","IT’S THE NBEC!!!","matthew and his fuselage at 3 am:","new: arbys chitlin burgers with horse nut sauce","i am pissman","fak u bradar, nex coment","in the end, what is a high tier human to a low tier god?","say 67 one more time and i’m beheading yo ahh","01001000 01100001 01101000 00100001 00100000 01000111 01100001 01111001 00100001","sigeon pex","sigeon pex!","certified sigeon pex","klaides vs taking a shower","yes this is a splash text, yes there are multiple of these.","go watch evangelion","Fish","Matthew vs the sun","GET BACK ON THE FUCKING LEVEL ZOINK","Tel aviv impressed","HAPPY BIRTHDAY DANIEL","By reading this, youre legally obligated to meow","ESCAPE ISRAEL TO REACH BBNO$ HEAVEN","Fuckass cat sisi","I will shove a stick of dynamite up my urethra and blow it up","Anton chigurh tractor coming soon","Sami meows for Rei"];
+/* ---------- Seed: Home content (1:1 copy) ---------- */
+const TESTIMONIALS=[
+{q:"Scholaris helped me raise my AP Calculus score from a 3 to a 5. The instructors actually care.",n:"Sarah M.",r:"High school senior"},
+{q:"I went back to school at 42. Without these free history courses, I never would've finished my GED.",n:"David O.",r:"Adult learner"},
+{q:"My daughter struggled with reading comprehension. Six weeks here and she's reading above grade level.",n:"Priya K.",r:"Parent & tutor"},
+{q:"Better than half my actual lectures. The chemistry breakdowns are unreal.",n:"Marcus T.",r:"Undergraduate"},
+{q:"I use Scholaris as the backbone of our whole curriculum. Lessons are structured and rigorous.",n:"Elena R.",r:"Homeschool mom"},
+{q:"Picked up Latin and astronomy in retirement. Lovely community of curious people.",n:"James W.",r:"Retired engineer"}];
+const SCHOOLS=["St Brigid's College","Cork North Learning Hub","Galway Grammar","Liffey Valley Academy","Donegal STEM School","Waterford Scholars"];
+const TRACKS=[
+{n:"01",t:"Mathematics",d:"Arithmetic through multivariable calculus, with guided practice at every step.",c:180,teacher:"Mr. Henderson",level:"Beginner → Advanced",topics:["Number sense & arithmetic","Pre-algebra & algebra I","Geometry & trigonometry","Algebra II & precalculus","Calculus I, II, III","Linear algebra primer"]},
+{n:"02",t:"Science",d:"Biology, chemistry, and physics taught through experiments and clear explanation.",c:142,teacher:"Dr. Amelia Cho",level:"Beginner → Intermediate",topics:["Biology: cells, genetics, ecosystems","Chemistry: atoms, bonds, reactions","Physics: mechanics, waves, electricity","Lab notebook fundamentals","Scientific writing"]},
+{n:"03",t:"Literature",d:"Close reading of classic and contemporary works, plus essay workshops.",c:96,teacher:"Prof. Daniel Rourke",level:"All levels",topics:["The short story tradition","Shakespeare for modern readers","19th-century novels","20th-century American voices","Contemporary essay writing"]},
+{n:"04",t:"History",d:"Ancient Mesopotamia to the present, anchored in primary sources.",c:118,teacher:"Dr. Yuki Tanaka",level:"All levels",topics:["The ancient world","Classical empires","The medieval period","The early modern era","The long 19th century","Modern world history"]}];
+const FAQ=[
+{cat:"Signing up & accounts",items:[
+["My verification code never arrived.","Codes are issued instantly when you finish the sign-up form, but they're delivered by email, so they can be delayed by school mail filters, a full inbox, or a typo in the address you entered. Check your spam and quarantine folders first, then use the Resend code button — it's rate-limited to one request per minute to stop duplicate codes cancelling each other out. If two resends still don't land, sign up again with a personal address and add your school email later from your profile."],
+["How long is the 5-digit code valid for?","Fifteen minutes. After that it expires and you'll need a fresh one. Codes are single-use: once a code has been entered successfully it can't be reused, even inside the fifteen-minute window."],
+["Do I need a school email to sign up?","No. Any permanent email address works. A school address simply means we can verify your school automatically, and it's required if you want a teacher or year head to be able to see your progress reports."],
+["Why do you ask for my date of birth?","It sets the right default reading level and content filters, and it tells us whether a guardian needs to be on the account. Learners under 16 should sign up with a parent or guardian present, using an email address the guardian checks."],
+["Why do you ask what year or grade I'm in?","It decides which specification your subject index is mapped to — Junior Cycle, Transition Year, Leaving Certificate, or a university/adult track — so the practice questions start at a sensible difficulty instead of making you sit a placement test."],
+["Can I sign up for someone else, like my child?","Yes. Choose \"Learner\", enter the learner's date of birth and year group, but use an email address you actually check — the verification code and all later correspondence go to the address on the form."],
+["What happens once I've verified my code?","Your account is active immediately. The whole free library, the subject index and the adaptive practice sets unlock straight away — there's nothing to install and no payment step."],
+["Can I change my email, year group or role later?","Yes. All four are editable from your account settings. Changing your email triggers a new 5-digit code to the new address; changing your year group re-maps your subject index but keeps every practice result you've already earned."]]},
+{cat:"Courses & study",items:[
+["Is Scholaris available in Ireland?","Yes — Ireland is our primary region. Content is mapped to the Junior Cycle and Leaving Certificate specifications (Higher and Ordinary level), including exam-paper walkthroughs, marking-scheme breakdowns and orals/aurals practice for languages."],
+["Which subjects are covered?","Mathematics, English, Irish, the sciences (Biology, Chemistry, Physics, Science), Business, Geography, History, French, German and Spanish. Latin, Astronomy and Computer Science are available as enrichment tracks outside the exam specifications."],
+["How are the lessons structured?","Each unit is a short video (8–15 minutes), a worked example set, then adaptive practice questions that get harder or easier based on your answers. A unit is marked complete once you clear a run of questions at the target difficulty, not just after watching the video."],
+["How does the practice system decide what to ask me?","It tracks accuracy and answer time per skill. Get a run right and it moves you up a difficulty band; miss two in a row and it drops back, re-teaches the step you slipped on, then rebuilds. That's why the same topic can look different on two different days."],
+["Do I get anything at the end of a course?","You get a completion summary — units cleared, accuracy per topic, and a printable progress report. Scholaris is a revision and enrichment platform, so these are study records, not State-recognised qualifications."],
+["Can I use Scholaris on a phone or tablet?","Yes. Everything works in a mobile browser, including the videos and the practice questions. Longer written-answer tasks are easier on a laptop."]]},
+{cat:"Teachers & schools",items:[
+["Can teachers use Scholaris with a class?","Yes. Choose \"Teacher\" when you sign up and you can request a class pack: a shared roster, assignable practice sets, per-student accuracy breakdowns, and printable worksheets with answer keys."],
+["Can I see how my students are doing?","Class packs include a progress view showing per-student unit completion and per-topic accuracy, so you can spot a topic the whole class is missing before the next test."],
+["Do you offer whole-school access?","Yes — the Institution plan on the pricing page covers unlimited staff and student accounts, bulk enrolment by CSV, and a single invoice. Bulk pricing is quoted per school size."]]},
+{cat:"Pricing, privacy & support",items:[
+["Are the courses actually free?","The core video library, the subject index and the adaptive practice questions are free with no time limit. Optional paid extras are one-to-one tutoring, exam-paper marking, and the school/teacher tools."],
+["Will I be charged automatically?","No. There is no card required to enrol, and free accounts never convert to paid on their own. Paid plans are started deliberately from the pricing page."],
+["What data do you store about me?","Your name, email, role, year group and your practice results. Accessibility settings such as text size and light or dark mode are stored only in your own browser, never on our servers. See the Privacy link in the footer for the full detail."],
+["How do I change text size or switch to dark mode?","Use the Accessibility link in the footer. Text size and light/dark mode are saved on your device and apply across the whole site, including lesson pages."],
+["Something is broken or a video won't load.","Use the Contact link in the footer with the page name and what you were doing. Videos are hosted externally, so a blocked or filtered school network is the most common cause — try the same lesson on a home connection to confirm."]]}];
+
+/* ---------- Auth (local replacement for Supabase Auth + /api/check-email) ---------- */
+let currentUser=null;
+async function loadSession(){const sid=LS.get("scholaris.session",null);if(!sid)return null;const s=await dbGet("sessions",sid);if(!s)return null;if(new Date(s.expires)<new Date()){await dbDel("sessions",sid);LS.del("scholaris.session");return null}const u=await dbGet("users",s.userId);return u||null}
+async function saveSession(userId){const id=uid();await dbPut("sessions",{id,userId,created:nowISO(),expires:new Date(Date.now()+30*24*3600*1000).toISOString()});LS.set("scholaris.session",id)}
+async function logout(){const sid=LS.get("scholaris.session",null);if(sid)await dbDel("sessions",sid);LS.del("scholaris.session");currentUser=null;renderAuthSlot();render();toast("Signed out.")}
+function isDisposableEmail(email){const d=(email||"").split("@")[1]?.toLowerCase()||"";return["mailinator.com","tempmail.com","10minutemail.com","guerrillamail.com","throwawaymail.com"].includes(d)}
+function genCode(){return String(Math.floor(10000+Math.random()*90000))}
+let pendingSignup=null,pendingCode=null,resendTimer=null;
+async function startSignup(data){
+  if(isDisposableEmail(data.email))return{ok:false,reason:"disposable",error:"That looks like a temporary/disposable email address. Please use a permanent email you can actually receive replies on."};
+  const users=await dbAll("users");if(users.some(u=>u.email.toLowerCase()===data.email.toLowerCase()))return{ok:false,reason:"exists",error:"An account with this email already exists. Try signing in instead."};
+  const code=genCode();pendingSignup={...data,codeHash:await sha256(code),codeExp:Date.now()+15*60*1000,created:nowISO()};pendingCode=code;
+  return{ok:true,code};
+}
+async function verifySignup(code){
+  if(!pendingSignup)return{ok:false,error:"No pending sign-up. Please start again."};
+  if(Date.now()>pendingSignup.codeExp)return{ok:false,error:"This code has expired (15 minutes). Please request a new one."};
+  if(await sha256(code.trim())!==pendingSignup.codeHash)return{ok:false,error:"Incorrect code. Please try again."};
+  const{ codeHash,codeExp,...rest}=pendingSignup;
+  const user={id:uid(),...rest,verified:true,created:nowISO()};
+  user.passwordHash=await sha256(user.password);delete user.password;
+  await dbPut("users",user);pendingSignup=null;pendingCode=null;
+  await saveSession(user.id);currentUser=user;await audit("signup",user.email);
+  return{ok:true,user};
+}
+async function login(email,password){
+  const users=await dbAll("users");const u=users.find(x=>x.email.toLowerCase()===email.toLowerCase());
+  if(!u||u.passwordHash!==await sha256(password))return{ok:false,error:"User ID or password is incorrect. Please check your credentials and try again."};
+  await saveSession(u.id);currentUser=u;await audit("login",u.email);return{ok:true,user:u};
+}
+async function getProgress(userId){const all=await dbAll("progress");return all.filter(p=>p.userId===userId)}
+async function saveProgress(userId,topicId,patch){const id=userId+":"+topicId;const cur=await dbGet("progress",id)||{id,userId,topicId,answered:0,correct:0,streak:0,bestStreak:0,updated:nowISO()};const next={...cur,...patch,updated:nowISO()};await dbPut("progress",next);return next}
+
+/* ---------- Settings / Broadcast / Panic (local replacements) ---------- */
+async function getSettings(){const s=await dbGet("settings","main");return s||{id:"main",broadcast:{enabled:false,text:"",image:"",link:"",bg:"#ad8748",fg:"#0c1722",dismissible:true,updated:""},patchNotes:"# Patch Notes\n\nNothing here yet.",patchVersion:"",hiddenGameUrls:[],siteTheme:null,splashTexts:SPLASH_MEMES.join("\n"),splashImages:[],panic:{hidden:false,img:"",openInBlank:false},arcadeTheme:{accent:"amber",panicImg:""}}}
+async function saveSettings(patch){const cur=await getSettings();const next={...cur,...patch,id:"main"};await dbPut("settings",next);broadcast("settings",next);return next}
+async function renderBanner(){const s=await getSettings();const b=s.broadcast;const slot=$("#banner-slot");if(!b||!b.enabled||!b.text){slot.innerHTML="";return}const dismissed=LS.get("scholaris.bannerDismissed","");if(dismissed===b.updated){slot.innerHTML="";return}
+  slot.innerHTML=`<div class="banner" style="background:${esc(b.bg||"#ad8748")};color:${esc(b.fg||"#0c1722")}"><span>${b.link?`<a href="${esc(b.link)}" target="_blank" rel="noopener" style="text-decoration:underline">${esc(b.text)}</a>`:esc(b.text)}</span>${b.dismissible!==false?`<button id="banner-x" aria-label="Dismiss announcement">✕</button>`:""}</div>`;
+  const x=$("#banner-x");if(x)x.onclick=()=>{LS.set("scholaris.bannerDismissed",b.updated||"");renderBanner()}}
+function renderPanic(){const slot=$("#panic-slot");const t=LS.get("arcade.theme",{panicHidden:false});if(t.panicHidden){slot.innerHTML="";return}
+  slot.innerHTML=`<div class="panic" id="panic-btn" title="Panic (drag to move)">Panic</div>`;
+  const el=$("#panic-btn");let drag=null;
+  el.addEventListener("pointerdown",e=>{drag={x:e.clientX,y:e.clientY,l:el.offsetLeft,t:el.offsetTop,moved:false};el.setPointerCapture(e.pointerId)});
+  el.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>6)drag.moved=true;el.style.left=Math.max(0,Math.min(window.innerWidth-56,drag.l+dx))+"px";el.style.top=Math.max(0,Math.min(window.innerHeight-56,drag.t+dy))+"px";el.style.right="auto";el.style.bottom="auto"});
+  el.addEventListener("pointerup",()=>{if(drag&&!drag.moved){location.hash="#/";toast("Panic: returned to Scholaris home.")}drag=null});
+  el.addEventListener("keydown",e=>{if(e.key==="Escape"){location.hash="#/";toast("Panic: returned to Scholaris home.")}})}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#modal-slot").innerHTML){/* panic via Esc handled on button; also global */}});
+/* ---------- Games data layer (replaces admin_games + game_stats + vote_game) ---------- */
+async function getAdminGames(){const all=await dbAll("adminGames");return all.sort((a,b)=>new Date(b.added_at)-new Date(a.added_at))}
+async function getCustomGames(){const all=await dbAll("customGames");return all.sort((a,b)=>new Date(b.added)-new Date(a.added))}
+async function getAllGames(){
+  const admin=await getAdminGames();const custom=await getCustomGames();const settings=await getSettings();const hidden=new Set(settings.hiddenGameUrls||[]);
+  const builtin=BUILTIN_GAMES.map(g=>({...g,source:"builtin",id:"builtin:"+g.url}));
+  const adminMapped=admin.map(g=>({name:g.name,img:g.img||"/game-soundboard.svg",url:`admin:${g.id}`,genre:g.genre,device:g.device,added:g.added_at,source:"admin",id:g.id,html:g.html||""}));
+  const customMapped=custom.map(g=>({name:g.name,img:g.img||"/game-soundboard.svg",url:`custom:${g.id}`,genre:g.genre,device:g.device,added:g.added,source:"custom",id:g.id,html:g.html||""}));
+  const all=[...adminMapped,...customMapped,...builtin];
+  return all.filter(g=>!hidden.has(g.url));
+}
+async function getStats(){const all=await dbAll("gameStats");const m={};for(const s of all)m[s.url]={plays:s.plays||0,likes:s.likes||0,dislikes:s.dislikes||0};return m}
+async function bumpPlay(url){const cur=await dbGet("gameStats",url)||{id:url,url,plays:0,likes:0,dislikes:0};cur.plays=(cur.plays||0)+1;await dbPut("gameStats",cur);broadcast("games",{url});return cur}
+async function voteGame(url,kind){const votes=LS.get("arcade.votes",{});const prev=votes[url]||null;let dl=0,dd=0;if(prev===kind){delete votes[url];if(kind==="like")dl=-1;else dd=-1}else{votes[url]=kind;if(kind==="like"){dl=1;if(prev==="dislike")dd=-1}else{dd=1;if(prev==="like")dl=-1}}
+  LS.set("arcade.votes",votes);const cur=await dbGet("gameStats",url)||{id:url,url,plays:0,likes:0,dislikes:0};cur.likes=Math.max(0,(cur.likes||0)+dl);cur.dislikes=Math.max(0,(cur.dislikes||0)+dd);await dbPut("gameStats",cur);broadcast("games",{url});return{likes:cur.likes,dislikes:cur.dislikes,votes}}
+function wrapGameHtml(html,gameName){const safe=esc(gameName||"Game");return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${safe}</title><style>html,body{margin:0;height:100%;background:#000}iframe{width:100%;height:100%;border:0}</style></head><body><script>var GAME=${JSON.stringify(gameName||"")};var store={};try{store=JSON.parse(localStorage.getItem("arcade.save."+GAME)||"{}")}catch(e){}window.addEventListener("message",function(e){if(e.data&&e.data.__arcadeSave===1){store=e.data.data;try{localStorage.setItem("arcade.save."+GAME,JSON.stringify(store))}catch(err){}try{parent.postMessage({__arcadeSave:1,game:GAME,data:store},"*")}catch(err){}}});<\/script>${html}</body></html>`}
+function gameSrc(game){if(game.source==="admin"||game.source==="custom"){const html=game.html||"";if(html){const blob=new Blob([wrapGameHtml(html,game.name)],{type:"text/html"});return URL.createObjectURL(blob)}return game.url}return game.url}
+function gameThumb(game){if(game.img&&!game.img.startsWith("/games/")&&!game.img.startsWith("/game-"))return game.img;if(game.img&&game.img.startsWith("data:"))return game.img;return""}
+
+/* ---------- Router ---------- */
+function route(){const h=location.hash.replace(/^#/,"")||"/";return h.split("?")[0]}
+function render(){const r=route();$$("#mainnav a").forEach(a=>a.classList.toggle("active",a.dataset.nav===r));$("#mainnav").classList.remove("open");
+  if(r==="/practice")return viewPractice();if(r==="/pricing")return viewPricing();if(r==="/games")return viewGames();if(r==="/community")return viewCommunity();if(r==="/admin")return viewAdmin();return viewHome()}
+window.addEventListener("hashchange",render);
+$("#hamburger").addEventListener("click",()=>{const n=$("#mainnav");n.classList.toggle("open");$("#hamburger").setAttribute("aria-expanded",n.classList.contains("open"))});
+function renderAuthSlot(){const s=$("#auth-slot");if(currentUser){s.innerHTML=`<button class="btn btn-ghost btn-sm" id="profile-btn">${esc(currentUser.name.split(" ")[0])} ▾</button>`;$("#profile-btn").onclick=showProfile}
+  else{s.innerHTML=`<button class="btn btn-ghost btn-sm" id="login-btn">Log in</button> <button class="btn btn-ink btn-sm" id="signup-btn">Sign up</button>`;$("#login-btn").onclick=showLogin;$("#signup-btn").onclick=showSignup}}
+function renderFooter(){$("#site-footer").innerHTML=`<div class="wrap"><div class="footer-grid">
+  <div><div class="brand" style="margin-bottom:.75rem"><span class="crest">S</span><span><span class="brand-name">Scholaris</span><span class="brand-sub" style="display:block">Learning Institute</span></span></div><p style="font-size:.875rem;color:var(--muted-foreground);line-height:1.6">Tuition-free courses for learners of every age, published continuously since 2014.</p></div>
+  <div><h4>Library</h4><a href="#/">Courses</a><a href="#/">Subjects</a><a href="#/">Teachers</a><a href="#/">Resources</a><a href="#/">About</a></div>
+  <div><h4>Institute</h4><button data-foot="privacy">Privacy</button><button data-foot="terms">Terms</button><button data-foot="a11y">Accessibility</button><button data-foot="contact">Contact</button><a href="#/admin">Admin</a></div>
+  <div><h4>Study</h4><a href="#/practice">Practice</a><a href="#/pricing">Pricing</a><a href="#/games">Games</a><a href="#/community">Community</a></div></div>
+  <div class="footer-bottom"><span>© 2026 Scholaris Learning Institute. All rights reserved.</span><span>240 Library Lane, Suite 400, Cambridge, MA 02138 · help@scholaris-learning.org</span></div></div>`;
+  $$("#site-footer [data-foot]").forEach(b=>b.onclick=()=>showFooterModal(b.dataset.foot))}
+/* ---------- VIEW: Home (1:1) ---------- */
+async function viewHome(){
+  const app=$("#app");
+  app.innerHTML=`
+  <section class="hero"><div class="wrap">
+    <p class="eyebrow rise">Vol. XII · Free &amp; open curriculum</p>
+    <h1 class="rise">Expand your mind,<br><em>one lesson at a time.</em></h1>
+    <p class="lede rise">Scholaris publishes rigorous, tuition-free lessons in mathematics, science, history, and the arts. Every module is written and reviewed by educators with a decade or more in the classroom, then paired with practice sets you can work through at your own pace.</p>
+    <div class="hero-cta rise"><a class="btn btn-ink" href="#/practice">Browse the catalogue</a><a class="btn btn-outline" href="#tour">Watch the tour</a></div>
+    <div class="stats rise"><div class="stat"><b>2.4M+</b><span>Active learners</span></div><div class="stat"><b>1,200+</b><span>Instructors</span></div><div class="stat"><b>18,000</b><span>Free lessons</span></div><div class="stat"><b>96%</b><span>Completion</span></div></div>
+  </div></section>
+  <section class="section"><div class="wrap">
+    <p class="eyebrow">Featured lesson</p>
+    <div class="featured" style="margin-top:1rem"><div><h3>Introduction to Algebra</h3><p>12 lessons · Beginner · Mr. Henderson. Forming expressions, solving equations, and building the fluency that carries through to calculus.</p><div style="margin-top:1.25rem"><a class="btn btn-ink btn-sm" href="#/practice">Start this track</a></div></div><div class="featured-art" aria-hidden="true">x²</div></div>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">The subject index</p><h2>Four tracks · Self-paced</h2></div><a class="btn btn-outline btn-sm" href="#/practice">Open practice</a></div>
+    <div class="subjects">${TRACKS.map((t,i)=>`<article class="subject" data-track="${i}"><div class="subject-num">${t.n}</div><h3>${esc(t.t)}</h3><p>${esc(t.d)}</p><div class="subject-meta"><span>${t.c} lessons · ${esc(t.teacher)}</span><button class="btn btn-ghost btn-sm" data-expand="${i}">View syllabus ▾</button></div><ul>${t.topics.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("")}</div>
+  </div></section>
+  <section class="section" id="tour" style="padding-top:0"><div class="wrap">
+    <p class="eyebrow">Lesson theatre</p>
+    <div class="section-head"><div><h2>Watch a lesson in full</h2></div><span style="font-size:.8125rem;color:var(--muted-foreground)">Two of 18,000</span></div>
+    <div class="theatre-grid">
+      <article class="lesson-card"><p class="eyebrow" style="color:var(--brass)">Mathematics · Unit 8.1</p><h3>Forming algebraic expressions</h3><p>Mr. Henderson · Beginner · 1st–3rd Year</p>
+        <div class="video-frame"><div class="video-placeholder"><button class="play-btn" data-video="algebra" aria-label="Play lesson video">▶</button><span style="font-size:.8125rem">Forming algebraic expressions — 12 min</span><span style="font-size:.6875rem;opacity:.7">Video hosted externally · plays in-browser</span></div></div></article>
+      <article class="lesson-card"><p class="eyebrow" style="color:var(--brass)">Science · Unit 1.2</p><h3>The scientific method</h3><p>Dr. Amelia Cho · Intro · All years</p>
+        <div class="video-frame"><iframe title="The Scientific Method video" src="https://player.vimeo.com/video/543156776?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></article>
+    </div>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <p class="eyebrow">From our readers</p>
+    <div class="quotes" style="margin-top:1.5rem">${TESTIMONIALS.map(t=>`<div class="quote"><blockquote>“${esc(t.q)}”</blockquote><footer><b>${esc(t.n)}</b>${esc(t.r)}</footer></div>`).join("")}</div>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <p class="eyebrow">In use across Ireland</p>
+    <div class="schools" style="margin-top:1rem">${SCHOOLS.map(s=>`<span class="school">${esc(s)}</span>`).join("")}</div>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="wrap">
+    <p class="eyebrow">Help desk</p>
+    <div class="section-head"><div><h2>Questions, answered</h2><p style="color:var(--muted-foreground);font-size:.875rem;margin-top:.5rem">22 answers covering signing up, how the courses and practice system work, teacher and school access, pricing and privacy.</p></div></div>
+    ${FAQ.map(f=>`<div class="faq-cat"><h3>${esc(f.cat)}</h3>${f.items.map(([q,a])=>`<details class="faq"><summary>${esc(q)}<span class="plus">＋</span></summary><p>${esc(a)}</p></details>`).join("")}</div>`).join("")}
+  </div></section>`;
+  $$("[data-expand]").forEach(b=>b.onclick=()=>{const card=b.closest(".subject");card.classList.toggle("open");b.textContent=card.classList.contains("open")?"Hide syllabus ▴":"View syllabus ▾"});
+  $$("[data-video]").forEach(b=>b.onclick=()=>{const f=b.closest(".video-frame");f.innerHTML=`<iframe title="Lesson video" src="https://player.vimeo.com/video/543156776?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;toast("Playing lesson video (external host).")});
+}
+/* ---------- VIEW: Practice (1:1 engine) ---------- */
+let practiceState=null;
+function shuffle(n){const a=Array.from({length:n},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+async function viewPractice(){
+  const app=$("#app");
+  let topicId=practiceState?.topicId||PRACTICE[0].id;
+  let topic=PRACTICE.find(t=>t.id===topicId);
+  let idx=practiceState?.idx||0, order=practiceState?.order||shuffle(topic.questions.length), picked=practiceState?.picked??null;
+  let streak=practiceState?.streak||0, correct=practiceState?.correct||0, answered=practiceState?.answered||0;
+  if(currentUser){const prog=await getProgress(currentUser.id);const p=prog.find(x=>x.topicId===topicId);if(p){answered=p.answered||0;correct=p.correct||0;streak=p.streak||0}}
+  function paint(){
+    const q=topic.questions[order[idx]??0];const acc=answered?Math.round(correct/answered*100):0;
+    app.innerHTML=`<main class="wrap" style="padding:3rem 1.5rem">
+      <div style="margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:2rem">
+        <p class="eyebrow rise">Interactive Module · Practice &amp; Mastery</p>
+        <h1 class="rise font-display" style="font-size:clamp(2rem,4vw,3rem);margin-top:.75rem">Master one skill at a time.</h1>
+        <p class="rise" style="margin-top:.75rem;max-width:42rem;color:var(--muted-foreground)">Select a subject, work through adaptive questions, and build your streak. Instant explanation and step-by-step guidance accompany every answer.</p>
+      </div>
+      <div class="practice-layout">
+        <aside>${["Math","Science","English"].map(sub=>`<div style="margin-bottom:1.5rem"><h3 class="eyebrow" style="color:var(--brass);margin-bottom:.5rem">${sub}</h3>${PRACTICE.filter(t=>t.subject===sub).map(t=>`<button class="topic-btn${t.id===topicId?" active":""}" data-topic="${t.id}"><div class="t">${esc(t.title)}</div><div class="l">${esc(t.level)}</div></button>`).join("")}</div>`).join("")}</aside>
+        <section>
+          <div class="stat3"><div><div class="eyebrow" style="font-size:9px">Streak</div><b style="color:var(--brass)">🔥 ${streak}</b></div><div><div class="eyebrow" style="font-size:9px">Accuracy</div><b style="color:#009767">${acc}%</b></div><div><div class="eyebrow" style="font-size:9px">Answered</div><b>${answered}</b></div></div>
+          <div style="border:1px solid var(--border);background:var(--card);padding:1.5rem 2rem">
+            <p class="eyebrow" style="color:var(--brass);font-size:10px">${esc(topic.subject)} · ${esc(topic.level)} · Question ${idx+1} of ${topic.questions.length}</p>
+            <h2 class="font-display" style="margin-top:.75rem;font-size:1.5rem;line-height:1.4">${esc(q.prompt)}</h2>
+            <div style="margin-top:2rem">${q.choices.map((c,i)=>{const isCorrect=picked!==null&&i===q.answer;const isWrong=picked===i&&i!==q.answer;return`<button class="choice${isCorrect?" correct":isWrong?" wrong":picked!==null?" dim":""}" data-pick="${i}" ${picked!==null?"disabled":""}><span><span style="font-family:var(--font-display);font-size:.75rem;color:var(--brass)">${String.fromCharCode(65+i)}.</span> ${esc(c)}</span><span>${isCorrect?"✓":isWrong?"✕":""}</span></button>`}).join("")}</div>
+            ${picked!==null?`<div style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.5rem"><p class="font-display" style="font-size:1.125rem;font-weight:600;color:${picked===q.answer?"#009767":"var(--destructive)"}">${picked===q.answer?"✓ Correct answer!":"✕ Not quite correct."}</p><p style="margin-top:.5rem;font-size:.875rem;color:var(--muted-foreground);line-height:1.6">${esc(q.explain)}</p><button class="btn btn-ink" id="next-q" style="margin-top:1.25rem">Next question →</button></div>`:""}
+          </div>
+          ${topic.subject==="Science"?`<div style="border:1px solid var(--border);background:var(--card);padding:1.5rem;margin-top:1.5rem"><p class="eyebrow" style="font-size:10px">Reference video</p><h3 class="font-display" style="margin-top:.25rem">The Scientific Method</h3><p style="margin:.25rem 0 1rem;font-size:.75rem;color:var(--muted-foreground)">Watch this overview of the core empirical principles driving experimental science.</p><div class="video-frame"><iframe title="The Scientific Method" src="https://player.vimeo.com/video/543156776?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div></div>`:""}
+        </section>
+      </div></main>
+      <div style="border-top:1px solid var(--border);background:color-mix(in oklab,var(--card) 60%,transparent);padding:2rem 1.5rem;text-align:center;font-size:.75rem;color:var(--muted-foreground)">© 2026 Scholaris Learning Institute · <a href="#/" style="color:var(--brass)">Home</a> · <a href="#/pricing" style="color:var(--brass)">Pricing</a></div>`;
+    $$("[data-topic]").forEach(b=>b.onclick=()=>{topicId=b.dataset.topic;topic=PRACTICE.find(t=>t.id===topicId);idx=0;order=shuffle(topic.questions.length);picked=null;streak=0;correct=0;answered=0;practiceState={topicId,idx,order,picked,streak,correct,answered};paint()});
+    $$("[data-pick]").forEach(b=>b.onclick=async()=>{if(picked!==null)return;const i=Number(b.dataset.pick);picked=i;answered++;if(i===q.answer){correct++;streak++}else{streak=0}
+      practiceState={topicId,idx,order,picked,streak,correct,answered};
+      if(currentUser)await saveProgress(currentUser.id,topicId,{answered,correct,streak,bestStreak:Math.max(streak,(await getProgress(currentUser.id)).find(p=>p.topicId===topicId)?.bestStreak||0)});
+      paint()});
+    const nx=$("#next-q");if(nx)nx.onclick=()=>{picked=null;idx++;if(idx>=topic.questions.length){idx=0;order=shuffle(topic.questions.length);toast("Set complete — reshuffled. Keep going!")}practiceState={topicId,idx,order,picked,streak,correct,answered};paint()};
+  }
+  paint();
+}
+/* ---------- VIEW: Pricing (1:1) ---------- */
+let billingAnnual=false;
+async function viewPricing(){
+  const app=$("#app");
+  function paint(){
+    app.innerHTML=`<main class="wrap" style="padding:4rem 1.5rem">
+      <div style="text-align:center;margin-bottom:3.5rem"><p class="eyebrow rise">Enrollment Options · Transparency</p>
+      <h1 class="rise font-display" style="font-size:clamp(2.25rem,5vw,3.75rem);margin-top:.75rem">Simple plans. Serious learning.</h1>
+      <p class="rise" style="margin:1rem auto 0;max-width:42rem;color:var(--muted-foreground)">Start completely tuition-free and expand as your goals evolve. Flexible plans for individuals, families, and institutions.</p>
+      <div class="toggle rise" style="margin-top:2rem"><button id="bill-m" class="${!billingAnnual?"on":""}">Monthly billing</button><button id="bill-y" class="${billingAnnual?"on":""}">Annual billing <span style="font-size:10px;color:var(--brass)">(Save 25%)</span></button></div></div>
+      <div class="pricing-grid">${PLANS.map(p=>{const price=billingAnnual?p.priceYearly:p.priceMonthly;return`<div class="plan${p.highlight?" highlight":""}">${p.badge?`<span class="badge">${p.badge}</span>`:""}<h2>${p.name}</h2><p class="tag">${esc(p.tagline)}</p><div class="price"><b>$${price}</b> <span style="font-size:.75rem;color:var(--muted-foreground)">${price===0?" / forever":billingAnnual?" / year":" / month"}</span></div><ul>${p.features.map(f=>`<li>${esc(f)}</li>`).join("")}</ul><button class="btn ${p.highlight?"btn-ink":"btn-outline"}" data-plan="${esc(p.name)}" style="width:100%">${esc(p.cta)}</button></div>`}).join("")}</div>
+      <section class="institutional"><div class="institutional-grid"><div><p class="eyebrow" style="color:rgba(244,238,225,.6)">Institutional Access</p><h2 class="font-display" style="margin-top:.5rem;font-size:1.875rem;color:var(--paper)">Bulk seats for schools &amp; districts</h2><p style="margin-top:1rem;font-size:.875rem;line-height:1.7;color:rgba(244,238,225,.8)">Equip your classroom, school, or whole academic institution with Scholaris. Seamless single sign-on, curriculum mapping, and comprehensive progress reports.</p><ul style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.75rem 1.5rem;font-size:.75rem;color:rgba(244,238,225,.85);list-style:none">${["SAML SSO & SCIM provisioning","Custom learning paths","Usage analytics & reporting","Dedicated success manager","Bulk invoicing","Priority support"].map(f=>`<li>✓ ${f}</li>`).join("")}</ul><button class="btn" data-plan="School & business" style="margin-top:2rem;background:var(--paper);color:var(--ink)">Request institutional pricing</button></div>
+      <div>${SEATS.map(s=>`<div class="seat"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:.5rem"><span class="font-display" style="font-size:1.125rem;color:var(--paper)">${s.seats} seats</span><span class="font-display" style="color:var(--brass-soft)">${s.price}</span></div><p style="margin-top:.25rem;font-size:.75rem;color:rgba(244,238,225,.7)">${esc(s.note)}</p></div>`).join("")}</div></div></section>
+      <section style="margin-top:5rem;border-top:1px solid var(--border);padding-top:4rem"><div style="max-width:48rem;margin:0 auto"><p class="eyebrow" style="text-align:center">Enrolment FAQ</p><h2 class="font-display" style="text-align:center;margin-top:.5rem;font-size:1.875rem">Frequently asked questions</h2><div style="margin-top:2rem">${PRICING_FAQ.map(([q,a])=>`<details class="faq"><summary>${esc(q)}<span class="plus">＋</span></summary><p>${esc(a)}</p></details>`).join("")}</div></div></section>
+      </main><div style="border-top:1px solid var(--border);background:color-mix(in oklab,var(--card) 60%,transparent);padding:2rem 1.5rem;text-align:center;font-size:.75rem;color:var(--muted-foreground)">© 2026 Scholaris Learning Institute · <a href="#/" style="color:var(--brass)">Home</a></div>`;
+    $("#bill-m").onclick=()=>{billingAnnual=false;paint()};$("#bill-y").onclick=()=>{billingAnnual=true;paint()};
+    $$("[data-plan]").forEach(b=>b.onclick=()=>showEnroll(b.dataset.plan));
+  }
+  paint();
+}
+async function showEnroll(plan){
+  openModal(`<p class="eyebrow" style="font-size:10px">Enrollment Request</p><h2>${esc(plan)} tier requested</h2><p style="font-size:.875rem;color:var(--muted-foreground);line-height:1.6">A Scholaris academic advisor will reach out shortly with onboarding details, school support options, and portal credentials. (No payment is taken in this portable build — requests are saved locally.)</p><div class="field" style="margin-top:1rem"><label for="en-email">Email for onboarding</label><input id="en-email" type="email" placeholder="you@example.com" value="${currentUser?esc(currentUser.email):""}"></div><button class="btn btn-ink" id="en-save" style="width:100%">Save request locally</button>`);
+  $("#en-save").onclick=async()=>{const email=$("#en-email").value.trim();if(!email||!email.includes("@")){toast("Please enter a valid email.");return}await dbPut("enrollments",{id:uid(),plan,email,userId:currentUser?.id||null,at:nowISO()});await audit("enroll",plan+" "+email);closeModal();toast("Request saved. We will be in touch at "+email)};
+}
+/* ---------- VIEW: Games / Arcade ---------- */
+let gamesFilter={q:"",genre:"All",sort:"newest",playing:null};
+async function viewGames(){
+  const app=$("#app");
+  const games=await getAllGames();const stats=await getStats();const votes=LS.get("arcade.votes",{});
+  const genres=["All",...new Set(games.map(g=>g.genre).filter(Boolean))].sort();
+  let list=games.filter(g=>{const q=gamesFilter.q.toLowerCase();const okQ=!q||g.name.toLowerCase().includes(q)||(g.genre||"").toLowerCase().includes(q);const okG=gamesFilter.genre==="All"||g.genre===gamesFilter.genre;return okQ&&okG});
+  if(gamesFilter.sort==="newest")list.sort((a,b)=>new Date(b.added)-new Date(a.added));
+  if(gamesFilter.sort==="plays")list.sort((a,b)=>(stats[b.url]?.plays||0)-(stats[a.url]?.plays||0));
+  if(gamesFilter.sort==="likes")list.sort((a,b)=>(stats[b.url]?.likes||0)-(stats[a.url]?.likes||0));
+  const playing=gamesFilter.playing?games.find(g=>g.url===gamesFilter.playing):null;
+  const splash=SPLASH_MEMES[Math.floor(Math.random()*SPLASH_MEMES.length)];
+  app.innerHTML=`<main class="wrap" style="padding:3rem 1.5rem">
+    <p class="eyebrow">Scholaris Arcade · ${list.length} games available</p>
+    <h1 class="font-display" style="font-size:clamp(2rem,4vw,3rem);margin-top:.75rem">Take a break. Play something.</h1>
+    <p style="margin-top:.5rem;color:var(--muted-foreground);font-size:.875rem">Search games or genres… · Shortcuts: <span class="kbd">Esc</span> close · <span class="kbd">F</span> fullscreen · <span class="kbd">R</span> random</p>
+    <div class="games-toolbar" style="margin-top:1.5rem"><input type="search" id="g-search" placeholder="Search games or genres…" value="${esc(gamesFilter.q)}"><select id="g-genre">${genres.map(g=>`<option ${g===gamesFilter.genre?"selected":""}>${esc(g)}</option>`).join("")}</select><select id="g-sort"><option value="newest" ${gamesFilter.sort==="newest"?"selected":""}>Date added (newest)</option><option value="plays" ${gamesFilter.sort==="plays"?"selected":""}>Most played (global)</option><option value="likes" ${gamesFilter.sort==="likes"?"selected":""}>Most liked (global)</option></select><button class="btn btn-outline btn-sm" id="g-random">🎲 Random game</button><button class="btn btn-brass btn-sm" id="g-add">＋ Add game</button></div>
+    ${playing?`<div style="border:1px solid var(--border);background:var(--card);padding:1.25rem;margin-bottom:1.5rem">
+      <div class="player-bar"><button class="btn btn-ghost btn-sm" id="g-back">← Back to library</button><strong style="flex:1">${esc(playing.name)}</strong><span class="genre-tag" style="background:${genreStyle(playing.genre).color}">${esc(playing.genre||"Arcade")}</span><span style="font-size:.75rem;color:var(--muted-foreground)">${playing.device==="pc"?"💻 PC only":"📱 Mobile + 💻 PC"}</span>
+      <button class="vote-btn${votes[playing.url]==="like"?" on":""}" id="g-like">👍 ${stats[playing.url]?.likes||0}</button><button class="vote-btn${votes[playing.url]==="dislike"?" on":""}" id="g-dislike">👎 ${stats[playing.url]?.dislikes||0}</button>
+      <button class="btn btn-outline btn-sm" id="g-fs">⛶ Fullscreen</button><button class="btn btn-outline btn-sm" id="g-tab">↗ New tab</button></div>
+      <div class="player-frame" id="g-frame-wrap"><iframe id="g-frame" title="${esc(playing.name)}" allow="autoplay; fullscreen; gamepad *; cross-origin-isolated" allowfullscreen></iframe></div>
+      <p style="margin-top:.75rem;font-size:.75rem;color:var(--muted-foreground)">▶ ${stats[playing.url]?.plays||0} plays · ${playing.source==="admin"?"· pushed by admin":playing.source==="custom"?"· your custom game":"· from GitHub"} · ${esc(splash)}</p></div>`:""}
+    <div class="games-grid">${list.map(g=>{const st=genreStyle(g.genre);const thumb=gameThumb(g);const s=stats[g.url]||{plays:0,likes:0};return`<button class="game-card" data-play="${esc(g.url)}"><div class="game-thumb" style="background:linear-gradient(135deg,${st.color},${st.soft})">${thumb?`<img src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">`:""}<span style="position:relative;z-index:1;text-shadow:0 2px 8px rgba(0,0,0,.4)">${esc(g.name.slice(0,1))}</span><span class="genre-tag" style="position:absolute;top:.5rem;left:.5rem;background:${st.color};z-index:2">${esc(g.genre||"Arcade")}</span></div><div class="game-info"><h4>${esc(g.name)}</h4><div class="meta"><span>${g.device==="pc"?"💻 PC":"📱+💻"}</span><span>▶ ${s.plays||0} · 👍 ${s.likes||0}</span></div></div></button>`}).join("")||`<p style="color:var(--muted-foreground)">No games match. Try clearing search or add one as admin.</p>`}</div>
+    <p style="margin-top:1.5rem;font-size:.75rem;color:var(--muted-foreground)">${list.length} games available · click any title to play.</p></main>`;
+  $("#g-search").oninput=e=>{gamesFilter.q=e.target.value;const v=e.target.value,pos=e.target.selectionStart;viewGames().then(()=>{const n=$("#g-search");n.focus();n.setSelectionRange(pos,pos)})};
+  $("#g-genre").onchange=e=>{gamesFilter.genre=e.target.value;viewGames()};
+  $("#g-sort").onchange=e=>{gamesFilter.sort=e.target.value;viewGames()};
+  $("#g-random").onclick=()=>{if(!list.length)return;const g=list[Math.floor(Math.random()*list.length)];gamesFilter.playing=g.url;bumpPlay(g.url).then(viewGames)};
+  $("#g-add").onclick=()=>showCustomGameForm();
+  $$("[data-play]").forEach(b=>b.onclick=()=>{gamesFilter.playing=b.dataset.play;bumpPlay(b.dataset.play).then(()=>{viewGames();window.scrollTo({top:0,behavior:"smooth"})})});
+  if(playing){const src=gameSrc(playing);$("#g-frame").src=src;$("#g-back").onclick=()=>{gamesFilter.playing=null;viewGames()};
+    $("#g-like").onclick=async()=>{await voteGame(playing.url,"like");viewGames()};$("#g-dislike").onclick=async()=>{await voteGame(playing.url,"dislike");viewGames()};
+    $("#g-fs").onclick=()=>{const w=$("#g-frame-wrap");if(w.requestFullscreen)w.requestFullscreen()};
+    $("#g-tab").onclick=()=>{window.open(src,"_blank")};
+    window.onmessage=e=>{if(e.data&&e.data.__arcadeSave===1&&e.data.game===playing.name){try{localStorage.setItem("arcade.save."+playing.name,JSON.stringify(e.data.data))}catch(err){}}};
+  }
+}
+function showCustomGameForm(){
+  openModal(`<p class="eyebrow" style="font-size:10px">Your games</p><h2>Add a custom game</h2><p style="font-size:.8125rem;color:var(--muted-foreground);margin-bottom:1rem">Paste a full HTML game, or link an external URL. Saved in this browser only (IndexedDB). Admins can push to everyone from <a href="#/admin" style="color:var(--brass)">Admin</a>.</p>
+  <div class="field"><label for="cg-name">Game name</label><input id="cg-name" maxlength="80" placeholder="My Game"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem"><div class="field"><label for="cg-genre">Genre</label><input id="cg-genre" list="cg-genres" placeholder="Puzzle"><datalist id="cg-genres">${["Arcade","Puzzle","Action","RPG","Strategy","Shooter","Platformer","Racing","Simulation","Horror","Rhythm","Idle","Sandbox","Tool","Toy","Custom"].map(g=>`<option value="${g}">`).join("")}</datalist></div>
+  <div class="field"><label for="cg-device">Device</label><select id="cg-device"><option value="mobile+pc">Mobile + PC</option><option value="pc">PC only</option><option value="mobile">Mobile only</option></select></div></div>
+  <div class="field"><label for="cg-img">Thumbnail URL (optional)</label><input id="cg-img" placeholder="https://…"></div>
+  <div class="field"><label for="cg-html">Game HTML or URL</label><textarea id="cg-html" rows="6" placeholder="<!doctype html>…  OR  https://example.com/game"></textarea><p class="hint">If it starts with http(s):// it is treated as an iframe game.</p></div>
+  <button class="btn btn-brass" id="cg-save" style="width:100%">Save to my games</button>`);
+  $("#cg-save").onclick=async()=>{const name=$("#cg-name").value.trim()||"Custom";const raw=$("#cg-html").value.trim();if(!raw){toast("Paste HTML or a URL first.");return}
+    const isUrl=/^https?:\/\//i.test(raw);const game={id:uid(),name,genre:$("#cg-genre").value.trim()||"Custom",device:$("#cg-device").value,img:$("#cg-img").value.trim()||"/game-soundboard.svg",html:isUrl?"":raw,url:isUrl?raw:`custom:${uid()}`,added:nowISO()};
+    if(isUrl)game.url=raw;await dbPut("customGames",game);const list=LS.get("arcade.customGames",[]);list.unshift(game);LS.set("arcade.customGames",list);await audit("customGame",name);closeModal();toast("Saved: "+name);gamesFilter.playing=null;viewGames()};
+}
+/* ---------- VIEW: Community (local chat replacement) ---------- */
+let chatChannel="general";
+async function viewCommunity(){
+  const app=$("#app");
+  if(!currentUser){app.innerHTML=`<main class="wrap" style="padding:3rem 1.5rem"><p class="eyebrow">Community</p><h1 class="font-display" style="font-size:2rem;margin-top:.75rem">Sign in to chat</h1><p style="margin-top:.75rem;color:var(--muted-foreground)">Community chat runs locally in this portable build. Create an account to post — messages are stored in your browser (IndexedDB) and sync across tabs.</p><div style="margin-top:1.5rem;display:flex;gap:.5rem"><button class="btn btn-ink" id="c-login">Log in</button><button class="btn btn-outline" id="c-signup">Sign up</button></div></main>`;$("#c-login").onclick=showLogin;$("#c-signup").onclick=showSignup;return}
+  const users=await dbAll("users");const msgs=(await dbAll("messages")).filter(m=>m.channel===chatChannel).sort((a,b)=>new Date(a.at)-new Date(b.at));
+  const channels=[{id:"general",name:"general"},{id:"announcements",name:"announcements"},{id:"study-help",name:"study-help"}];
+  app.innerHTML=`<main class="wrap" style="padding:2rem 1.5rem"><p class="eyebrow">Community · local chat</p><h1 class="font-display" style="font-size:1.75rem;margin-top:.5rem">Friends &amp; DMs</h1>
+  <div class="chat-shell" style="margin-top:1.5rem"><div class="chat-side"><p class="eyebrow" style="font-size:9px">Channels</p>${channels.map(c=>`<button class="topic-btn${c.id===chatChannel?" active":""}" data-ch="${c.id}"># ${c.name}</button>`).join("")}<p class="eyebrow" style="font-size:9px;margin-top:1.25rem">Members (${users.length})</p>${users.slice(0,20).map(u=>`<div style="font-size:.8125rem;padding:.25rem 0"><span style="display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:#00bb7f;margin-right:.5rem"></span>${esc(u.displayName||u.name)} <span style="color:var(--muted-foreground);font-size:.6875rem">@${esc(u.username||"")}</span></div>`).join("")||`<p style="font-size:.75rem;color:var(--muted-foreground)">No members yet.</p>`}</div>
+  <div class="chat-main"><div class="chat-msgs" id="chat-msgs">${msgs.map(m=>{const u=users.find(x=>x.id===m.userId);return`<div class="msg"><span class="who">${esc(u?.displayName||u?.name||"Someone")}</span><span class="when">${new Date(m.at).toLocaleTimeString()}</span><div>${esc(m.body)}</div></div>`}).join("")||`<p style="color:var(--muted-foreground);font-size:.875rem">No messages yet. Say hello!</p>`}</div>
+  <div class="chat-input"><input id="chat-box" placeholder="Message #${esc(chatChannel)}" maxlength="500"><button class="btn btn-ink btn-sm" id="chat-send">Send</button></div></div></div>
+  <p style="margin-top:1rem;font-size:.75rem;color:var(--muted-foreground)">Local-only: no server. Messages live in IndexedDB on this device. Open a second tab to see live sync via BroadcastChannel.</p></main>`;
+  $$("[data-ch]").forEach(b=>b.onclick=()=>{chatChannel=b.dataset.ch;viewCommunity()});
+  const box=$("#chat-msgs");box.scrollTop=box.scrollHeight;
+  async function send(){const body=$("#chat-box").value.trim();if(!body)return;await dbPut("messages",{id:uid(),channel:chatChannel,userId:currentUser.id,body,at:nowISO()});broadcast("chat",{channel:chatChannel});viewCommunity()}
+  $("#chat-send").onclick=send;$("#chat-box").onkeydown=e=>{if(e.key==="Enter")send()};
+}
+/* ---------- VIEW: Admin (easy game adding) ---------- */
+const ADMIN_DEFAULT_PW="scholaris-admin";
+async function adminAuthed(){const t=LS.get("scholaris.adminToken",null);if(!t)return false;const s=await getSettings();return s.adminTokenHash===t}
+async function viewAdmin(){
+  const app=$("#app");
+  if(!await adminAuthed()){
+    app.innerHTML=`<div class="admin-shell"><div style="max-width:28rem;margin:4rem auto"><h1 style="font-family:var(--font-display);font-size:1.75rem">Admin access</h1><p style="color:#a1a1aa;font-size:.875rem;margin:.75rem 0 1.5rem">Enter the admin password to manage games, broadcasts and site settings. This portable build stores everything locally — the password is a gate, not server security.</p>
+    <label for="adm-pw">Admin password</label><input id="adm-pw" type="password" placeholder="Password" autocomplete="current-password"><p style="font-size:.75rem;color:#71717a;margin-top:.5rem">Default: <code style="color:#e4e4e7">scholaris-admin</code> — change it in Settings after first login.</p>
+    <button class="btn-admin" id="adm-go" style="width:100%;margin-top:1rem">Unlock admin</button><p id="adm-err" style="color:#f87171;font-size:.8125rem;margin-top:.75rem"></p>
+    <p style="margin-top:1.5rem"><a href="#/" style="color:#a1a1aa;font-size:.8125rem">← Back to Scholaris</a></p></div></div>`;
+    const go=async()=>{const pw=$("#adm-pw").value;const s=await getSettings();const hash=await sha256(pw);const expected=s.adminTokenHash||await sha256(ADMIN_DEFAULT_PW);if(hash===expected){LS.set("scholaris.adminToken",hash);await audit("adminLogin","ok");viewAdmin()}else{$("#adm-err").textContent="Incorrect password. Please try again."}};
+    $("#adm-go").onclick=go;$("#adm-pw").onkeydown=e=>{if(e.key==="Enter")go()};return;
+  }
+  const games=await getAllGames();const stats=await getStats();const settings=await getSettings();const auditLog=(await dbAll("audit")).sort((a,b)=>new Date(b.at)-new Date(a.at)).slice(0,30);
+  const totalPlays=Object.values(stats).reduce((a,s)=>a+(s.plays||0),0);
+  app.innerHTML=`<div class="admin-shell"><div style="max-width:64rem;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.5rem"><div><h1 style="font-family:var(--font-display);font-size:1.75rem">Admin dashboard</h1><p style="color:#a1a1aa;font-size:.8125rem">Add games in under a minute. Everything saves to IndexedDB + localStorage on this device.</p></div><div style="display:flex;gap:.5rem"><button class="btn-ghost2" id="adm-undo">↩ Undo</button><button class="btn-ghost2" id="adm-export">Export JSON</button><a class="btn-ghost2" href="#/">View site</a><button class="btn-ghost2" id="adm-lock">Lock</button></div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem">${[["Games",games.length],["Total plays",totalPlays],["Admin-pushed",(await getAdminGames()).length],["Custom",(await getCustomGames()).length]].map(([k,v])=>`<div class="card" style="text-align:center"><div style="font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:#a1a1aa">${k}</div><div style="font-family:var(--font-display);font-size:1.75rem;margin-top:.25rem">${v}</div></div>`).join("")}</div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:.25rem">➕ Push a new game (server-wide)</h2><p style="font-size:.8125rem;color:#a1a1aa;margin-bottom:1rem">Fill 3 things — name, genre, and HTML or URL — then hit <b style="color:#fff">Push to all users</b>. Thumbnail is optional (auto-gradient if blank).</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem"><div><label for="ag-name">Name *</label><input id="ag-name" placeholder="My Game" maxlength="80"></div><div><label for="ag-genre">Genre</label><input id="ag-genre" list="ag-genres" placeholder="Puzzle"><datalist id="ag-genres">${["Arcade","Puzzle","Action","RPG","Strategy","Shooter","Platformer","Racing","Simulation","Horror","Rhythm","Idle","Sandbox","Tool","Toy","Custom"].map(g=>`<option value="${g}">`).join("")}</datalist></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem"><div><label for="ag-device">Device</label><select id="ag-device"><option value="mobile+pc">Mobile + PC</option><option value="pc">PC only</option><option value="mobile">Mobile only</option></select></div><div><label for="ag-img">Thumbnail URL or upload →</label><div style="display:flex;gap:.5rem"><input id="ag-img" placeholder="https://… or upload" style="flex:1"><label class="btn-ghost2" style="white-space:nowrap;cursor:pointer;margin:0">Upload<input type="file" id="ag-img-file" accept="image/*" hidden></label></div><div id="ag-img-prev" style="margin-top:.5rem"></div></div></div>
+      <div style="margin-top:1rem"><label for="ag-html">Game HTML or URL *</label><textarea id="ag-html" rows="7" placeholder="Paste full HTML (<!doctype html>…)  OR  a single https:// URL for an iframe game" style="font-family:var(--font-mono);font-size:.75rem"></textarea>
+      <div style="display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap"><label class="btn-ghost2" style="cursor:pointer;margin:0">📄 Upload .html file<input type="file" id="ag-html-file" accept=".html,.htm,text/html" hidden></label><span style="font-size:.75rem;color:#71717a;align-self:center" id="ag-html-info">HTML ≤ 3 MB · images ≤ 3 MB (original limits)</span></div></div>
+      <div style="display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap"><button class="btn-admin" id="ag-push" style="flex:1;min-width:200px">Push to all users</button><button class="btn-ghost2" id="ag-clear">Clear form</button></div>
+      <p id="ag-msg" style="font-size:.8125rem;margin-top:.75rem"></p></div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:.25rem">📥 Bulk import (JSON)</h2><p style="font-size:.8125rem;color:#a1a1aa;margin-bottom:1rem">Paste an array like <code style="color:#e4e4e7">[{"name":"My Game","genre":"Puzzle","device":"mobile+pc","img":"https://…","html":"&lt;!doctype html&gt;…"}]</code> or load a .json file. Imported games appear instantly.</p>
+      <textarea id="ag-json" rows="5" placeholder='[{"name":"My Game","genre":"Puzzle","device":"mobile+pc","img":"https://…","html":"<!doctype html>…"}]' style="font-family:var(--font-mono);font-size:.75rem"></textarea>
+      <div style="display:flex;gap:.5rem;margin-top:.75rem;flex-wrap:wrap"><button class="btn-admin" id="ag-import">Import all</button><label class="btn-ghost2" style="cursor:pointer;margin:0">Load .json<input type="file" id="ag-json-file" accept=".json,application/json" hidden></label></div><p id="ag-json-msg" style="font-size:.8125rem;margin-top:.5rem"></p></div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">🎮 Library (${games.length} games)</h2><div id="adm-list">${games.map(g=>{const st=genreStyle(g.genre);const thumb=gameThumb(g);return`<div class="admin-game"><div style="width:4rem;height:2.5rem;border-radius:.25rem;background:${st.color};display:flex;align-items:center;justify-content:center;font-weight:700;color:#000;overflow:hidden;flex-shrink:0">${thumb?`<img src="${esc(thumb)}" alt="" style="width:100%;height:100%;object-fit:cover">`:esc(g.name.slice(0,1))}</div><div style="flex:1;min-width:160px"><div style="font-weight:600;font-size:.875rem">${esc(g.name)}</div><div style="font-size:.75rem;color:#a1a1aa"><span style="color:${st.color}">${esc(g.genre||"Arcade")}</span> · ${esc(g.device||"mobile+pc")} · ${new Date(g.added).toLocaleString()} · ▶ ${stats[g.url]?.plays||0} · 👍 ${stats[g.url]?.likes||0}</div></div><div style="display:flex;gap:.375rem;flex-wrap:wrap"><button class="btn-ghost2" data-edit="${esc(g.url)}" style="padding:.375rem .625rem;font-size:.75rem">Edit</button><button class="btn-ghost2" data-hide="${esc(g.url)}" style="padding:.375rem .625rem;font-size:.75rem">Hide</button><button class="btn-ghost2" data-del="${esc(g.url)}" style="padding:.375rem .625rem;font-size:.75rem;color:#f87171">Delete</button></div></div>`}).join("")||`<p style="color:#a1a1aa;font-size:.875rem">No games yet. Push your first one above.</p>`}</div></div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">📢 Broadcast &amp; patch notes</h2>
+      <label><input type="checkbox" id="bc-on" ${settings.broadcast?.enabled?"checked":""} style="width:auto;margin-right:.5rem">Show announcement banner</label>
+      <div style="margin-top:.75rem"><label for="bc-text">Banner text</label><input id="bc-text" value="${esc(settings.broadcast?.text||"")}" placeholder="e.g. New games added — check the Arcade!"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:.75rem"><div><label for="bc-link">Link URL (optional)</label><input id="bc-link" value="${esc(settings.broadcast?.link||"")}" placeholder="https://…"></div><div><label for="bc-bg">Background</label><input id="bc-bg" type="color" value="${esc(settings.broadcast?.bg||"#ad8748")}" style="height:2.5rem"></div><div><label for="bc-fg">Text colour</label><input id="bc-fg" type="color" value="${esc(settings.broadcast?.fg||"#0c1722")}" style="height:2.5rem"></div></div>
+      <div style="margin-top:.75rem"><label for="pn-text">Patch notes (markdown-ish)</label><textarea id="pn-text" rows="4">${esc(settings.patchNotes||"")}</textarea></div>
+      <button class="btn-admin" id="bc-save" style="margin-top:1rem">Save broadcast</button> <span id="bc-msg" style="font-size:.8125rem;margin-left:.5rem"></span></div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">⚙️ Settings</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem"><div><label for="st-pw">Change admin password</label><input id="st-pw" type="password" placeholder="New password (blank = keep)"></div><div><label for="st-accent">Arcade accent</label><select id="st-accent">${["amber","blue","rose","violet","emerald","cyan"].map(a=>`<option ${(settings.arcadeTheme?.accent||"amber")===a?"selected":""}>${a}</option>`).join("")}</select></div></div>
+      <label style="margin-top:1rem"><input type="checkbox" id="st-panic" ${settings.panic?.hidden?"checked":""} style="width:auto;margin-right:.5rem">Hide panic button</label>
+      <div style="margin-top:1rem"><label for="st-splash">Splash texts (one per line)</label><textarea id="st-splash" rows="4">${esc(settings.splashTexts||"")}</textarea></div>
+      <button class="btn-admin" id="st-save" style="margin-top:1rem">Save settings</button> <span id="st-msg" style="font-size:.8125rem;margin-left:.5rem"></span></div>
+    <div class="card"><h2 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem">🗂 Data &amp; audit</h2><div style="display:flex;gap:.5rem;flex-wrap:wrap"><button class="btn-ghost2" id="dm-export-all">Export all data (JSON)</button><button class="btn-ghost2" id="dm-reset-stats">Reset play/vote stats</button><button class="btn-ghost2" id="dm-wipe" style="color:#f87171">Wipe local data…</button></div>
+      <p style="font-size:.75rem;color:#71717a;margin-top:1rem">Recent audit events:</p><div style="font-family:var(--font-mono);font-size:.6875rem;color:#a1a1aa;max-height:12rem;overflow-y:auto;margin-top:.5rem">${auditLog.map(a=>`<div>${esc(a.at)} · ${esc(a.action)} · ${esc(a.detail)}</div>`).join("")||"No events yet."}</div></div>
+  </div></div>`;
+  /* --- Add game (easy path) --- */
+  let imgData="";let htmlData="";
+  function fileToDataUrl(file){return new Promise((res,rej)=>{if(file.size>3*1024*1024)return rej(new Error("Image must be under 3MB"));const r=new FileReader();r.onload=()=>res(String(r.result));r.onerror=()=>rej(r.error);r.readAsDataURL(file)})}
+  $("#ag-img-file").onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{imgData=await fileToDataUrl(f);$("#ag-img").value="(uploaded image)";$("#ag-img-prev").innerHTML=`<img src="${imgData}" alt="Thumbnail preview" style="height:3rem;border-radius:.25rem">`;$("#ag-msg").textContent="Thumbnail ready."}catch(err){$("#ag-msg").textContent=err.message}};
+  $("#ag-html-file").onchange=async e=>{const f=e.target.files?.[0];if(!f)return;if(f.size>3*1024*1024){$("#ag-msg").textContent="HTML must be under 3MB.";return}htmlData=await f.text();$("#ag-html").value=htmlData.slice(0,500)+"… (loaded "+f.name+")";$("#ag-html-info").textContent="Loaded "+f.name+" ("+(f.size/1024).toFixed(1)+" KB)"};
+  $("#ag-clear").onclick=()=>{$("#ag-name").value="";$("#ag-genre").value="";$("#ag-img").value="";$("#ag-html").value="";imgData="";htmlData="";$("#ag-img-prev").innerHTML="";$("#ag-msg").textContent=""};
+  $("#ag-push").onclick=async()=>{const name=$("#ag-name").value.trim();const genre=$("#ag-genre").value.trim()||"Arcade";const device=$("#ag-device").value;const imgUrl=$("#ag-img").value.trim();const raw=($("#ag-html").value||"").trim();
+    const msg=$("#ag-msg");if(!name){msg.textContent="Please enter a game name.";return}if(!raw&&!htmlData){msg.textContent="Paste HTML or a URL first.";return}
+    const isUrl=/^https?:\/\//i.test(raw)&&!raw.startsWith("<");const html=isUrl?"":(htmlData||raw);const url=isUrl?raw:`admin:${uid()}`;
+    const game={id:uid(),name,genre,device,img:imgData||(imgUrl&&imgUrl!=="(uploaded image)"?imgUrl:"/game-soundboard.svg"),html,url,added_at:nowISO()};
+    msg.textContent="Pushing…";try{await dbPut("adminGames",game);await audit("pushGame",name);broadcast("games",{url:game.url});msg.textContent="✓ Pushed: "+name+" — visible in Games now.";toast("Game pushed: "+name);setTimeout(viewAdmin,900)}catch(e){msg.textContent="Failed: "+e.message}};
+  $("#ag-import").onclick=async()=>{const msg=$("#ag-json-msg");try{const arr=JSON.parse($("#ag-json").value);if(!Array.isArray(arr))throw new Error("Expected a JSON array");let n=0;for(const g of arr){if(!g.name)continue;await dbPut("adminGames",{id:uid(),name:String(g.name),genre:String(g.genre||"Arcade"),device:String(g.device||"mobile+pc"),img:String(g.img||"/game-soundboard.svg"),html:String(g.html||""),url:g.url&&/^https?:\/\//i.test(g.url)?String(g.url):`admin:${uid()}`,added_at:nowISO()});n++}await audit("import",n+" games");broadcast("games",{});msg.textContent="✓ Imported "+n+" game(s).";setTimeout(viewAdmin,900)}catch(e){msg.textContent="Import failed: "+e.message}};
+  $("#ag-json-file").onchange=async e=>{const f=e.target.files?.[0];if(f)$("#ag-json").value=await f.text()};
+  /* --- Library actions --- */
+  $$("[data-del]").forEach(b=>b.onclick=async()=>{if(!confirm("Delete this game?"))return;const url=b.dataset.del;const admin=await getAdminGames();const a=admin.find(g=>`admin:${g.id}`===url);if(a)await dbDel("adminGames",a.id);const custom=await getCustomGames();const c=custom.find(g=>`custom:${g.id}`===url);if(c)await dbDel("customGames",c.id);await audit("deleteGame",url);broadcast("games",{});viewAdmin()});
+  $$("[data-hide]").forEach(b=>b.onclick=async()=>{const s=await getSettings();const h=new Set(s.hiddenGameUrls||[]);const url=b.dataset.hide;h.has(url)?h.delete(url):h.add(url);await saveSettings({hiddenGameUrls:[...h]});await audit("hideToggle",url);viewAdmin()});
+  $$("[data-edit]").forEach(b=>b.onclick=async()=>{const url=b.dataset.edit;const admin=await getAdminGames();const g=admin.find(x=>`admin:${x.id}`===url);if(!g){toast("Only admin-pushed games can be edited here. Custom games: edit from Games → Add game.");return}
+    openModal(`<h2>Edit game</h2><div class="field"><label>Name</label><input id="ed-name" value="${esc(g.name)}"></div><div class="field"><label>Genre</label><input id="ed-genre" value="${esc(g.genre)}"></div><div class="field"><label>Device</label><select id="ed-device"><option value="mobile+pc" ${g.device==="mobile+pc"?"selected":""}>Mobile + PC</option><option value="pc" ${g.device==="pc"?"selected":""}>PC only</option><option value="mobile" ${g.device==="mobile"?"selected":""}>Mobile only</option></select></div><div class="field"><label>Thumbnail URL</label><input id="ed-img" value="${esc(g.img)}"></div><div class="field"><label>Replacement HTML (optional — blank keeps current)</label><textarea id="ed-html" rows="5" placeholder="Paste new HTML or leave blank"></textarea></div><button class="btn btn-ink" id="ed-save" style="width:100%">Save override</button>`);
+    $("#ed-save").onclick=async()=>{g.name=$("#ed-name").value.trim()||g.name;g.genre=$("#ed-genre").value.trim()||g.genre;g.device=$("#ed-device").value;g.img=$("#ed-img").value.trim()||g.img;const h=$("#ed-html").value.trim();if(h)g.html=h;await dbPut("adminGames",g);await audit("editGame",g.name);broadcast("games",{});closeModal();viewAdmin()}});
+  /* --- Broadcast / settings / data --- */
+  $("#bc-save").onclick=async()=>{const s=await getSettings();await saveSettings({broadcast:{enabled:$("#bc-on").checked,text:$("#bc-text").value,link:$("#bc-link").value,bg:$("#bc-bg").value,fg:$("#bc-fg").value,dismissible:true,updated:nowISO()},patchNotes:$("#pn-text").value});await audit("broadcast","saved");$("#bc-msg").textContent="Saved — visitors see it on their next page load.";renderBanner()};
+  $("#st-save").onclick=async()=>{const s=await getSettings();const patch={panic:{...(s.panic||{}),hidden:$("#st-panic").checked},splashTexts:$("#st-splash").value,arcadeTheme:{...(s.arcadeTheme||{}),accent:$("#st-accent").value}};const pw=$("#st-pw").value.trim();if(pw)patch.adminTokenHash=await sha256(pw);await saveSettings(patch);if(pw)LS.set("scholaris.adminToken",patch.adminTokenHash);$("#st-msg").textContent="Saved.";renderPanic()};
+  $("#adm-lock").onclick=()=>{LS.del("scholaris.adminToken");viewAdmin()};
+  $("#adm-export").onclick=async()=>{const data={adminGames:await getAdminGames(),customGames:await getCustomGames(),settings:await getSettings()};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="scholaris-games.json";a.click();URL.revokeObjectURL(a.href)};
+  $("#dm-export-all").onclick=async()=>{const data={};for(const s of STORES)data[s]=await dbAll(s);const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="scholaris-export.json";a.click();URL.revokeObjectURL(a.href)};
+  $("#dm-reset-stats").onclick=async()=>{if(!confirm("Reset all play/vote stats?"))return;await dbClear("gameStats");LS.del("arcade.votes");await audit("resetStats","");viewAdmin()};
+  $("#dm-wipe").onclick=async()=>{if(!confirm("Wipe ALL local Scholaris data (users, games, chat)? This cannot be undone."))return;for(const s of STORES)await dbClear(s);for(const k of Object.keys(localStorage))if(k.startsWith("arcade.")||k.startsWith("scholaris.")||k.startsWith("a11y."))localStorage.removeItem(k);location.reload()};
+  $("#adm-undo").onclick=()=>toast("Undo: use Delete/Hide on the game, or re-import from Export JSON. (Local build keeps no server history.)");
+}
+/* ---------- Auth UI ---------- */
+function showLogin(){
+  openModal(`<p class="eyebrow" style="font-size:10px">Welcome back</p><h2>Log in to Scholaris</h2>
+  <div class="field"><label for="li-email">Email</label><input id="li-email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+  <div class="field"><label for="li-pw">Password</label><input id="li-pw" type="password" autocomplete="current-password" placeholder="Your password"></div>
+  <p class="error" id="li-err" style="display:none"></p>
+  <button class="btn btn-ink" id="li-go" style="width:100%">Log in</button>
+  <p style="margin-top:1rem;font-size:.8125rem;text-align:center">No account? <button id="li-to-signup" style="color:var(--brass);font-weight:600">Sign up</button> · <button id="li-forgot" style="color:var(--muted-foreground)">Forgot password?</button></p>`);
+  $("#li-to-signup").onclick=showSignup;
+  $("#li-forgot").onclick=()=>{openModal(`<h2>Reset password</h2><p style="font-size:.875rem;color:var(--muted-foreground)">In this portable build there is no email server. Enter your account email and a 5-digit reset code will be shown here (valid 15 minutes).</p><div class="field" style="margin-top:1rem"><label>Email</label><input id="fp-email" type="email"></div><button class="btn btn-ink" id="fp-go" style="width:100%">Send reset code</button><div id="fp-step"></div>`);
+    $("#fp-go").onclick=async()=>{const email=$("#fp-email").value.trim().toLowerCase();const users=await dbAll("users");const u=users.find(x=>x.email.toLowerCase()===email);if(!u){toast("No account with that email.");return}const code=genCode();u.resetHash=await sha256(code);u.resetExp=Date.now()+15*60*1000;await dbPut("users",u);$("#fp-step").innerHTML=`<div class="field" style="margin-top:1rem"><label>Your reset code (shown here — no email in portable build)</label><input class="code-input" id="fp-code" maxlength="5" inputmode="numeric"></div><div class="field"><label>New password</label><input id="fp-new" type="password"></div><button class="btn btn-brass" id="fp-save" style="width:100%">Set new password</button>`;toast("Reset code: "+code);
+      $("#fp-save").onclick=async()=>{if(await sha256($("#fp-code").value.trim())!==u.resetHash||Date.now()>u.resetExp){toast("Invalid or expired code.");return}if($("#fp-new").value.length<6){toast("Password must be at least 6 characters.");return}u.passwordHash=await sha256($("#fp-new").value);delete u.resetHash;delete u.resetExp;await dbPut("users",u);closeModal();toast("Password updated. Please log in.")}}};
+  const go=async()=>{const r=await login($("#li-email").value.trim(),$("#li-pw").value);if(!r.ok){const e=$("#li-err");e.textContent=r.error;e.style.display="block";return}closeModal();renderAuthSlot();render();toast("Welcome back, "+r.user.name.split(" ")[0]+"!")};
+  $("#li-go").onclick=go;$("#li-pw").onkeydown=e=>{if(e.key==="Enter")go()};
+}
+function showSignup(){
+  openModal(`<p class="eyebrow" style="font-size:10px">Join Scholaris</p><h2>Create your account</h2>
+  <div class="field"><label for="su-name">Full name</label><input id="su-name" autocomplete="name" placeholder="Your name"></div>
+  <div class="field"><label for="su-email">Email</label><input id="su-email" type="email" autocomplete="email" placeholder="you@example.com"><p class="hint">Temporary/disposable addresses aren't accepted. Use a permanent email.</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem"><div class="field"><label for="su-dob">Date of birth</label><input id="su-dob" type="date"></div><div class="field"><label for="su-year">Year / grade you're in</label><input id="su-year" placeholder="e.g. 2nd Year"></div></div>
+  <div class="field"><label for="su-role">I am a…</label><select id="su-role"><option value="Learner">Learner</option><option value="Teacher">Teacher</option><option value="Parent">Parent</option></select></div>
+  <div class="field"><label for="su-pw">Password</label><input id="su-pw" type="password" autocomplete="new-password" placeholder="At least 6 characters"></div>
+  <p class="error" id="su-err" style="display:none"></p>
+  <button class="btn btn-ink" id="su-go" style="width:100%">Send verification code</button>
+  <p style="margin-top:1rem;font-size:.8125rem;text-align:center">Already have an account? <button id="su-to-login" style="color:var(--brass);font-weight:600">Log in</button></p>`);
+  $("#su-to-login").onclick=showLogin;
+  $("#su-go").onclick=async()=>{
+    const data={name:$("#su-name").value.trim(),email:$("#su-email").value.trim(),dob:$("#su-dob").value,year:$("#su-year").value.trim(),role:$("#su-role").value,password:$("#su-pw").value,displayName:$("#su-name").value.trim(),username:$("#su-email").value.trim().split("@")[0]};
+    const err=$("#su-err");const fail=m=>{err.textContent=m;err.style.display="block"};
+    if(!data.name)return fail("Please enter your name.");if(!data.email.includes("@"))return fail("Please enter a valid email address.");if(!data.dob)return fail("Please enter your date of birth.");if(data.password.length<6)return fail("Password must be at least 6 characters.");
+    const r=await startSignup(data);if(!r.ok)return fail(r.error);
+    openModal(`<p class="eyebrow" style="font-size:10px">Verify your email</p><h2>Enter your 5-digit code</h2>
+    <p style="font-size:.875rem;color:var(--muted-foreground)">In the original site this code is emailed. In this portable build there is no mail server, so your code is shown below — enter it to activate your account. Valid for 15 minutes, single-use.</p>
+    <div style="border:1px dashed var(--brass);padding:1rem;text-align:center;margin:1rem 0"><span style="font-size:.75rem;color:var(--muted-foreground)">Your code</span><div style="font-family:var(--font-mono);font-size:2rem;letter-spacing:.4em">${r.code}</div></div>
+    <div class="field"><label for="su-code">Verification code</label><input class="code-input" id="su-code" maxlength="5" inputmode="numeric" placeholder="•••••"></div>
+    <p class="error" id="su-verr" style="display:none"></p>
+    <button class="btn btn-ink" id="su-verify" style="width:100%">Verify &amp; create account</button>
+    <button class="btn btn-ghost" id="su-resend" style="width:100%;margin-top:.5rem">Resend code</button>`);
+    let cooldown=0;const resendBtn=$("#su-resend");
+    const tick=()=>{if(cooldown>0){resendBtn.textContent=`Resend code in ${cooldown}s`;resendBtn.disabled=true;cooldown--;setTimeout(tick,1000)}else{resendBtn.textContent="Resend code";resendBtn.disabled=false}};
+    resendBtn.onclick=async()=>{if(cooldown>0)return;const r2=await startSignup(data);if(r2.ok){toast("New code: "+r2.code);cooldown=60;tick()}else toast(r2.error)};
+    $("#su-verify").onclick=async()=>{const v=await verifySignup($("#su-code").value);if(!v.ok){const e=$("#su-verr");e.textContent=v.error;e.style.display="block";return}closeModal();renderAuthSlot();render();toast("Account active. Welcome to Scholaris, "+v.user.name.split(" ")[0]+"!")};
+  };
+}
+async function showProfile(){
+  const prog=await getProgress(currentUser.id);const total=prog.reduce((a,p)=>a+(p.answered||0),0);const corr=prog.reduce((a,p)=>a+(p.correct||0),0);
+  openModal(`<p class="eyebrow" style="font-size:10px">Account</p><h2>${esc(currentUser.name)}</h2>
+  <p style="font-size:.875rem;color:var(--muted-foreground)">${esc(currentUser.email)} · ${esc(currentUser.role||"Learner")} · ${esc(currentUser.year||"")}</p>
+  <div class="stat3" style="margin-top:1.25rem"><div><div class="eyebrow" style="font-size:9px">Answered</div><b>${total}</b></div><div><div class="eyebrow" style="font-size:9px">Accuracy</div><b>${total?Math.round(corr/total*100):0}%</b></div><div><div class="eyebrow" style="font-size:9px">Topics</div><b>${prog.length}</b></div></div>
+  <div class="field"><label>Display name</label><input id="pf-name" value="${esc(currentUser.displayName||currentUser.name)}"></div>
+  <div class="field"><label>Year / grade</label><input id="pf-year" value="${esc(currentUser.year||"")}"></div>
+  <div style="display:flex;gap:.5rem"><button class="btn btn-ink" id="pf-save" style="flex:1">Save changes</button><button class="btn btn-outline" id="pf-out">Sign out</button></div>
+  <button class="btn btn-ghost" id="pf-close" style="width:100%;margin-top:.5rem">Close</button>`);
+  $("#pf-save").onclick=async()=>{currentUser.displayName=$("#pf-name").value.trim()||currentUser.displayName;currentUser.year=$("#pf-year").value.trim();await dbPut("users",currentUser);closeModal();renderAuthSlot();toast("Profile saved.")};
+  $("#pf-out").onclick=()=>{closeModal();logout()};$("#pf-close").onclick=closeModal;
+}
+/* ---------- Footer modals ---------- */
+function showFooterModal(kind){
+  if(kind==="privacy")return openModal(`<h2>Privacy</h2><p style="font-size:.875rem;line-height:1.7;color:var(--muted-foreground)">We store your account email, lesson progress, and anonymous performance metrics. Accessibility settings such as text size and light/dark mode are stored only in your own browser, never on our servers. In this portable build, all data lives in your browser's IndexedDB/localStorage — nothing leaves your device. We use essential storage for sign-in and optional analytics you can disable in your browser.</p><button class="btn btn-ink" onclick="closeModal()" style="width:100%;margin-top:1rem">Close</button>`,true);
+  if(kind==="terms")return openModal(`<h2>Terms</h2><p style="font-size:.875rem;line-height:1.7;color:var(--muted-foreground)">You are responsible for safeguarding your password and any activity under your account. Do not scrape, redistribute, or resell course materials without written permission. Most lessons are provided free of charge. Premium tracks may carry a separate subscription. Course content is provided for educational purposes.</p><button class="btn btn-ink" onclick="closeModal()" style="width:100%;margin-top:1rem">Close</button>`,true);
+  if(kind==="a11y"){const size=Number(LS.get("a11y.textSize",100));const theme=LS.get("a11y.theme","light");return openModal(`<h2>Accessibility</h2><div class="field"><label>Text size (${size}%)</label><div style="display:flex;gap:.5rem;align-items:center"><button class="btn btn-outline btn-sm" id="a-dec">A−</button><input type="range" id="a-range" min="80" max="150" step="5" value="${size}" style="flex:1"><button class="btn btn-outline btn-sm" id="a-inc">A+</button></div></div><div class="field"><label>Theme</label><div style="display:flex;gap:.5rem"><button class="btn ${theme==="light"?"btn-ink":"btn-outline"} btn-sm" id="a-light">☀ Light</button><button class="btn ${theme==="dark"?"btn-ink":"btn-outline"} btn-sm" id="a-dark">☾ Dark</button></div><p class="hint">Saved on your device and applies across the whole site, including lesson pages.</p></div><button class="btn btn-ink" onclick="closeModal()" style="width:100%">Done</button>`);
+    const sync=()=>{const v=Number($("#a-range").value);setTextSize(v);$("#a-range").previousElementSibling;const lbl=$("#a-range").closest(".field").querySelector("label");lbl.textContent=`Text size (${v}%)`};
+    $("#a-range").oninput=sync;$("#a-dec").onclick=()=>{$("#a-range").value=Math.max(80,Number($("#a-range").value)-5);sync()};$("#a-inc").onclick=()=>{$("#a-range").value=Math.min(150,Number($("#a-range").value)+5);sync()};
+    $("#a-light").onclick=()=>{setTheme("light");showFooterModal("a11y")};$("#a-dark").onclick=()=>{setTheme("dark");showFooterModal("a11y")}}
+  if(kind==="contact")return openModal(`<h2>Contact</h2><p style="font-size:.875rem;color:var(--muted-foreground)">help@scholaris-learning.org · partners@scholaris-learning.org · 240 Library Lane, Suite 400, Cambridge, MA 02138</p><div class="field" style="margin-top:1rem"><label>Your name</label><input id="ct-name" value="${currentUser?esc(currentUser.name):""}"></div><div class="field"><label>Email</label><input id="ct-email" type="email" value="${currentUser?esc(currentUser.email):""}"></div><div class="field"><label>How can we help?</label><textarea id="ct-msg" rows="4"></textarea></div><button class="btn btn-ink" id="ct-send" style="width:100%">Send message</button>`);
+    $("#ct-send").onclick=async()=>{const name=$("#ct-name").value.trim(),email=$("#ct-email").value.trim(),msg=$("#ct-msg").value.trim();if(!name||!email.includes("@")||!msg){toast("Please complete all fields.");return}await dbPut("contacts",{id:uid(),name,email,msg,at:nowISO()});await audit("contact",email);closeModal();toast("Message saved locally. In the live site this would email help@scholaris-learning.org.")};
+}
+/* ---------- Init ---------- */
+(async function init(){
+  applyA11y();
+  currentUser=await loadSession();
+  /* Seed default channels + welcome message */
+  const msgs=await dbAll("messages");
+  if(msgs.length===0){await dbPut("messages",{id:uid(),channel:"general",userId:"system",body:"Welcome to Scholaris Community! This chat runs locally in your browser.",at:nowISO()});await dbPut("messages",{id:uid(),channel:"announcements",userId:"system",body:"New games and lessons are added by admins from the Admin panel.",at:nowISO()})}
+  renderFooter();renderAuthSlot();renderBanner();renderPanic();render();
+  if(!location.hash)history.replaceState(null,"","#/");
+})();
+</script>
+</body>
+</html>
