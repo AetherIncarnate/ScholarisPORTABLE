@@ -1,0 +1,437 @@
+{
+  "source": "https://gitlab.com/scholaris-team/scholaris",
+  "archive_html_count": 807,
+  "added": 729,
+  "prior_visible": 97,
+  "total": 826,
+  "duplicates": [
+    {
+      "name": "Geometry Dash",
+      "kept": "Geometry Dash Full Version"
+    },
+    {
+      "name": "Stardew Valley",
+      "kept": "Stardew Valley"
+    },
+    {
+      "name": "Minecraft Pocket Edition",
+      "kept": "Minecraft PE"
+    },
+    {
+      "name": "Brotato",
+      "kept": "Brotato"
+    },
+    {
+      "name": "Untitled Goose Game",
+      "kept": "Untitled Goose Game"
+    },
+    {
+      "name": "Antonblast",
+      "kept": "Antonblast"
+    },
+    {
+      "name": "Half Life- Opposing Force",
+      "kept": "Half-Life: Opposing Force"
+    },
+    {
+      "name": "Hobo 5",
+      "kept": "Hobo 5"
+    },
+    {
+      "name": "Hobo 4",
+      "kept": "Hobo 4"
+    },
+    {
+      "name": "Hobo 2",
+      "kept": "Hobo 2"
+    },
+    {
+      "name": "Hobo 1",
+      "kept": "Hobo"
+    },
+    {
+      "name": "Orange Roulette",
+      "kept": "Orange Roulette"
+    },
+    {
+      "name": "Spelunky Classic HD",
+      "kept": "Spelunky Classic"
+    },
+    {
+      "name": "Minesweeper Plus",
+      "kept": "Minesweeper Plus"
+    },
+    {
+      "name": "Super Mario 64",
+      "kept": "Mario 64"
+    },
+    {
+      "name": "Getting Over It with Bennett Foddy",
+      "kept": "Getting Over It"
+    },
+    {
+      "name": "Karlson",
+      "kept": "Karlson"
+    },
+    {
+      "name": "The Impossible Quiz",
+      "kept": "The Impossible Quiz"
+    },
+    {
+      "name": "Undertale Yellow",
+      "kept": "Undertale Yellow"
+    },
+    {
+      "name": "BLOODMONEY!",
+      "kept": "Bloodmoney"
+    },
+    {
+      "name": "Celeste PICO",
+      "kept": "Celeste Classic"
+    },
+    {
+      "name": "Yume Nikki",
+      "kept": "Yume Nikki"
+    },
+    {
+      "name": "OMORI",
+      "kept": "OMORI"
+    },
+    {
+      "name": "Dadish",
+      "kept": "Dadish"
+    },
+    {
+      "name": "Binding of Issac- Wrath of the Lamb",
+      "kept": "The Binding of Isaac: Wrath of the Lamb"
+    },
+    {
+      "name": "Nazi Zombies- Portable",
+      "kept": "Nazi Zombies: Portable"
+    },
+    {
+      "name": "Idle Dice",
+      "kept": "Idle Dice"
+    },
+    {
+      "name": "Riddle Transfer 2",
+      "kept": "Riddle Transfer 2"
+    },
+    {
+      "name": "Riddle Transfer",
+      "kept": "Riddle Transfer"
+    },
+    {
+      "name": "Riddle School 5",
+      "kept": "Riddle School 5"
+    },
+    {
+      "name": "Riddle School 4",
+      "kept": "Riddle School 4"
+    },
+    {
+      "name": "Riddle School 3",
+      "kept": "Riddle School 3"
+    },
+    {
+      "name": "Riddle School 2",
+      "kept": "Riddle School 2"
+    },
+    {
+      "name": "Riddle School",
+      "kept": "Riddle School"
+    },
+    {
+      "name": "Pizza Tower",
+      "kept": "Pizza Tower"
+    },
+    {
+      "name": "Half Life",
+      "kept": "Half-Life"
+    },
+    {
+      "name": "Fruit Ninja",
+      "kept": "Fruit Ninja"
+    },
+    {
+      "name": "Crazy Kitty 3D",
+      "kept": "Crazy Kitty 3D"
+    },
+    {
+      "name": "Crazy Chicken 3D",
+      "kept": "Crazy Chicken 3D"
+    },
+    {
+      "name": "Chat Bot AI (A.I GPT)",
+      "kept": "Chat Bot AI"
+    },
+    {
+      "name": "Plants vs Zombies",
+      "kept": "Plants vs. Zombies"
+    },
+    {
+      "name": "Papa's Wingeria",
+      "kept": "Papa's Wingeria"
+    },
+    {
+      "name": "Papa's Taco Mia",
+      "kept": "Papa's Taco Mia"
+    },
+    {
+      "name": "Papa's Sushiria",
+      "kept": "Papa's Sushiria"
+    },
+    {
+      "name": "Papa's Scooperia",
+      "kept": "Papa's Scooperia"
+    },
+    {
+      "name": "Papa's Pizeria",
+      "kept": "Papa's Pizzeria"
+    },
+    {
+      "name": "Papa's Pastaria",
+      "kept": "Papa's Pastaria"
+    },
+    {
+      "name": "Papa's Pancakeria",
+      "kept": "Papa's Pancakeria"
+    },
+    {
+      "name": "Papa's Hot Doggeria",
+      "kept": "Papa's Hotdoggeria"
+    },
+    {
+      "name": "Papa's Freezeria",
+      "kept": "Papa's Freezeria"
+    },
+    {
+      "name": "Papa's Donuteria",
+      "kept": "Papa's Donuteria"
+    },
+    {
+      "name": "Papa's Cupcakeria",
+      "kept": "Papa's Cupcakeria"
+    },
+    {
+      "name": "Papa's Cheeseria",
+      "kept": "Papa's Cheeseria"
+    },
+    {
+      "name": "Papa's Burgeria",
+      "kept": "Papa's Burgeria"
+    },
+    {
+      "name": "Papa's Bakeria",
+      "kept": "Papa's Bakeria"
+    },
+    {
+      "name": "Buckshot Roulette",
+      "kept": "Buckshot Roulette"
+    },
+    {
+      "name": "ULTRAKILL",
+      "kept": "ULTRAKILL"
+    },
+    {
+      "name": "Ragdoll Archers",
+      "kept": "Ragdoll Archers UPDATE"
+    },
+    {
+      "name": "Soundboard",
+      "kept": "Soundboard"
+    },
+    {
+      "name": "Crazy Cattle 3D",
+      "kept": "Crazy Cattle 3D"
+    },
+    {
+      "name": "Angry Birds Showdown",
+      "kept": "Angry Birds Showdown"
+    },
+    {
+      "name": "Poly Track",
+      "kept": "Polytrack"
+    },
+    {
+      "name": "Space Waves",
+      "kept": "Space Waves"
+    },
+    {
+      "name": "Wordle",
+      "kept": "Wordle Unlimited"
+    },
+    {
+      "name": "Tomb Of The Mask",
+      "kept": "Tomb of the Mask"
+    },
+    {
+      "name": "Tiny Fishing",
+      "kept": "Tiny Fishing"
+    },
+    {
+      "name": "Paper.io 2",
+      "kept": "Paper.io 2"
+    },
+    {
+      "name": "Gunspin",
+      "kept": "Gunspin"
+    },
+    {
+      "name": "Cut the Rope",
+      "kept": "Cut the Rope"
+    },
+    {
+      "name": "Cookie Clicker",
+      "kept": "Cookie Clicker"
+    },
+    {
+      "name": "Bloons TD 4",
+      "kept": "Bloons Tower Defense 4"
+    },
+    {
+      "name": "Bloons TD 3",
+      "kept": "Bloons Tower Defense 3"
+    },
+    {
+      "name": "Bloons TD 2",
+      "kept": "Bloons Tower Defense 2"
+    },
+    {
+      "name": "Bloons TD",
+      "kept": "Bloons Tower Defense 1"
+    },
+    {
+      "name": "Angry Birds",
+      "kept": "Angry Birds"
+    },
+    {
+      "name": "A Dance of Fire and Ice",
+      "kept": "A Dance of Fire and Ice"
+    },
+    {
+      "name": "Block Blast",
+      "kept": "Block Blast"
+    },
+    {
+      "name": "Gladihoppers",
+      "kept": "Gladihoppers"
+    }
+  ],
+  "review": [
+    {
+      "name": "Vena",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "index.icon.png",
+        "index.apple-touch-icon.png",
+        "index.png",
+        "index.js",
+        "main.js"
+      ]
+    },
+    {
+      "name": "Five Nights at Frickbear's 3",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "runner.svg",
+        "runnerLocal.svg"
+      ]
+    },
+    {
+      "name": "64 in 1 NES",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "//www.google.com/jsapi"
+      ]
+    },
+    {
+      "name": "Cell Machine",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "img/icon.png",
+        "img/icon.png",
+        "/js/main.js"
+      ]
+    },
+    {
+      "name": "Fused 240",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "Fused 240.icon.png",
+        "Fused 240.png"
+      ]
+    },
+    {
+      "name": "Roulette Hero",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "TemplateData/favicon.ico",
+        "TemplateData/style.css"
+      ]
+    },
+    {
+      "name": "Pac Man World 2",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "//www.google.com/jsapi"
+      ]
+    },
+    {
+      "name": "12 Mini Battles",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "//www.google.com/jsapi"
+      ]
+    },
+    {
+      "name": "Superhot",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "hot.jpg"
+      ]
+    },
+    {
+      "name": "Tube Jumpers",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "h"
+      ]
+    },
+    {
+      "name": "Ninja vs EvilCorp",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "/js/main.js"
+      ]
+    },
+    {
+      "name": "Emulator.JS",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "favicon.ico",
+        "img/icon.png",
+        "manifest.json",
+        "img/logo-light.png"
+      ]
+    },
+    {
+      "name": "Coreball",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "//www.google.com/jsapi"
+      ]
+    },
+    {
+      "name": "BitLife",
+      "issue": "Relative links without a base URL; review dependencies",
+      "paths": [
+        "/"
+      ]
+    }
+  ],
+  "compatibility": "All classifications are estimates, not device gameplay tests.",
+  "thumbnail_matches": 729,
+  "mobile_pc_estimated": 274,
+  "pc_only_estimated": 455
+}
