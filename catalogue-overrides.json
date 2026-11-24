@@ -45,7 +45,7 @@
     "id": "repo:3d3b6dc18fb50de3"
   },
   "60 Seconds! Reatomized": {
-    "genre": "Adventure",
+    "genre": "Survival",
     "device": "pc",
     "id": "repo:ef85ae66bffa29db"
   },
@@ -85,7 +85,7 @@
     "id": "repo:649f860d13238426"
   },
   "Lobotomy Corporation": {
-    "genre": "RPG",
+    "genre": "Strategy",
     "device": "pc",
     "id": "repo:b240f366b4576378"
   },
@@ -95,7 +95,7 @@
     "id": "repo:225d7ab276416b24"
   },
   "ClusterTruck": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:fac15e20f259cf01"
   },
@@ -110,7 +110,7 @@
     "id": "repo:5e2b20783dbb52c1"
   },
   "Swords and Sandals 2": {
-    "genre": "Fighting",
+    "genre": "RPG",
     "device": "pc",
     "id": "repo:f2f4e1b370501732"
   },
@@ -120,17 +120,17 @@
     "id": "repo:fb54c45de45d43fd"
   },
   "La Madriguera (Lazy Bear Game)": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "pc",
     "id": "repo:1b6acdcf5c49e7ed"
   },
   "Plants vs. Zombies GOTY Edition": {
-    "genre": "Arcade",
+    "genre": "Tower Defense",
     "device": "mobile+pc",
     "id": "repo:6f61fb4f2b01c3d1"
   },
   "WarioWare- Touched!": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "pc",
     "id": "repo:71b58b9eebab9898"
   },
@@ -145,7 +145,7 @@
     "id": "repo:94339e6fd3f59c07"
   },
   "Vena": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:905b9a7d9f33eb75"
   },
@@ -160,7 +160,7 @@
     "id": "repo:55f5fc84f4cf4b2e"
   },
   "YoHoHo.io": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:f6859c521c46ccd5"
   },
@@ -200,7 +200,7 @@
     "id": "repo:78638ebe3917583e"
   },
   "Totally Accurate Battle Simulator (TABS)": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:7c122be58a392e12"
   },
@@ -245,22 +245,22 @@
     "id": "repo:3b7bcbf35484f67b"
   },
   "t³ (T cubed)": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:b7567bc68ab1387d"
   },
   "Baldi's Basics Mod (-b)": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:ecaa683b0380bd3e"
   },
   "Baldi's Basics Mod (-3)": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:253a0dba5465f841"
   },
   "Baldi's Basics The Ultra Decompile": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:4c075f2392a2123e"
   },
@@ -325,17 +325,17 @@
     "id": "repo:c086307bbb410c01"
   },
   "Scampton The Great": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:a4d92866cfca4188"
   },
   "Trees Hate You": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:5264bc83a3df9f99"
   },
   "Rocket Goal.io": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:267a8ac760e8e31a"
   },
@@ -350,7 +350,7 @@
     "id": "repo:2fe70e2d0c8b547c"
   },
   "Fih": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:7f829eefc2ffa210"
   },
@@ -360,7 +360,7 @@
     "id": "repo:311d3a3cd1f2b65a"
   },
   "UvuvwevwevweOnyetenvewveUgwemubwemOssas": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:565ea528b120cea9"
   },
@@ -375,17 +375,17 @@
     "id": "repo:7652cb26406db1c3"
   },
   "Escape Road 3": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:d4e4f6ddc0db4d6e"
   },
   "Who's Your Daddy": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:0fb9f928f2effc7e"
   },
   "Helltaker": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:ce02500c4d4eb8cd"
   },
@@ -405,17 +405,17 @@
     "id": "repo:4ea36393a8efefb0"
   },
   "Web Dashers": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:7a28cc5ad0a55b88"
   },
   "Gabriel's Awesome Schoolhouse (GASH)": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:fd5c4db922384295"
   },
   "Apes vs Helium": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:e224328d3d951a4d"
   },
@@ -430,12 +430,12 @@
     "id": "repo:26c3924b71f36030"
   },
   "Thing-Thing Arena 3": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:3a5b11344036bdba"
   },
   "I Have No Mouth, and I Must Scream": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "pc",
     "id": "repo:25ae016dcdd5a2a4"
   },
@@ -445,7 +445,7 @@
     "id": "repo:aa191a64bc1e5d8e"
   },
   "Outhold": {
-    "genre": "Arcade",
+    "genre": "Tower Defense",
     "device": "pc",
     "id": "repo:cc3a21090d9e925a"
   },
@@ -455,7 +455,7 @@
     "id": "repo:7e7dddb4a4807345"
   },
   "Bart Bash": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:462c93703b290271"
   },
@@ -495,7 +495,7 @@
     "id": "repo:10388c344c3142c0"
   },
   "Stick Slasher": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "pc",
     "id": "repo:5d80de0a8e35ad3e"
   },
@@ -515,17 +515,17 @@
     "id": "repo:f1a381205476f094"
   },
   "Flying Gorilla 3D": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:62811093d53c59d2"
   },
   "Cheese Rolling": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "pc",
     "id": "repo:5e37c1c7ab998e7e"
   },
   "FISH": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:33a9c17a92ad8b3d"
   },
@@ -535,7 +535,7 @@
     "id": "repo:88776e896db448bd"
   },
   "CaseOh's Basics in Eating and Fast Food": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:7200258580abc861"
   },
@@ -550,7 +550,7 @@
     "id": "repo:925f755f20f68068"
   },
   "Brawl Simulator 3D": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "pc",
     "id": "repo:71b9c10e446a50e4"
   },
@@ -560,12 +560,12 @@
     "id": "repo:dbcfab8580c40ca8"
   },
   "Bad Piggies": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "pc",
     "id": "repo:8935790735b9d1e5"
   },
   "Jeffrey Epstein Basics In Education And Kidnapping": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:d51ebbf5cc6cd672"
   },
@@ -580,12 +580,12 @@
     "id": "repo:849415e33d281fc1"
   },
   "Undertale Last Breath PHASE THREE": {
-    "genre": "RPG",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:96c4ce7de9e66677"
   },
   "Worst Time Simulator": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:a84f707a82c55105"
   },
@@ -600,12 +600,12 @@
     "id": "repo:26cc73acb5edc68c"
   },
   "Escape Road City 2": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:439898fe533e4dc6"
   },
   "Power Hover": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:07464f8f878653a7"
   },
@@ -620,7 +620,7 @@
     "id": "repo:4c8875c671d5a408"
   },
   "Bart Blast": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:93100c6ac21025ee"
   },
@@ -635,7 +635,7 @@
     "id": "repo:a4ed6f80198982d1"
   },
   "Saihate Station (さいはて駅)": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "mobile+pc",
     "id": "repo:b7e98faffbdb61d3"
   },
@@ -645,12 +645,12 @@
     "id": "repo:f16db244015a0647"
   },
   "Famidash": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:d48d4d0d34b1e888"
   },
   "Christmas Massacre": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:d01fb3b85a61a910"
   },
@@ -660,12 +660,12 @@
     "id": "repo:da663a2d82c373d5"
   },
   "64 in 1 NES": {
-    "genre": "Arcade",
+    "genre": "Tool",
     "device": "pc",
     "id": "repo:75491b1a0cb78986"
   },
   "Undertale- Last Breath": {
-    "genre": "RPG",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:7ba0905ebb24011e"
   },
@@ -675,7 +675,7 @@
     "id": "repo:de43cb06ac90c870"
   },
   "game inside a game inside a game inside a game inside a game inside a game": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:eed53d16f7ca1123"
   },
@@ -685,12 +685,12 @@
     "id": "repo:fe04dbcd2551847a"
   },
   "Dimension Incident": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:28023e10b60bef9f"
   },
   "Breath of the Wild NDS": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "pc",
     "id": "repo:a450975d215d586d"
   },
@@ -705,7 +705,7 @@
     "id": "repo:fd2f62eec6fd9828"
   },
   "Fused 240": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:e63b86218064ebbd"
   },
@@ -720,7 +720,7 @@
     "id": "repo:18e0c5fbad2c942b"
   },
   "A Game About Feeding A Black Hole": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "pc",
     "id": "repo:cae249ff962110f9"
   },
@@ -765,7 +765,7 @@
     "id": "repo:c3b7482b03bb4092"
   },
   "Needy Streamer Overload": {
-    "genre": "RPG",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:45577f9180786c3d"
   },
@@ -785,7 +785,7 @@
     "id": "repo:ca313517db30825e"
   },
   "Five Nights at Freddy's- World Refreshed": {
-    "genre": "Horror",
+    "genre": "RPG",
     "device": "pc",
     "id": "repo:f704a66ca4cc3c6a"
   },
@@ -830,7 +830,7 @@
     "id": "repo:316ddd1a1573381e"
   },
   "Duck Life 8": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:c7904e55758e4385"
   },
@@ -860,12 +860,12 @@
     "id": "repo:eeaf40225c132388"
   },
   "Peggle": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:a71e1619766091c3"
   },
   "Pico's School (1999)": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:6e1faeb5f19d6a1a"
   },
@@ -920,17 +920,17 @@
     "id": "repo:2b92da5d32cdb999"
   },
   "A Difficult Game About Climbing": {
-    "genre": "Adventure",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:34cc277cd4c8bdf0"
   },
   "We Become What We Behold": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:666179976e06f3f7"
   },
   "Raldi's Crackhouse": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:fad62266344bf7df"
   },
@@ -955,7 +955,7 @@
     "id": "repo:aadb2805d8d30011"
   },
   "Tall.io": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:7818f963e422c29a"
   },
@@ -965,12 +965,12 @@
     "id": "repo:e954f56d2601e7b4"
   },
   "Going Balls": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:fd17ac4593627c22"
   },
   "Royal Towers- Medieval TD": {
-    "genre": "Strategy",
+    "genre": "Tower Defense",
     "device": "mobile+pc",
     "id": "repo:5cb486dd75d8c3f4"
   },
@@ -995,7 +995,7 @@
     "id": "repo:2936143cf058af8f"
   },
   "Goblin Goopmaxxing": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "pc",
     "id": "repo:4ec71fc89526b70f"
   },
@@ -1005,7 +1005,7 @@
     "id": "repo:6ec335c59cf63bdf"
   },
   "1 Date Danger": {
-    "genre": "Arcade",
+    "genre": "Visual Novel",
     "device": "pc",
     "id": "repo:31d8b25a5b91082a"
   },
@@ -1035,7 +1035,7 @@
     "id": "repo:f3ddc93defa28935"
   },
   "Buster Jam": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "pc",
     "id": "repo:e1d7b052a4288f37"
   },
@@ -1050,7 +1050,7 @@
     "id": "repo:a6759edab3fafa56"
   },
   "Rio Rex": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "pc",
     "id": "repo:ec2b330fe5b98669"
   },
@@ -1140,7 +1140,7 @@
     "id": "repo:c6842b3146a9bf2b"
   },
   "Happy Wheels": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:90a05a276ff60180"
   },
@@ -1240,7 +1240,7 @@
     "id": "repo:e977273cf84482c0"
   },
   "Growden.io": {
-    "genre": "Arcade",
+    "genre": "Survival",
     "device": "mobile+pc",
     "id": "repo:7657a8bd9bdff9f8"
   },
@@ -1270,7 +1270,7 @@
     "id": "repo:8980064fae2f0283"
   },
   "Plants vs. Zombies 2 Gardenless": {
-    "genre": "Arcade",
+    "genre": "Tower Defense",
     "device": "mobile+pc",
     "id": "repo:61d07c0470a76e6b"
   },
@@ -1325,7 +1325,7 @@
     "id": "repo:b6544da569748074"
   },
   "Stone Grass Mowing Simulator": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:236a1e9623f9c4b1"
   },
@@ -1360,7 +1360,7 @@
     "id": "repo:e56a7e921daa8950"
   },
   "Steal Brainrot Online": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "mobile+pc",
     "id": "repo:c351d0f1405b4c19"
   },
@@ -1370,7 +1370,7 @@
     "id": "repo:1fcbba02b5346977"
   },
   "Shovel 3D": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:790d719dd2a26b77"
   },
@@ -1380,7 +1380,7 @@
     "id": "repo:8c6f78677d0ffdd9"
   },
   "Man Runner 2048": {
-    "genre": "Puzzle",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:c7b546e0b11eb8a3"
   },
@@ -1390,7 +1390,7 @@
     "id": "repo:a8be7b19a313b338"
   },
   "Layers Roll": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:e66ead06951f9f30"
   },
@@ -1400,7 +1400,7 @@
     "id": "repo:564d51fd6ab656fc"
   },
   "Hula Hoop Race": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:266e457316de43f4"
   },
@@ -1415,22 +1415,22 @@
     "id": "repo:c9af1368174f1c27"
   },
   "Dalgona Candy Honeycomb Cookie": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "mobile+pc",
     "id": "repo:02dd1a093ae13a17"
   },
   "Count Masters- Stickman Games": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:68411fd1ba3ffe03"
   },
   "CG FC 25": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:ac40758311c82b3d"
   },
   "Boom Slingers- Reboom": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "pc",
     "id": "repo:0886e8382e38acc0"
   },
@@ -1505,7 +1505,7 @@
     "id": "repo:098b291e420eb1ab"
   },
   "Clash Of Vikings": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "pc",
     "id": "repo:d142099e11908496"
   },
@@ -1545,7 +1545,7 @@
     "id": "repo:06754cde792cc7ae"
   },
   "Teen Titans GO!- Jump Jousts": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "pc",
     "id": "repo:40a25673097338e8"
   },
@@ -1555,37 +1555,37 @@
     "id": "repo:bb4fb8e396008dd3"
   },
   "SpongeBob SquarePants- WereSquirrel": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "pc",
     "id": "repo:3d7bd0508c9d0502"
   },
   "SpongeBob SquarePants- The Kah-Ray-Tay Squid": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "pc",
     "id": "repo:e13a71ee76feb6c1"
   },
   "SpongeBob SquarePants- Tasty Pastry Party": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:3de70bad239d2609"
   },
   "SpongeBob SquarePants- Sandy's Sponge Stacker": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:801be51fbd1c9c53"
   },
   "SpongeBob SquarePants- Squidward's Sizzlin' Scare": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:75c957aad2ef59dd"
   },
   "SpongeBob SquarePants- SpongeBob Run": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:9a629cb2ab01ce16"
   },
   "SpongeBob SquarePants- Land Ho!": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "pc",
     "id": "repo:de8b18547436f6ab"
   },
@@ -1600,17 +1600,17 @@
     "id": "repo:e2237998bf98331d"
   },
   "Bad Monday Simulator": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:bca092fdc1a20bc2"
   },
   "Bust a Loop": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:2fc428960e1ca643"
   },
   "Dan The Man": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:def3cc76ab9446a4"
   },
@@ -1625,12 +1625,12 @@
     "id": "repo:90c54950ae78b8d8"
   },
   "Nubby's Number Factory": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "mobile+pc",
     "id": "repo:801a1e3dc85b6586"
   },
   "Oshi Oshi Punch!": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "pc",
     "id": "repo:d2a69bbc6a157e25"
   },
@@ -1640,7 +1640,7 @@
     "id": "repo:1e7ee1014e9bcbd2"
   },
   "PortaBoy+": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:c346bd21d68170ba"
   },
@@ -1695,7 +1695,7 @@
     "id": "repo:70cf51dc53a218fa"
   },
   "Stick With It": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:7a9b3199929b48f5"
   },
@@ -1725,22 +1725,22 @@
     "id": "repo:4960fdfe7392ec96"
   },
   "groon groon, babey!": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:0f1026e3854cb8b8"
   },
   "RigBMX 2": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:ced57bd4edde73bd"
   },
   "RigBMX": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:f422dd95fe905613"
   },
   "UNDERWHEELS": {
-    "genre": "Arcade",
+    "genre": "Unclassified",
     "device": "pc",
     "id": "repo:96104b4dbb738cba"
   },
@@ -1785,7 +1785,7 @@
     "id": "repo:c4c79d7d8dc370af"
   },
   "Human Expenditure Program": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "mobile+pc",
     "id": "repo:718b9652db191972"
   },
@@ -1800,7 +1800,7 @@
     "id": "repo:e9f5d10b268e2e0b"
   },
   "Steal A Brainrot": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "mobile+pc",
     "id": "repo:1551e8b13aaa71c1"
   },
@@ -1835,7 +1835,7 @@
     "id": "repo:ef37de6a5bc11617"
   },
   "Bad Time Simulator": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:71da3b6adfe602dd"
   },
@@ -1845,7 +1845,7 @@
     "id": "repo:4cb5ad520d11c0ae"
   },
   "Doodle Jump": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "mobile+pc",
     "id": "repo:ffc5c02372921758"
   },
@@ -1860,17 +1860,17 @@
     "id": "repo:45de92f64bf36d31"
   },
   "Baldi's Basics Plus": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:bb469e0079199554"
   },
   "Baldi's Basics Classic Remastered": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:51992d6b0c071835"
   },
   "Cuphead": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:8e8112b682bb2dfa"
   },
@@ -1915,7 +1915,7 @@
     "id": "repo:79ad054792fe0ffb"
   },
   "BERGENTRUCK 201x": {
-    "genre": "Arcade",
+    "genre": "Bullet Hell",
     "device": "pc",
     "id": "repo:ee62c527918524e0"
   },
@@ -1945,7 +1945,7 @@
     "id": "repo:0257ede1e22b1465"
   },
   "Aquapark.io": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:2ab8e26555e2a7d7"
   },
@@ -1965,7 +1965,7 @@
     "id": "repo:e504ab43572c8230"
   },
   "Adventure Drivers": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "pc",
     "id": "repo:89ee935cb7cb0e9c"
   },
@@ -1985,7 +1985,7 @@
     "id": "repo:7154d6e548d8cb56"
   },
   "Awesome Tanks 2": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:9db16e57401ed938"
   },
@@ -1995,7 +1995,7 @@
     "id": "repo:a093e1f65e3fbbea"
   },
   "Awesome Tanks": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:e15fee92a1ae12af"
   },
@@ -2005,12 +2005,12 @@
     "id": "repo:99e2ca58584a5979"
   },
   "God's Flesh": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "pc",
     "id": "repo:e27141dc19768049"
   },
   "Abandoned": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "pc",
     "id": "repo:e14cac7250542c86"
   },
@@ -2035,7 +2035,7 @@
     "id": "repo:e2ba09583316bce8"
   },
   "Andy's Apple Farm": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:a28c7d4d05a4139a"
   },
@@ -2060,7 +2060,7 @@
     "id": "repo:62b766fd58b81229"
   },
   "Twisted Rope 3D": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:898bad6a211f602f"
   },
@@ -2070,22 +2070,22 @@
     "id": "repo:38959439229ce961"
   },
   "Tug of War with Cars": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "mobile+pc",
     "id": "repo:94a739ae4fa85041"
   },
   "Telekinesis": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "mobile+pc",
     "id": "repo:fcebfbc18cedcda4"
   },
   "Telekinesis Drive": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:b7533dbdeaadccc0"
   },
   "Telekinesis Car": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:4be04d6121d716d4"
   },
@@ -2105,27 +2105,27 @@
     "id": "repo:636667b6c2450082"
   },
   "Monster Box 3D": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "mobile+pc",
     "id": "repo:f6ab5e8a19623e80"
   },
   "Money Rush": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:8eede19f3307d950"
   },
   "Mega Car Jumps": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:cf71e75c63c78b51"
   },
   "Makeover Run": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:51e301a7bb234bd7"
   },
   "Make a SuperBoat": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:e68b83075b1974d8"
   },
@@ -2140,7 +2140,7 @@
     "id": "repo:172c3670ec7b8c89"
   },
   "Flip Master": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "mobile+pc",
     "id": "repo:17d513f4613fbf55"
   },
@@ -2150,12 +2150,12 @@
     "id": "repo:b329fa442ae133e1"
   },
   "Diamond Seeker": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:f9c73c6288acb0cb"
   },
   "Destiny Run 3D": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:5e09274b278f5d72"
   },
@@ -2165,7 +2165,7 @@
     "id": "repo:85ee6634dd7b53ba"
   },
   "Cool Cars Run 3D": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:25af4dadbd78aee8"
   },
@@ -2200,12 +2200,12 @@
     "id": "repo:e14b9613463c7ea0"
   },
   "Stickman Climb": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:c35663b3d4e692c2"
   },
   "Stickman Boost": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:2d18361ef3ec4eca"
   },
@@ -2225,12 +2225,12 @@
     "id": "repo:368e43db85724dc9"
   },
   "Slope 2": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:5eee929731f16346"
   },
   "Parking Fury 3D": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "pc",
     "id": "repo:a49cc94b62ad1ba7"
   },
@@ -2240,7 +2240,7 @@
     "id": "repo:88d7ff7be9ad5176"
   },
   "JustFall.lol": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "pc",
     "id": "repo:de60c39d84b8ed14"
   },
@@ -2265,7 +2265,7 @@
     "id": "repo:f7473849a4a1db24"
   },
   "EvoWars.io": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "pc",
     "id": "repo:6b7c09a04ba74569"
   },
@@ -2295,12 +2295,12 @@
     "id": "repo:d772d2f0f42b49ac"
   },
   "Blumgi Rocket": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:58e2693b7a07ab79"
   },
   "DON'T YOU LECTURE ME": {
-    "genre": "Arcade",
+    "genre": "Toy",
     "device": "pc",
     "id": "repo:b96661a63e10a2b2"
   },
@@ -2315,27 +2315,27 @@
     "id": "repo:1d7f79f8bbc903b3"
   },
   "They Are Coming": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "mobile+pc",
     "id": "repo:cb3437223421b6f4"
   },
   "SpiderDoll": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:e46019faaa10e712"
   },
   "Sort the Court": {
-    "genre": "Puzzle",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:d62d34006e4c5ed1"
   },
   "Raft Wars 2": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:aaf77ed94e56049e"
   },
   "Raft Wars": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:b44eabc8b938a6d8"
   },
@@ -2345,27 +2345,27 @@
     "id": "repo:4b4d766a48eadaf2"
   },
   "Learn to Fly 3": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:242abe4becc00713"
   },
   "Learn to Fly 2": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:981a3f7b2f3819a2"
   },
   "Learn to Fly": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:33b7d30fd684d047"
   },
   "House of Hazards": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "pc",
     "id": "repo:fd3135360ac2d334"
   },
   "Getaway Shootout": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:03547537e3d8bbc0"
   },
@@ -2410,7 +2410,7 @@
     "id": "repo:a46c1f44a7d5d9ea"
   },
   "Om Nom Run": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:598a5c83e9997072"
   },
@@ -2430,17 +2430,17 @@
     "id": "repo:2277ff6fa53e5e39"
   },
   "Maze Speedrun": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:d013aff0d3ed0ac3"
   },
   "Find the Alien": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:36b49a7c666fc893"
   },
   "Sushi Roll": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:1285f743541e4346"
   },
@@ -2455,12 +2455,12 @@
     "id": "repo:d1a8dc3d089d3ed4"
   },
   "Build a Queen": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:76baa7898072f5e2"
   },
   "Side Effects": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:fdeca2adcdd657b9"
   },
@@ -2470,7 +2470,7 @@
     "id": "repo:acb69531f141b4f7"
   },
   "Angry Birds Chrome": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:51a7db028a2396b1"
   },
@@ -2485,7 +2485,7 @@
     "id": "repo:d1b6dfb04eacf5bc"
   },
   "Minesweeper Mania": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "mobile+pc",
     "id": "repo:f72344b9b7dc9ef9"
   },
@@ -2510,12 +2510,12 @@
     "id": "repo:0917093e1dd0d5eb"
   },
   "Shipo.io": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:91fc09de93f67035"
   },
   "Tanuki Sunset": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:2e14eced4fced5f2"
   },
@@ -2560,7 +2560,7 @@
     "id": "repo:f03420643d30dbcc"
   },
   "12 Mini Battles": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "pc",
     "id": "repo:f231a773e6a11dd3"
   },
@@ -2610,7 +2610,7 @@
     "id": "repo:908ffc59ce0b3cec"
   },
   "Evil Glitch": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:b8cb24012131c193"
   },
@@ -2620,12 +2620,12 @@
     "id": "repo:442758f912e94e80"
   },
   "CircloO 2": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "pc",
     "id": "repo:1e2f85b84eae52eb"
   },
   "CircloO": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "pc",
     "id": "repo:dc675e1ba933855f"
   },
@@ -2640,17 +2640,17 @@
     "id": "repo:07a87d2119b09d81"
   },
   "Bad Ice Cream 3": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:25c4fd8e710f5bc0"
   },
   "Bad Ice Cream 2": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:a9d359e8752825bf"
   },
   "Bad Ice Cream": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "pc",
     "id": "repo:d32bf5a9b0bc14ee"
   },
@@ -2665,12 +2665,12 @@
     "id": "repo:5472badae54758c4"
   },
   "Escape Road 2": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:3db46bbd55f1ec7d"
   },
   "Escape Road": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:c1d5942814068016"
   },
@@ -2770,27 +2770,27 @@
     "id": "repo:26cc60b5afd25933"
   },
   "Duck Life 5": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:3b37e51e5f4eabf9"
   },
   "Duck Life 4": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:ca12afa105da8726"
   },
   "Duck Life 3": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:a0635690cc4eecb1"
   },
   "Duck Life 2": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:f0e39f265fd2a1a1"
   },
   "Duck Life": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:02433774c7d2d7ac"
   },
@@ -2810,22 +2810,22 @@
     "id": "repo:013e201ef14147f3"
   },
   "Cut the Rope- Holiday Gift": {
-    "genre": "Puzzle",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:4e6942a05433288d"
   },
   "Cut the Rope- Time Travel": {
-    "genre": "Puzzle",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:a81d3714aa3bde9e"
   },
   "Cut the Rope (2)": {
-    "genre": "Puzzle",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:d8bc253477f36d3e"
   },
   "Death Run 3D": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:8f588a725430ef25"
   },
@@ -2835,17 +2835,17 @@
     "id": "repo:fff6f02cd9c4d593"
   },
   "Rolly Vortex": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:60b11f4ae55c2627"
   },
   "Snowbattle.io": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:91ab681c9a9a2714"
   },
   "Tunnel Rush": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:7f00e0e0637a12ee"
   },
@@ -2860,7 +2860,7 @@
     "id": "repo:000c55fae14c7171"
   },
   "Carrom Clash": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "mobile+pc",
     "id": "repo:e839b9a9b8a7c78d"
   },
@@ -2885,7 +2885,7 @@
     "id": "repo:b5b5597707729682"
   },
   "R.E.P.O": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:c02f66617f533ccc"
   },
@@ -2910,7 +2910,7 @@
     "id": "repo:e8ae56652b7abecf"
   },
   "Five Nights at Freddy's- World": {
-    "genre": "Horror",
+    "genre": "RPG",
     "device": "pc",
     "id": "repo:dd5d0b6e196e675a"
   },
@@ -2945,7 +2945,7 @@
     "id": "repo:c865515139a3244c"
   },
   "Swords and Souls": {
-    "genre": "Fighting",
+    "genre": "RPG",
     "device": "pc",
     "id": "repo:f09ba3f67f2bed46"
   },
@@ -2965,7 +2965,7 @@
     "id": "repo:3a9a47c5d028ee78"
   },
   "World Box": {
-    "genre": "Simulation",
+    "genre": "Sandbox",
     "device": "pc",
     "id": "repo:2197916485588e86"
   },
@@ -2980,7 +2980,7 @@
     "id": "repo:c6df0afee71b2fb4"
   },
   "Candy Crush": {
-    "genre": "Arcade",
+    "genre": "Puzzle",
     "device": "mobile+pc",
     "id": "repo:cd02820ec5fc249f"
   },
@@ -3000,7 +3000,7 @@
     "id": "repo:c767fddace4a919c"
   },
   "Blade Ball": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "mobile+pc",
     "id": "repo:e4bce239c7169ac5"
   },
@@ -3010,7 +3010,7 @@
     "id": "repo:a32d3c44011876e9"
   },
   "Cheese Chompers 3D": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "pc",
     "id": "repo:b675d408ece0f863"
   },
@@ -3020,7 +3020,7 @@
     "id": "repo:ba4e454d5ab26481"
   },
   "Tower Crash 3D": {
-    "genre": "Strategy",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:7049e516199b011b"
   },
@@ -3035,7 +3035,7 @@
     "id": "repo:4e33cda299b0d29b"
   },
   "Parking Rush": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:ee2fda141435a578"
   },
@@ -3060,17 +3060,17 @@
     "id": "repo:482af6c2dbd5a20d"
   },
   "Fork n Sausage": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:f39f5f46f745b07e"
   },
   "Flappy Dunk": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "mobile+pc",
     "id": "repo:ed6c116026f09af0"
   },
   "Draw the Line": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:7a0d5b9e22081b98"
   },
@@ -3080,12 +3080,12 @@
     "id": "repo:ed21bce18f06fc23"
   },
   "Cannon Balls 3D": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:97d8aac051d66a42"
   },
   "Ball Blast": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "mobile+pc",
     "id": "repo:23c9b4137e63e6c9"
   },
@@ -3115,7 +3115,7 @@
     "id": "repo:017f933184c3059e"
   },
   "Fashion Battle": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:834b5d347cd575e6"
   },
@@ -3135,7 +3135,7 @@
     "id": "repo:eee0f7184837a499"
   },
   "Brawl Guys.io": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:1ee8da05ebb81bd8"
   },
@@ -3175,7 +3175,7 @@
     "id": "repo:440cfd8df6b3452e"
   },
   "Tube Jumpers": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "mobile+pc",
     "id": "repo:ffee0c4410d88938"
   },
@@ -3185,27 +3185,27 @@
     "id": "repo:2e3994221540a244"
   },
   "This Is The Only Level 2": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:b158dd6491feb748"
   },
   "This Is The Only Level": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:4893aa71af8a12cd"
   },
   "The World's Hardest Game 4": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:ec81010b2a64989a"
   },
   "The World's Hardest Game 3": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:b14f65249023dd0e"
   },
   "The World's Hardest Game": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:5b61027708d22741"
   },
@@ -3240,7 +3240,7 @@
     "id": "repo:95970b8b1185eb29"
   },
   "Line Rider": {
-    "genre": "Racing",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:9a17cdc86d8463fc"
   },
@@ -3275,12 +3275,12 @@
     "id": "repo:4ed979766aa25568"
   },
   "Draw Climber": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:920e1b00bc67ba71"
   },
   "Cubefield": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "pc",
     "id": "repo:e19b6a312b461a4b"
   },
@@ -3290,17 +3290,17 @@
     "id": "repo:07884a738009ea59"
   },
   "Cluster Rush": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:7a151dec8961ff3b"
   },
   "Cannon Basketball 2": {
-    "genre": "Sports",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:b71789ef6c734d3e"
   },
   "Cannon Basketball": {
-    "genre": "Sports",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:c1189a9a9bac6246"
   },
@@ -3310,22 +3310,22 @@
     "id": "repo:4def0e7316821cbd"
   },
   "Boxing Random": {
-    "genre": "Arcade",
+    "genre": "Sports",
     "device": "pc",
     "id": "repo:3dcd0cd9fa6e32c0"
   },
   "Bob The Robber 2": {
-    "genre": "Arcade",
+    "genre": "Adventure",
     "device": "mobile+pc",
     "id": "repo:b948b0974dd8c973"
   },
   "Bloons TD 5": {
-    "genre": "Strategy",
+    "genre": "Tower Defense",
     "device": "pc",
     "id": "repo:8fcae8d2ca65eaf1"
   },
   "BitLife": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "pc",
     "id": "repo:7fe99f9ec5facd89"
   },
@@ -3350,7 +3350,7 @@
     "id": "repo:876a8466d0432e98"
   },
   "Baldi's Basics": {
-    "genre": "Arcade",
+    "genre": "Horror",
     "device": "pc",
     "id": "repo:e983eda388a3fe05"
   },
@@ -3360,17 +3360,17 @@
     "id": "repo:5d24b19f6f8c5fa5"
   },
   "Achievement Unlocked 3": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:9a563b053face352"
   },
   "Achievement Unlocked 2": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:4dda9099c4f19609"
   },
   "Achievement Unlocked": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:239ff14bf9ff88fd"
   },
@@ -3440,7 +3440,7 @@
     "id": "repo:5b3eddef8e553a6c"
   },
   "Ragdoll Hit": {
-    "genre": "Arcade",
+    "genre": "Fighting",
     "device": "mobile+pc",
     "id": "repo:2660f76026c06487"
   },
@@ -3475,12 +3475,12 @@
     "id": "repo:e312ba4b25162c06"
   },
   "Gobble": {
-    "genre": "Arcade",
+    "genre": "Action",
     "device": "mobile+pc",
     "id": "repo:20a939268eb72585"
   },
   "Monster Tracks": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:9a90ae7449630151"
   },
@@ -3495,7 +3495,7 @@
     "id": "repo:fe4d0029562fde93"
   },
   "Dig Deep": {
-    "genre": "Arcade",
+    "genre": "Simulation",
     "device": "mobile+pc",
     "id": "repo:4877c4d0d1e8784f"
   },
@@ -3505,12 +3505,12 @@
     "id": "repo:bcf963534ae7fe15"
   },
   "Bottle Jump 3D": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:c210c7c8002dbd32"
   },
   "Bazooka Boy": {
-    "genre": "Arcade",
+    "genre": "Shooter",
     "device": "pc",
     "id": "repo:3098d805bb642da6"
   },
@@ -3520,7 +3520,7 @@
     "id": "repo:3c4a4ed5032f6638"
   },
   "Geometry Dash Lite (REMAKE)": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "mobile+pc",
     "id": "repo:918acb385672d19d"
   },
@@ -3545,17 +3545,17 @@
     "id": "repo:938da5c6559dd71c"
   },
   "Mob Control HTML5": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:486a77023da9753a"
   },
   "Turbo Stars": {
-    "genre": "Arcade",
+    "genre": "Racing",
     "device": "mobile+pc",
     "id": "repo:9bddcfe279a7654d"
   },
   "Tall Man Run": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:4bce128058a71523"
   },
@@ -3565,7 +3565,7 @@
     "id": "repo:0405f2b0a700f273"
   },
   "Stacky Dash": {
-    "genre": "Arcade",
+    "genre": "Physics Puzzle",
     "device": "mobile+pc",
     "id": "repo:63406cd1864ae48c"
   },
@@ -3575,7 +3575,7 @@
     "id": "repo:9d390c907c5da53c"
   },
   "Hide N Seek": {
-    "genre": "Arcade",
+    "genre": "Party",
     "device": "mobile+pc",
     "id": "repo:1907e8ace2445657"
   },
@@ -3585,22 +3585,22 @@
     "id": "repo:934bc00edf0930fb"
   },
   "Bridge Race": {
-    "genre": "Arcade",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:0697a1f82fc5b631"
   },
   "Attack Hole": {
-    "genre": "Arcade",
+    "genre": "Idle",
     "device": "mobile+pc",
     "id": "repo:fe1ce5765363c894"
   },
   "Stickman Hook": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "mobile+pc",
     "id": "repo:9279ee9f34f8348e"
   },
   "Temple Run 2": {
-    "genre": "Platformer",
+    "genre": "Endless Runner",
     "device": "mobile+pc",
     "id": "repo:2bcee3008a191da2"
   },
@@ -3620,7 +3620,7 @@
     "id": "repo:9a3e2992517b3f5a"
   },
   "Ice Dodo": {
-    "genre": "Arcade",
+    "genre": "Platformer",
     "device": "pc",
     "id": "repo:74cc5949f1a4e326"
   },
@@ -3640,7 +3640,7 @@
     "id": "repo:8daa124ea99e7a75"
   },
   "Bowmasters": {
-    "genre": "Arcade",
+    "genre": "Strategy",
     "device": "mobile+pc",
     "id": "repo:3ea8b081e46e5c27"
   }

@@ -22,6 +22,54 @@
   },
   "rules": [
     [
+      "Tower Defense",
+      "plants vs\\.? zombies|bloons.*(td|tower defense)|minecraft tower defense|medieval td|^outhold$"
+    ],
+    [
+      "Platformer",
+      "big .*tower.*tiny square|pizza tower|antonblast|achievement unlocked|stickman (boost|climb|hook)|this is the only level|world.s hardest game|cluster ?(rush|truck)|^mario 64$|getting over it"
+    ],
+    [
+      "Horror",
+      "baldi|raldi|apple farm|basics in|basics of|caseoh.s basics|christmas massacre|saihate|r\\.e\\.p\\.o|portaboy"
+    ],
+    [
+      "Physics Puzzle",
+      "angry birds|bad piggies|cut the rope|circloo|cannon basketball|parking rush|twisted rope|tower crash"
+    ],
+    [
+      "Endless Runner",
+      "temple run|om nom run|tall man run|destiny run|money rush|going balls|slope|tunnel rush|death run|aquapark|man runner"
+    ],
+    [
+      "Simulation",
+      "bitlife|duck life|papa.s|mowing simulator|sort the court"
+    ],
+    [
+      "Racing",
+      "escape road|adventure drivers|parking fury|monster tracks|telekinesis (car|drive)"
+    ],
+    [
+      "Sports",
+      "boxing random|rocket goal|carrom|flappy dunk|flip master|tanuki sunset|rigbmx|^cg fc"
+    ],
+    [
+      "Fighting",
+      "wrestle|ragdoll hit|stick slasher|teen titans.*jump joust"
+    ],
+    [
+      "Bullet Hell",
+      "(bad|worst) time simulator|bad monday|undertale.*last breath|scampton|bergentruck|cuphead"
+    ],
+    [
+      "Idle",
+      "feeding a black hole|idle dice|nubby.s number|tiny fishing|steal.*brainrot"
+    ],
+    [
+      "Tool",
+      "64 in 1 nes|chat bot|snub browser"
+    ],
+    [
       "Rhythm",
       "friday night|^fnf|osu!|rhythm heaven|parappa|trombone|magic tiles|beatblock|vib-ribbon|lammy|just shapes|vs rewrite"
     ],
@@ -100,6 +148,10 @@
     [
       "Card",
       "blackjack|plinko|roulette hero"
+    ],
+    [
+      "Unclassified",
+      ".*"
     ]
   ],
   "mobile_titles": "2048|8 ball|99 balls|angry birds|aquapark|attack hole|ball blast|basket|bowling|bottle jump|bouncemaster|bowmaster|bridge race|candy crush|cannon|carrom|color |coreball|count masters|crossy|cut the rope|dalgona|destiny run|diamond seeker|dig deep|doodle jump|draw |drift boss|duck life|dumb ways|escape road|fashion|flappy|flick goal|flying gorilla|fork n|fruit ninja|gobble|going balls|google baseball|guess their|harvest.io|hide n seek|hill climb|hula hoop|idle|jelly restaurant|jetpack|kitchen|layers roll|lazy jumper|line rider|makeover|man runner|match triple|merge harvest|mob control|money rush|monster box|monster tracks|my talking|nubby|om nom|papa.s|parking rush|plants vs|pokey ball|pottery|pou|race master|ragdoll|raft wars|red ball|retro bowl|rolly vortex|room sort|sandspiel|sandboxels|seat jam|shovel|slice it|slime.io|slither|snow rider|soccer random|spacebar|spiral roll|stacky|steal.*brainrot|stickman hook|stone grass|suika|sushi roll|tall|temple run|territorial|tetris|they are coming|tiny fishing|tomb of|toss the turtle|tower crash|toy rider|traffic|trivia|tube jumpers|turbo stars|twerk|twisted rope|waterworks|wheely|wordle|yohoho|geometry dash|peggle|bloxorz|amaze|drift|cut the rope"
