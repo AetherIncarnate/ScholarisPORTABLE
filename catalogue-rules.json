@@ -1,0 +1,106 @@
+{
+  "aliases": {
+    "geometrydash": "geometrydashfullversion",
+    "gettingoveritwithbennettfoddy": "gettingoverit",
+    "supermario64": "mario64",
+    "minecraftpocketedition": "minecraftpe",
+    "celestepico": "celesteclassic",
+    "chatbotaiaigpt": "chatbotai",
+    "bindingofissacwrathofthelamb": "thebindingofisaacwrathofthelamb",
+    "bloonstd": "bloonstowerdefense1",
+    "bloonstd2": "bloonstowerdefense2",
+    "bloonstd3": "bloonstowerdefense3",
+    "bloonstd4": "bloonstowerdefense4",
+    "half life": "halflife",
+    "papaspizeria": "papaspizzeria",
+    "papashotdoggeria": "papashotdoggeria",
+    "polytrack": "polytrack",
+    "hobo1": "hobo",
+    "ragdollarchers": "ragdollarchersupdate",
+    "wordle": "wordleunlimited",
+    "spelunkyclassichd": "spelunkyclassic"
+  },
+  "rules": [
+    [
+      "Rhythm",
+      "friday night|^fnf|osu!|rhythm heaven|parappa|trombone|magic tiles|beatblock|vib-ribbon|lammy|just shapes|vs rewrite"
+    ],
+    [
+      "Horror",
+      "freddy|five night|granny|slender|slendytubb|scp-|backroom|bendy|amanda|nightmare|fear|hunger|iron lung|resident evil|silent hill|dead plate|bad parenting|endoparasit|hungry lamu|lethal|schoolboy|tattletail|yandere|deadseat|man in the window|shift at midnight|midnight shift|scary shawarma|do not take|miSide|andys apple|lacey|pacman \\(horror|sonic.exe|a bite at|look outside|s.p.l.i.t"
+    ],
+    [
+      "Racing",
+      "racer|racing|race master|race 3d|rider|drift|driven wild|slowroads|need for speed|moto x3m|madalin|scrap metal|highway|traffic|crazy cars|crush cars|survival race|super star car|sky riders|car survival|offroad|mountain bike|vex x3m|jelly drift|bitplanes|kart|poly track"
+    ],
+    [
+      "Sports",
+      "basket|football|soccer|fifa|baseball|8 ball|bowling|golf|volley|pool|archery world|a small world cup|retro bowl|speed stars|shredsauce|flick goal|ultrapool"
+    ],
+    [
+      "Idle",
+      "idle|clicker|capatalist|spacebar|scratch inc|doge miner|learn to fly idle"
+    ],
+    [
+      "Puzzle",
+      "2048|tetris|wordle|wheely|bloxorz|sort|match|puzzle|waterworks|bolt master|amaze|breaklock|chess|suika|infinimo|sandtris|cell machine|cell machine|cut the rope|please dont touch|chiikawa|tiletopia|seat jam|cat connection|the impossible quiz|google feud|trivia|guess their"
+    ],
+    [
+      "Strategy",
+      "tower| td|^bloons|command & conquer|state.io|territorial|ages of conflict|stick war|city defense|war regions|plague|final earth|shapez|build a big army|royal towers"
+    ],
+    [
+      "Simulation",
+      "papas|papa.s|cooking mama|restaurant|kitchen|pottery|happy sheep|harvest|stardew|animal crossing|world box|solar smash|city smash|flight simulator|spaceflight|my talking|pou|tomodachi|sort the court|jelly restaurant|webfishing|slime rancher|papers, please|get yoked"
+    ],
+    [
+      "Sandbox",
+      "minecraft|sandbox|sandspiel|sandstone|melon playground|people playground|mutilate|hypper|world box|raft$"
+    ],
+    [
+      "Roguelike",
+      "vampire|survivor.io|10 minutes|20 minutes|gungeon|n-gon|brotato|rogue sergeant|three goblets|isaac|issac|overburden|inscryption|clover pit"
+    ],
+    [
+      "Fighting",
+      "jojo|gang beast|newgrounds rumble|wrestle|hobo|bacon may|smash flash|swords and sandals|swordfight|generic fighter|stickman (kombat|fight|duel)|supreme duelist|godzilla|sword|your only move"
+    ],
+    [
+      "Shooter",
+      "doom|quake|fortress|ravenfield|time shooter|superhot|ultrakill|karlson|postal|hotline miami|cruelty squad|bank robbery|pixel gun|1v1|buildnow|build a plane|bitgun|blockpost|war the knights|station (141|saturn)|weapon|shooting|sniper|johnny trigger|gun clone|giant wanted|stickman and guns|madness|alien hominid|hammer 2|recoil|road of fury|protektor|fortzone|robot invasion"
+    ],
+    [
+      "RPG",
+      "pokemon|final fantasy|fallout|undertale|deltatravel|omori|off$|endroll|witch.s heart|in stars|space funeral|kindergarten|needy streamer|mindwave|lobotomy"
+    ],
+    [
+      "Visual Novel",
+      "ace attorney|phoenix wright|apollo justice|class of|milk inside|milk outside|love letters|fundamental paper|serial experiments"
+    ],
+    [
+      "Platformer",
+      "mario|sonic|dadish|vex|celeste|hollow knight|piku|cave story|meatboy|little runmo|i wanna|choppy orc|fancy pants|ovo|big .*tower|big tower|super monkey|red ball|fireboy|pac man world|ninja vs|super mario|kirby|spelunky|pizza tower|jumbo mario|bfdia|rainbow obby|tag$|run [123]$|re-run"
+    ],
+    [
+      "Adventure",
+      "zelda|grand theft|metal gear|oneshot|one shot|sam & max|endacopia|peak$|peaks of yore|the oregon|tomb|undertale|difficult game|getting over|60 seconds"
+    ],
+    [
+      "Bullet Hell",
+      "touhou|taisei"
+    ],
+    [
+      "Tool",
+      "emulator|azahar|javascriptps1|ruffle|code editor"
+    ],
+    [
+      "Toy",
+      "soundboard|elastic man|kitty toy|sprunki|myteardrop"
+    ],
+    [
+      "Card",
+      "blackjack|plinko|roulette hero"
+    ]
+  ],
+  "mobile_titles": "2048|8 ball|99 balls|angry birds|aquapark|attack hole|ball blast|basket|bowling|bottle jump|bouncemaster|bowmaster|bridge race|candy crush|cannon|carrom|color |coreball|count masters|crossy|cut the rope|dalgona|destiny run|diamond seeker|dig deep|doodle jump|draw |drift boss|duck life|dumb ways|escape road|fashion|flappy|flick goal|flying gorilla|fork n|fruit ninja|gobble|going balls|google baseball|guess their|harvest.io|hide n seek|hill climb|hula hoop|idle|jelly restaurant|jetpack|kitchen|layers roll|lazy jumper|line rider|makeover|man runner|match triple|merge harvest|mob control|money rush|monster box|monster tracks|my talking|nubby|om nom|papa.s|parking rush|plants vs|pokey ball|pottery|pou|race master|ragdoll|raft wars|red ball|retro bowl|rolly vortex|room sort|sandspiel|sandboxels|seat jam|shovel|slice it|slime.io|slither|snow rider|soccer random|spacebar|spiral roll|stacky|steal.*brainrot|stickman hook|stone grass|suika|sushi roll|tall|temple run|territorial|tetris|they are coming|tiny fishing|tomb of|toss the turtle|tower crash|toy rider|traffic|trivia|tube jumpers|turbo stars|twerk|twisted rope|waterworks|wheely|wordle|yohoho|geometry dash|peggle|bloxorz|amaze|drift|cut the rope"
+}
