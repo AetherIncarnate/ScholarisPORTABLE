@@ -1,40 +1,37 @@
-# Scholaris Learning — Portable Single-File Build
+# Scholaris Learning — Static Portable Build
 
-A 1:1 functional clone of [scholaris-learning.lovable.app](https://scholaris-learning.lovable.app)
-(source: `github.com/AetherIncarnate/scholaris-learning`, private — reconstructed from the live build)
-as **one portable `index.html`** with **no backend**. All data lives in the browser
-(IndexedDB + localStorage). Open the file directly, or host it statically.
+Scholaris is a static education site with a separate browser-game arcade and no application backend. The application source remains in `index.html`; catalogue metadata, game launchers, and assets are generated as separate static files during the build. Browser data is stored locally in IndexedDB and localStorage.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | The entire app — HTML + CSS + JS inline. No build step. |
-| `games/manifest.json` | Seed catalogue of the 65 built-in games (also embedded in `index.html`). |
-| `vercel.json` | Vercel static hosting config (SPA fallback + security headers). |
-| `netlify.toml` + `_redirects` | Netlify static hosting config (SPA fallback + headers). |
+| `index.html` | Portable application source and UI. |
+| `manifest.json` | Seed catalogue for the built-in games. |
+| `build.mjs` | Builds `dist/`, imports the existing repository game archive, and invokes the pinned Seraph importer. |
+| `seraph-import.mjs`, `seraph-import.json` | Pinned GitHub source import, lightweight filters, static dependency checks, and generated report. |
+| `catalogue-overrides.json`, `catalogue-rules.json`, `seraph-title-aliases.json`, `seraph-genre-overrides.json` | Curated catalogue metadata, overlap handling, and classification. |
+| `package.json`, `package-lock.json` | Node 22 build dependencies and test command. |
+| `vercel.json`, `netlify.toml` | Static hosting settings; output is `dist/`. |
+| `SERAPH-IMPORT.md` | Scope, build and validation notes for the Seraph import. |
 
-## Run locally
+## Build and run locally
 
 ```bash
-# Option A — just open it
-open index.html            # macOS
-# or
-xdg-open index.html        # Linux
-
-# Option B — tiny static server (recommended for iframe games)
-python3 -m http.server 8000
+npm ci
+npm test
+npm run build
+python3 -m http.server 8000 --directory dist
 # → http://localhost:8000
 ```
 
-Routes are hash-based so the file works from `file://` and any static host:
-`#/`, `#/practice`, `#/pricing`, `#/games`, `#/community`, `#/admin`.
+The full build downloads the pinned Seraph files from GitHub and the existing catalogue archives from GitLab; it does not embed those files in `index.html`. For a Seraph-only local smoke build, use `NODE_USE_SYSTEM_CA=1 SERAPH_ONLY=1 npm run build`. `SERAPH_ONLY` is test-only and is rejected on Vercel. See [SERAPH-IMPORT.md](SERAPH-IMPORT.md) for limits and validation details.
+
+Routes are hash-based: `#/`, `#/practice`, `#/pricing`, `#/games`, `#/community`, and `#/admin`.
 
 ## Deploy to Vercel
 
-1. Push this folder to GitHub (or drag-and-drop the folder at vercel.com/new).
-2. Framework preset: **Other**. Build command: *(empty)*. Output directory: `.` (root).
-3. Deploy. `vercel.json` handles SPA fallback (`/practice` → `/index.html`) and headers.
+Connect the repository with the **Other** framework preset, repository-root working directory, Node.js **22.x**, install command `npm ci`, build command `npm run build`, and output directory `dist`. These are set in `vercel.json`. Do not upload `node_modules/` or generated `dist/` files.
 
 CLI alternative:
 
@@ -45,9 +42,7 @@ vercel --prod
 
 ## Deploy to Netlify
 
-1. Drag-and-drop this folder onto Netlify Drop, **or** connect the Git repo.
-2. Build command: *(empty)*. Publish directory: `.` (root).
-3. Deploy. `netlify.toml` / `_redirects` handle SPA fallback and headers.
+Connect the Git repository and use the build command and publish directory in `netlify.toml` (`npm run build` and `dist`). A source-only drag-and-drop deploy will not run the game importer.
 
 CLI alternative:
 
@@ -58,7 +53,7 @@ netlify deploy --dir=. --prod
 
 ## Admin — adding games (easy)
 
-1. Go to `#/admin`. Default password: **`scholaris-admin`** (change it in Settings after first login).
+1. Go to the existing `#/admin` route and use the local admin gate configured in the application. This is a client-side convenience gate, not secure authentication.
 2. **Push a new game**: enter **Name** + **Genre**, paste **full HTML** *or* a single `https://` URL (iframe game), optionally upload a thumbnail (≤ 3 MB) or `.html` file, then hit **Push to all users**. The game appears in **Games** instantly.
 3. **Bulk import**: paste a JSON array (or load a `.json` file) and hit **Import all**.
 4. **Library**: edit, hide/show, or delete any game. **Broadcast**: toggle the announcement banner + patch notes. **Settings**: change password, arcade accent, panic button, splash texts. **Data**: export JSON, reset stats, wipe.
@@ -88,11 +83,11 @@ netlify deploy --dir=. --prod
 - Home 1:1 (hero, stats, featured lesson, 4 subject tracks with syllabi, lesson theatre, 6 testimonials, Ireland schools, 22-question FAQ)
 - Practice engine 1:1 (5 topics, shuffled questions, streak/accuracy, explanations, Science reference video, per-user progress)
 - Pricing 1:1 (Curious/Scholar/Family, monthly/annual toggle, institutional seats, FAQ, enrollment requests)
-- Games/Arcade (65 built-in titles, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
+- Games/Arcade (built-in titles plus the build-generated Seraph subset, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
 - Community chat (local), auth with verification codes, accessibility (text size + dark mode), broadcast banner, admin dashboard
 
 ## Limitations (by design — no backend)
 
 - Data is per-browser/device. No cross-device sync, no real email, no payments (enrollment requests are saved locally).
-- Built-in game files (`/games/*.html`) are not bundled — iframe games load from their URLs; HTML games added via Admin are stored in IndexedDB and played via blob URLs.
+- Games added through Admin remain browser-local. The existing embedded catalogue retains its current launch behavior; the pinned Seraph subset is generated as separate static files during deployment.
 - Fonts + Vimeo video need internet; everything else works offline.

@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/a456pur/seraph.git",
+  "commit": "ae2fcc6d6a9cd051654fcc0519080db1f79cf2a7",
+  "maxGameBytes": 12000000,
+  "scope": "small browser and Flash games only; exclude console-emulator and Unity titles",
+  "runtime": "Ruffle from the pinned Seraph source tree when Flash games are included",
+  "notes": [
+    "Assets are downloaded during the static build and served as separate same-origin files; they are not embedded in index.html.",
+    "The per-game size cutoff is the user's confirmed lightweight scope. It is not a Vercel deployment-size guarantee.",
+    "Device support is an estimate inferred from launcher markup and input signals. No gameplay or real-device test is implied."
+  ]
+}
