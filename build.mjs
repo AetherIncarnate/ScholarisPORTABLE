@@ -5,6 +5,7 @@ import {gzipSync} from 'node:zlib';
 import {unzipSync} from 'fflate';
 import sharp from 'sharp';
 import {importSeraph} from './seraph-import.mjs';
+import {importCommunityGames} from './community-games-import.mjs';
 
 const read=async p=>JSON.parse(await fs.readFile(p,'utf8'));
 const rules=await read('catalogue-rules.json');
@@ -63,13 +64,15 @@ if(!seraphOnly){
   }
 }
 
+const community=seraphOnly?{games:[],report:{sources:[],imported:[],duplicatesSkipped:[],excluded:{},warnings:[],rawBytes:0}}:await importCommunityGames({distDir:'dist',seen,keyForTitle:key});
+games.push(...community.games);
 const seraphSeen=new Set([...seen,...Object.keys(overrides).map(key),...(builtIn.games||[]).map(g=>key(g.name))]);
 const seraph=await importSeraph({distDir:'dist',seen:seraphSeen,rules,overrides,genreOverrides:seraphGenreOverrides,mobilePattern:rules.mobile_titles,keyForTitle:key});
 games.push(...seraph.games);
 if(games.length<1)throw Error('No games imported; refusing an empty deployment.');
-const manifest={revision:upstreamRevision,seraphRevision:seraph.report.revision,generatedAt:new Date().toISOString(),games};
+const manifest={revision:upstreamRevision,communitySources:community.report.sources,seraphRevision:seraph.report.revision,generatedAt:new Date().toISOString(),games};
 await fs.writeFile('dist/library/manifest.json',JSON.stringify(manifest));
-const buildReport={revision:upstreamRevision,seraphRevision:seraph.report.revision,existingCount:existing.length,imported:games.length,duplicatesSkipped:skipped.length+seraph.report.duplicatesSkipped.length,skipped,seraph:seraph.report,warnings,compatibility:'Support values are estimates. No complete gameplay verification is claimed.'};
+const buildReport={revision:upstreamRevision,seraphRevision:seraph.report.revision,existingCount:existing.length,imported:games.length,duplicatesSkipped:skipped.length+community.report.duplicatesSkipped.length+seraph.report.duplicatesSkipped.length,skipped,community:community.report,seraph:seraph.report,warnings,compatibility:'Support values are estimates. No complete gameplay verification is claimed.'};
 await fs.writeFile('dist/library/build-report.json',JSON.stringify(buildReport,null,2));
-console.log(`Built ${games.length-seraph.games.length} GitLab games and ${seraph.games.length} Seraph games; skipped ${buildReport.duplicatesSkipped} overlaps; ${seraph.report.warnings.length+warnings.length} warnings.`);
+console.log(`Built ${games.length-seraph.games.length-community.games.length} GitLab games, ${community.games.length} pinned GitHub community games and ${seraph.games.length} Seraph games; skipped ${buildReport.duplicatesSkipped} overlaps; ${seraph.report.warnings.length+community.report.warnings.length+warnings.length} warnings.`);
 console.log('Static output: dist (games/assets are separate same-origin files; no runtime GitLab/GitHub requests).');
