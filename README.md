@@ -8,12 +8,14 @@ Scholaris is a static education site with a separate browser-game arcade and no 
 |---|---|
 | `index.html` | Portable application source and UI. |
 | `manifest.json` | Seed catalogue for the built-in games. |
-| `build.mjs` | Builds `dist/`, imports the existing repository game archive, and invokes the pinned Seraph importer. |
-| `seraph-import.mjs`, `seraph-import.json` | Pinned GitHub source import, lightweight filters, static dependency checks, and generated report. |
+| `build.mjs` | Builds `dist/`, imports the existing repository archive and pinned GitHub catalogues. |
+| `community-games-import.mjs`, `community-games.json` | Curated, licensed browser games from pinned GitHub commits, with size and static dependency checks. |
+| `seraph-import.mjs`, `seraph-import.json` | Pinned Seraph source import, lightweight filters, static dependency checks, and generated report. |
 | `catalogue-overrides.json`, `catalogue-rules.json`, `seraph-title-aliases.json`, `seraph-genre-overrides.json` | Curated catalogue metadata, overlap handling, and classification. |
 | `package.json`, `package-lock.json` | Node 22 build dependencies and test command. |
 | `vercel.json`, `netlify.toml` | Static hosting settings; output is `dist/`. |
 | `SERAPH-IMPORT.md` | Scope, build and validation notes for the Seraph import. |
+| `COMMUNITY-GAMES.md` | Sources, pinned games, licensing, size and validation notes for the added GitHub games. |
 
 ## Build and run locally
 
@@ -25,7 +27,7 @@ python3 -m http.server 8000 --directory dist
 # → http://localhost:8000
 ```
 
-The full build downloads the pinned Seraph files from GitHub and the existing catalogue archives from GitLab; it does not embed those files in `index.html`. For a Seraph-only local smoke build, use `NODE_USE_SYSTEM_CA=1 SERAPH_ONLY=1 npm run build`. `SERAPH_ONLY` is test-only and is rejected on Vercel. See [SERAPH-IMPORT.md](SERAPH-IMPORT.md) for limits and validation details.
+The full build downloads the curated, pinned community games and Seraph files from GitHub plus the existing catalogue archives from GitLab; imported game files are separate static assets, not added to `index.html`. For a Seraph-only local smoke build (skips GitLab and community imports), use `NODE_USE_SYSTEM_CA=1 SERAPH_ONLY=1 npm run build`. `SERAPH_ONLY` is test-only and is rejected on Vercel. See [COMMUNITY-GAMES.md](COMMUNITY-GAMES.md) and [SERAPH-IMPORT.md](SERAPH-IMPORT.md) for sources and validation limits.
 
 Routes are hash-based: `#/`, `#/practice`, `#/pricing`, `#/games`, `#/community`, and `#/admin`.
 
@@ -83,11 +85,11 @@ netlify deploy --dir=. --prod
 - Home 1:1 (hero, stats, featured lesson, 4 subject tracks with syllabi, lesson theatre, 6 testimonials, Ireland schools, 22-question FAQ)
 - Practice engine 1:1 (5 topics, shuffled questions, streak/accuracy, explanations, Science reference video, per-user progress)
 - Pricing 1:1 (Curious/Scholar/Family, monthly/annual toggle, institutional seats, FAQ, enrollment requests)
-- Games/Arcade (built-in titles plus the build-generated Seraph subset, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
+- Games/Arcade (built-in titles plus build-generated GitHub community and Seraph games, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
 - Community chat (local), auth with verification codes, accessibility (text size + dark mode), broadcast banner, admin dashboard
 
 ## Limitations (by design — no backend)
 
 - Data is per-browser/device. No cross-device sync, no real email, no payments (enrollment requests are saved locally).
-- Games added through Admin remain browser-local. The existing embedded catalogue retains its current launch behavior; the pinned Seraph subset is generated as separate static files during deployment.
+- Games added through Admin remain browser-local. The existing embedded catalogue retains its current launch behavior; pinned GitHub community and Seraph games are generated as separate static files during deployment.
 - Fonts + Vimeo video need internet; everything else works offline.

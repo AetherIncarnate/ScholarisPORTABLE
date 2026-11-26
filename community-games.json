@@ -1,0 +1,90 @@
+{
+  "maxGameBytes": 12000000,
+  "sources": [
+    {
+      "repository": "https://github.com/gabrielecirulli/2048.git",
+      "commit": "478b6ec346e3787f589e4af751378d06ded4cbbc",
+      "licenseFile": "LICENSE.txt",
+      "licenseId": "MIT",
+      "games": [
+        {
+          "slug": "2048",
+          "name": "2048",
+          "sourcePath": ".",
+          "launchPath": "index.html",
+          "genre": "Puzzle",
+          "device": "mobile+pc",
+          "thumbnailPath": "meta/apple-touch-icon.png"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/dionyziz/canvas-tetris.git",
+      "commit": "4e497d1c858914f0a1f0818698029d1c7dad090b",
+      "licenseFile": "LICENSE.md",
+      "licenseId": "MIT",
+      "games": [
+        {
+          "slug": "canvas-tetris",
+          "name": "Canvas Tetris",
+          "sourcePath": ".",
+          "launchPath": "index.html",
+          "genre": "Puzzle",
+          "device": "pc"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/jakesgordon/javascript-racer.git",
+      "commit": "3e8a060b5900755db27f899612a74a77427c853e",
+      "licenseFile": "LICENSE",
+      "licenseId": "MIT",
+      "games": [
+        {
+          "slug": "javascript-racer",
+          "name": "JavaScript Racer",
+          "sourcePath": ".",
+          "launchPath": "v4.final.html",
+          "genre": "Racing",
+          "device": "pc",
+          "thumbnailPath": "images/background.png"
+        }
+      ]
+    },
+    {
+      "repository": "https://github.com/mariohd/JSGames.git",
+      "commit": "b5988890e4d88564ef570acb18b85077401fe2c9",
+      "licenseFile": "LICENSE",
+      "licenseId": "MIT",
+      "games": [
+        {
+          "slug": "maze-escape",
+          "name": "Maze Escape",
+          "sourcePath": "games/MazeEscape",
+          "launchPath": "mazeEscape.html",
+          "genre": "Puzzle",
+          "device": "pc",
+          "thumbnailPath": "images/mazeEscape.png"
+        },
+        {
+          "slug": "tictacbred",
+          "name": "TicTacBRed",
+          "sourcePath": "games/TicTacBRed",
+          "launchPath": "index.html",
+          "genre": "Puzzle",
+          "device": "mobile+pc",
+          "thumbnailPath": "images/ticTacBRed.png"
+        },
+        {
+          "slug": "mini-racer-2",
+          "name": "Mini Racer 2",
+          "sourcePath": "games/miniRacer2",
+          "launchPath": "index.html",
+          "genre": "Racing",
+          "device": "mobile+pc",
+          "thumbnailPath": "images/miniRacer.png"
+        }
+      ]
+    }
+  ]
+}

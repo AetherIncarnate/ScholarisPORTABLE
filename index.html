@@ -650,9 +650,10 @@ async function gameSrc(game){
   }
   if(REPAIRED_GAME_HTML[game.url])return URL.createObjectURL(new Blob([REPAIRED_GAME_HTML[game.url]],{type:"text/html"}));
   if(game.html){return URL.createObjectURL(new Blob([wrapGameHtml(game.html,game.name)],{type:"text/html"}))}
+  if(game.sameOriginAssets&&game.launchUrl)return game.launchUrl;
   return gameAsset(game.launchUrl||game.url);
 }
-function gameThumb(game){return gameAsset(game.img)||""}
+function gameThumb(game){return game.img?(game.sameOriginAssets?game.img:gameAsset(game.img)):""}
 
 /* ---------- Router ---------- */
 let arcadeVisible=false;
@@ -791,7 +792,7 @@ async function viewGames(){
       <button class="vote-btn" id="g-like" aria-label="Like game">👍 ${stats[playing.url]?.likes||0}</button><button class="vote-btn" id="g-dislike" aria-label="Dislike game">👎 ${stats[playing.url]?.dislikes||0}</button>
       <button id="g-fs" aria-label="Toggle fullscreen">⛶ <span class="control-text">Fullscreen</span></button><button id="g-tab" aria-label="Open game in a new tab">↗ <span class="control-text">New tab</span></button><button id="g-back" aria-label="Close game">✕ <span>Close</span></button></div>
       <div class="player-frame" id="g-frame-wrap"><iframe id="g-frame" title="${esc(playing.name)}" allow="autoplay; fullscreen; gamepad *; cross-origin-isolated" allowfullscreen></iframe></div>
-      <p style="margin-top:.75rem;font-size:.75rem;color:var(--muted-foreground)">▶ ${stats[playing.url]?.plays||0} plays · ${playing.source==="admin"?"· pushed by admin":playing.source==="custom"?"· your custom game":playing.source==="seraph"?"· from Seraph (GitHub)":playing.source==="repository"?"· from GitLab game library":"· built-in"} · ${esc(splash)}</p></section>`:""}
+      <p style="margin-top:.75rem;font-size:.75rem;color:var(--muted-foreground)">▶ ${stats[playing.url]?.plays||0} plays · ${playing.source==="admin"?"· pushed by admin":playing.source==="custom"?"· your custom game":playing.source==="seraph"?"· from Seraph (GitHub)":playing.source==="repository"?`· from ${esc(playing.sourceName||"GitLab game library")}`:"· built-in"} · ${esc(splash)}</p></section>`:""}
     <div class="games-grid">${list.map(g=>{const st=genreStyle(g.genre);const thumb=gameThumb(g);const s=stats[g.url]||{plays:0,likes:0};const support=g.device==="pc"?"💻 PC":"📱+💻";const supportNote=g.compatibility==="estimated"?" · est.":"";const supportLabel=g.device==="pc"?"PC support estimate":"Mobile and PC support estimate";return`<button class="game-card" style="--edge:${st.soft}" title="Play ${esc(g.name)}" data-play="${esc(g.url)}"><div class="game-thumb ${thumb?'':'missing-thumb'}" style="background:linear-gradient(135deg,${st.color},${st.soft})">${thumb?`<img src="${esc(thumb)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing-thumb');this.remove()">`:""}<span class="title-initial" aria-hidden="true" style="position:relative;z-index:1">${esc(g.name.slice(0,1))}</span><span class="genre-tag" style="position:absolute;top:.5rem;left:.5rem;background:${st.color};z-index:2">${esc(g.genre||"Arcade")}</span></div><div class="game-info"><h4>${esc(g.name)}</h4><div class="meta"><span${supportNote?` title="Estimated from launcher metadata; not device-tested" aria-label="${supportLabel}; not device-tested"`:""}>${support}${supportNote}</span><span>▶ ${s.plays||0} · 👍 ${s.likes||0}</span></div></div></button>`}).join("")||`<p style="color:var(--muted-foreground)">No games match these filters. Clear the search or choose another genre.</p>`}</div>
     <p style="margin-top:1.5rem;font-size:.75rem;color:var(--muted-foreground)">${list.length} games available · click any title to play.</p></div>`;
   if($('#library-retry'))$('#library-retry').onclick=()=>{repositoryLoad=null;repositoryError=null;viewGames()};
