@@ -85,11 +85,12 @@ netlify deploy --dir=. --prod
 - Home 1:1 (hero, stats, featured lesson, 4 subject tracks with syllabi, lesson theatre, 6 testimonials, Ireland schools, 22-question FAQ)
 - Practice engine 1:1 (5 topics, shuffled questions, streak/accuracy, explanations, Science reference video, per-user progress)
 - Pricing 1:1 (Curious/Scholar/Family, monthly/annual toggle, institutional seats, FAQ, enrollment requests)
-- Games/Arcade (built-in titles plus build-generated GitHub community and Seraph games, local favourites shown first, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
+- Games/Arcade (built-in titles plus build-generated GitHub community and Seraph games, local favourites shown first, per-game keyboard remapping where accessible, search/genre/sort, play/vote, random, fullscreen, new tab, panic button, themes, custom games)
 - Community chat (local), auth with verification codes, accessibility (text size + dark mode), broadcast banner, admin dashboard
 
 ## Limitations (by design — no backend)
 
 - Data is per-browser/device. Favourites, play stats, and custom games are not synced across devices. No real email or payments (enrollment requests are saved locally).
 - Games added through Admin remain browser-local. The existing embedded catalogue retains its current launch behavior; pinned GitHub community and Seraph games are generated as separate static files during deployment.
+- Keyboard remapping is best-effort: it only works for same-origin game frames and games that accept simulated keyboard events. Cross-origin frames cannot be inspected or intercepted.
 - Fonts + Vimeo video need internet; everything else works offline.
