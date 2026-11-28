@@ -7,6 +7,7 @@ Scholaris is a static education site with a separate browser-game arcade and no 
 | File | Purpose |
 |---|---|
 | `index.html` | Portable application source and UI. |
+| `examrevision-home.html` | Temporary, sanitized static capture used in the homepage iframe; remove the homepage switch to restore the original home. |
 | `manifest.json` | Seed catalogue for the built-in games. |
 | `build.mjs` | Builds `dist/`, imports the existing repository archive and pinned GitHub catalogues. |
 | `community-games-import.mjs`, `community-games.json` | Curated, licensed browser games from pinned GitHub commits, with size and static dependency checks. |
@@ -79,6 +80,10 @@ netlify deploy --dir=. --prod
 | Accessibility (`a11y.textSize`, `a11y.theme`) | Same localStorage keys, same behaviour |
 | Contact / enrollment forms | IndexedDB `contacts` / `enrollments` stores + audit log |
 | Vimeo lesson video | Same external embed (`player.vimeo.com/video/543156776`) — needs internet |
+
+## Temporary ExamRevision homepage
+
+The home route (`#/`) temporarily presents the supplied ExamRevision page capture inside Scholaris’ existing header and route shell. The source capture is kept as `examrevision-home.html` and copied into `dist/` during builds. To restore the previous Scholaris home, change `TEMPORARY_HOMEPAGE` in `index.html` from `"examrevision"` to `"scholaris"`; the original homepage renderer remains in place as `viewOriginalHome()`. Existing `#/subjects`, `#/references`, `#/practice`, and `#/pricing` routes remain available. The capture’s original login, subscription, and demo-booking services are not included; homepage actions are bridged to the corresponding local study routes or explain when an account/demo action is unavailable. Tracking, chat, payment, and unrelated third-party scripts were removed from the saved capture.
 
 ## Features kept
 
