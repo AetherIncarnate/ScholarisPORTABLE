@@ -343,6 +343,25 @@ body:not(.arcade-mode) #app p a:not(.btn){text-decoration:underline;text-underli
 .arcade-mode .arcade-logo i,.arcade-mode .arcade-hero-buttons .primary{background:var(--arcade-accent,#f5bf4f);border-color:var(--arcade-accent,#f5bf4f)}.arcade-mode .arcade-hero .eyebrow{color:var(--arcade-accent,#f5bf4f)}.arcade-mode .arcade-art img:nth-child(3){border-color:var(--arcade-accent,#f5bf4f)}.arcade-mode .arcade-art img{box-shadow:none}.arcade-mode .arcade-tool{border-radius:4px}.arcade-mode .game-card{border-radius:5px}.arcade-mode .game-thumb .genre-tag{font-size:.625rem}.arcade-mode .genre-chips button{font-size:.6875rem}.arcade-mode .arcade-actions button,.arcade-mode .arcade-hero-buttons button{border-radius:4px}.arcade-mode .game-info .meta{font-size:.6875rem}.arcade-mode .game-info h4{font-size:.8125rem}
 
 body:not(.arcade-mode) .rise{animation:none}.genre-chips b{opacity:1}body:not(.arcade-mode) nav.main a{transition:none}body:not(.arcade-mode) .resource-logo{transition:none}
+
+/* Experimental arcade touch adapter and homepage polish */
+.touch-control-pad{position:absolute;z-index:5;inset:auto 14px 14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px;pointer-events:none}
+.touch-control-key{pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;min-width:58px;min-height:58px;padding:12px;border:1px solid #ffffff70;border-radius:16px;background:#102338c9;color:#fff;font:700 1rem var(--font-body);box-shadow:0 5px 18px #0005;backdrop-filter:blur(5px)}
+.touch-control-key:active{background:#1765a4;color:#fff;transform:scale(.96)}
+#g-frame-wrap{position:relative}
+.revision-hero{position:relative;overflow:hidden;background:linear-gradient(125deg,var(--study-subtle) 0%,var(--background) 62%,var(--card) 100%)}
+.revision-hero:after{content:"";position:absolute;width:380px;height:380px;border:1px solid color-mix(in srgb,var(--brass) 18%,transparent);border-radius:50%;right:-165px;top:-190px;pointer-events:none}
+.revision-hero-grid{position:relative;z-index:1}
+.lesson-preview{box-shadow:0 18px 48px #17344a12;transform:rotate(.35deg);transition:transform .25s ease,box-shadow .25s ease}
+.lesson-preview:hover{transform:translateY(-3px) rotate(0);box-shadow:0 24px 52px #17344a1b}
+.revision-actions .btn{transition:transform .18s ease,box-shadow .18s ease}
+.revision-actions .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px #102e4520}
+.school-name{transition:background .2s ease}
+.school-name:hover{background:var(--study-subtle)}
+.revision-home .subject{transition:padding .2s ease,border-color .2s ease}
+.revision-home .subject:hover{padding-left:8px;border-color:var(--brass)}
+@media(max-width:650px){.touch-control-pad{inset:auto 8px 8px;gap:6px}.touch-control-key{min-width:50px;min-height:50px;padding:8px;border-radius:13px}.revision-hero:after{width:250px;height:250px;right:-130px;top:-130px}.lesson-preview{transform:none}}
+@media(prefers-reduced-motion:reduce){.lesson-preview,.revision-actions .btn,.school-name,.revision-home .subject{transition:none}}
 </style>
 <!-- Embedded Manrope font license:
 Copyright 2018 The Manrope Project Authors (https://github.com/googlefonts/manrope)
@@ -700,6 +719,53 @@ function showGameControls(game,frame){
   };
   $("#keymap-reset").onclick=()=>{const all=allGameKeyRemaps();delete all[game.url];LS.set("arcade.keyRemaps",all);installGameKeyRemaps(frame,game.url);closeModal();toast("Keyboard remapping reset.")};
 }
+const TOUCH_KEY_LOOKUP=new Map(GAME_REMAP_KEYS.map(k=>[k.value,k]));
+function detectedGameKeys(frame){
+  try{
+    const doc=frame.contentWindow.document;if(!doc?.documentElement)return null;
+    const sources=[...doc.scripts].map(script=>script.textContent||"");
+    for(const el of doc.querySelectorAll("[onkeydown],[onkeyup],[onkeypress]"))sources.push(el.getAttribute("onkeydown")||"",el.getAttribute("onkeyup")||"",el.getAttribute("onkeypress")||"");
+    const code=new Set();
+    for(const source of sources){
+      if(/\bkey\s*(?:===?|:)\s*["\'] ["\']/.test(source))code.add("Space");
+      for(const match of source.matchAll(/\b(?:key|code)\s*(?:===?|:)\s*["'](Arrow(?:Up|Down|Left|Right)|Space|Enter|Escape|Shift|Key[A-Z]|Digit[0-9]|[a-zA-Z0-9])["']/g)){
+        const raw=match[1];code.add(raw.length===1&&/[a-z]/i.test(raw)?"Key"+raw.toUpperCase():raw);
+      }
+      for(const match of source.matchAll(/\bkeyCode\s*(?:===?|:)\s*(\d+)/g)){
+        const found=GAME_REMAP_KEYS.find(key=>key.keyCode===Number(match[1]));if(found)code.add(found.value);
+      }
+    }
+    return [...code].map(value=>TOUCH_KEY_LOOKUP.get(value)).filter(Boolean).slice(0,8);
+  }catch{return null}
+}
+function releaseTouchKeys(frame){
+  const state=frame?.__scholarisTouchState;if(!state)return;
+  for(const [pointer,key] of state.held){dispatchTouchKey(frame,key,"keyup");state.held.delete(pointer)}
+}
+function dispatchTouchKey(frame,key,type){
+  try{
+    const win=frame.contentWindow,doc=win.document,target=doc.activeElement&&doc.activeElement!==doc.body?doc.activeElement:(doc.body||doc.documentElement);
+    target.dispatchEvent(new win.KeyboardEvent(type,{key:key.key,code:key.code,keyCode:key.keyCode,which:key.keyCode,bubbles:true,cancelable:true,composed:true}));
+  }catch{}
+}
+function toggleTouchControls(game,frame){
+  if(!canAccessGameFrame(frame)){openModal(`<h2>Touch controls unavailable</h2><p>Scholaris cannot inspect or send input to <strong>${esc(game.name)}</strong> because it is hosted in a cross-origin frame. The game may still have its own mobile controls.</p><p class="hint">Touch controls are experimental. They require accessible same-origin game code, recognizable keyboard checks, and a game that accepts simulated keyboard events.</p><button class="btn btn-outline" onclick="closeModal()">Done</button>`);return}
+  const wrap=$("#g-frame-wrap"),existing=$("#g-touch-pad");
+  if(existing){releaseTouchKeys(frame);frame.contentWindow.removeEventListener("blur",frame.__scholarisTouchState?.blurHandler);delete frame.__scholarisTouchState;existing.remove();const toggle=$("#g-touch");if(toggle)toggle.setAttribute("aria-pressed","false");return}
+  const keys=detectedGameKeys(frame);
+  if(!keys?.length){openModal(`<h2>No keyboard controls detected</h2><p>Scholaris could access this game, but could not identify supported key checks in its inline scripts or keyboard-handler markup. External scripts and dynamically registered handlers are not analyzed.</p><p class="hint">Nothing was injected. Games that reject simulated input may not respond even when keys are detected.</p><button class="btn btn-outline" onclick="closeModal()">Done</button>`);return}
+  const pad=document.createElement("div");pad.id="g-touch-pad";pad.className="touch-control-pad";pad.setAttribute("role","group");pad.setAttribute("aria-label","Experimental on-screen game controls");
+  pad.innerHTML=keys.map(key=>`<button type="button" class="touch-control-key" data-touch-key="${key.value}" aria-label="Hold ${esc(key.label)}">${esc(key.label)}</button>`).join("");wrap.append(pad);
+  const held=new Map(),blurHandler=()=>releaseTouchKeys(frame);frame.__scholarisTouchState={held,blurHandler};
+  frame.contentWindow.addEventListener("blur",blurHandler);
+  for(const button of pad.querySelectorAll("[data-touch-key]")){
+    const key=TOUCH_KEY_LOOKUP.get(button.dataset.touchKey);if(!key)continue;
+    const down=event=>{event.preventDefault();if(held.has(event.pointerId))return;try{button.setPointerCapture(event.pointerId)}catch{};held.set(event.pointerId,key);frame.contentWindow.focus();dispatchTouchKey(frame,key,"keydown")};
+    const up=event=>{if(!held.has(event.pointerId))return;held.delete(event.pointerId);dispatchTouchKey(frame,key,"keyup")};
+    button.addEventListener("pointerdown",down);for(const type of ["pointerup","pointercancel","lostpointercapture"] )button.addEventListener(type,up);button.addEventListener("contextmenu",event=>event.preventDefault());
+  }
+  const toggle=$("#g-touch");if(toggle)toggle.setAttribute("aria-pressed","true");
+}
 
 /* ---------- Router ---------- */
 let arcadeVisible=false;
@@ -838,7 +904,7 @@ async function viewGames(){
     ${playing?`<section class="game-stage" role="region" aria-label="Game player">
       <div class="player-bar"><strong style="flex:1">${esc(playing.name)}</strong>
       <button class="vote-btn" id="g-like" aria-label="Like game">👍 ${stats[playing.url]?.likes||0}</button><button class="vote-btn" id="g-dislike" aria-label="Dislike game">👎 ${stats[playing.url]?.dislikes||0}</button>
-      <button id="g-controls" aria-label="Set keyboard controls" title="Keyboard remapping is being checked" disabled>⌨ <span class="control-text">Controls</span></button><button id="g-fs" aria-label="Toggle fullscreen">⛶ <span class="control-text">Fullscreen</span></button><button id="g-tab" aria-label="Open game in a new tab">↗ <span class="control-text">New tab</span></button><button id="g-back" aria-label="Close game">✕ <span>Close</span></button></div>
+      <button id="g-touch" aria-label="Toggle experimental touch controls" aria-pressed="false" disabled title="Show on-screen controls inferred from accessible game code">☝ <span class="control-text">Touch</span></button><button id="g-controls" aria-label="Set keyboard controls" title="Keyboard remapping is being checked" disabled>⌨ <span class="control-text">Controls</span></button><button id="g-fs" aria-label="Toggle fullscreen">⛶ <span class="control-text">Fullscreen</span></button><button id="g-tab" aria-label="Open game in a new tab">↗ <span class="control-text">New tab</span></button><button id="g-back" aria-label="Close game">✕ <span>Close</span></button></div>
       <div class="player-frame" id="g-frame-wrap"><iframe id="g-frame" title="${esc(playing.name)}" allow="autoplay; fullscreen; gamepad *; cross-origin-isolated" allowfullscreen></iframe></div>
       <p style="margin-top:.75rem;font-size:.75rem;color:var(--muted-foreground)">▶ ${stats[playing.url]?.plays||0} plays · ${playing.source==="admin"?"· pushed by admin":playing.source==="custom"?"· your custom game":playing.source==="seraph"?"· from Seraph (GitHub)":playing.source==="repository"?`· from ${esc(playing.sourceName||"GitLab game library")}`:"· built-in"} · ${esc(splash)}</p></section>`:""}
     <div class="games-grid">${list.map(g=>{const st=genreStyle(g.genre);const thumb=gameThumb(g);const s=stats[g.url]||{plays:0,likes:0};const support=g.device==="pc"?"💻 PC":"📱+💻";const supportNote=g.compatibility==="estimated"?" · est.":"";const supportLabel=g.device==="pc"?"PC support estimate":"Mobile and PC support estimate";const favorite=favoriteUrls.has(g.url);return`<article class="game-card" style="--edge:${st.soft}"><button class="game-favorite" type="button" data-favorite="${esc(g.url)}" aria-label="${favorite?`Remove ${esc(g.name)} from favourites`:`Add ${esc(g.name)} to favourites`}" aria-pressed="${favorite}" title="${favorite?"Remove from favourites":"Add to favourites"}">${favorite?"★":"☆"}</button><button class="game-play" type="button" title="Play ${esc(g.name)}" data-play="${esc(g.url)}"><div class="game-thumb ${thumb?'':'missing-thumb'}" style="background:linear-gradient(135deg,${st.color},${st.soft})">${thumb?`<img src="${esc(thumb)}" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing-thumb');this.remove()">`:""}<span class="title-initial" aria-hidden="true" style="position:relative;z-index:1">${esc(g.name.slice(0,1))}</span><span class="genre-tag" style="position:absolute;top:.5rem;left:.5rem;background:${st.color};z-index:2">${esc(g.genre||"Arcade")}</span></div><div class="game-info"><h4>${esc(g.name)}</h4><div class="meta"><span${supportNote?` title="Estimated from launcher metadata; not device-tested" aria-label="${supportLabel}; not device-tested"`:""}>${support}${supportNote}</span><span>▶ ${s.plays||0} · 👍 ${s.likes||0}</span></div></div></button></article>`}).join("")||`<p style="color:var(--muted-foreground)">No games match these filters. Clear the search or choose another genre.</p>`}</div>
@@ -864,10 +930,10 @@ async function viewGames(){
     const frame=$('#g-frame');const status=document.createElement('p');status.className='player-load-status';status.setAttribute('role','status');status.textContent='Loading game…';$('#g-frame-wrap').append(status);
     let src;try{src=await gameSrc(playing)}catch(error){if(!frame.isConnected)return;frame.remove();status.remove();$('#g-frame-wrap').innerHTML='<div class="game-load-error" role="alert"><h2>This game could not load.</h2><p>Its file or hosting service may be unavailable. Your saved data has not been removed.</p><button id="game-retry">Try again</button></div>';$('#game-retry').onclick=()=>viewGames();return}
     if(!frame.isConnected){if(src.startsWith('blob:'))URL.revokeObjectURL(src);return}
-    if(activeGameBlob)URL.revokeObjectURL(activeGameBlob);activeGameBlob=src.startsWith('blob:')?src:null;frame.onload=()=>{status.remove();const controls=$('#g-controls'),available=installGameKeyRemaps(frame,playing.url);if(controls){controls.disabled=false;controls.title=available?'Configure per-game keyboard remapping':'View why remapping is unavailable for this cross-origin game'}};frame.src=src;for(const id of ['g-like','g-dislike','g-fs','g-tab'])$('#'+id).disabled=false;
-
+    if(activeGameBlob)URL.revokeObjectURL(activeGameBlob);activeGameBlob=src.startsWith('blob:')?src:null;frame.onload=()=>{status.remove();const controls=$('#g-controls'),touch=$('#g-touch'),available=installGameKeyRemaps(frame,playing.url);if(touch)touch.disabled=false;if(controls){controls.disabled=false;controls.title=available?'Configure per-game keyboard remapping':'View why remapping is unavailable for this cross-origin game'}};frame.src=src;for(const id of ['g-like','g-dislike','g-fs','g-tab'])$('#'+id).disabled=false;
     $("#g-like").onclick=async()=>{const r=await voteGame(playing.url,"like");$("#g-like").innerHTML="👍 "+r.likes;$("#g-dislike").innerHTML="👎 "+r.dislikes};$("#g-dislike").onclick=async()=>{const r=await voteGame(playing.url,"dislike");$("#g-like").innerHTML="👍 "+r.likes;$("#g-dislike").innerHTML="👎 "+r.dislikes};
     $("#g-controls").onclick=()=>showGameControls(playing,frame);
+    $("#g-touch").onclick=()=>toggleTouchControls(playing,frame);
     $("#g-fs").onclick=()=>{const w=$(".game-stage");if(document.fullscreenElement){document.exitFullscreen?.()}else if(w.requestFullscreen){w.requestFullscreen().catch(()=>toast("Fullscreen is unavailable in this browser. The player already fills the page."))}else{toast("The player already fills your browser window.")}};
     $("#g-tab").onclick=()=>{window.open(src,"_blank")};
     window.onmessage=e=>{if(e.data&&e.data.__arcadeSave===1&&e.data.game===playing.name){try{localStorage.setItem("arcade.save."+playing.name,JSON.stringify(e.data.data))}catch(err){}}};
