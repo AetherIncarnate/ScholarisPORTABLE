@@ -472,6 +472,12 @@ body:not(.arcade-mode) .revision-checks li:before,body:not(.arcade-mode) .plan l
 @media(max-width:900px){body:not(.arcade-mode) .hamburger{display:inline-flex}body:not(.arcade-mode) nav.main.open{background:var(--background);border-color:var(--border);box-shadow:none;backdrop-filter:none}body:not(.arcade-mode) nav.main.open a{width:100%;min-height:44px;padding:0 12px;border-bottom:1px solid var(--border)}}
 @media(max-width:700px){body:not(.arcade-mode) .wrap,body:not(.arcade-mode) .header-inner{padding-left:16px;padding-right:16px}body:not(.arcade-mode) .revision-hero-grid{grid-template-columns:1fr;gap:28px;margin-top:32px}body:not(.arcade-mode) .revision-copy h1{font-size:40px;letter-spacing:0;line-height:1.1}body:not(.arcade-mode) .revision-home .subjects{grid-template-columns:1fr;gap:0}body:not(.arcade-mode) .school-name-grid{grid-template-columns:repeat(2,minmax(0,1fr))}body:not(.arcade-mode) .credential-layout{grid-template-columns:1fr;gap:28px}body:not(.arcade-mode) .revision-actions{flex-wrap:wrap}body:not(.arcade-mode) .revision-actions .btn{flex:1 1 180px}body:not(.arcade-mode) .study-page,body:not(.arcade-mode) .access-page{padding-top:28px!important}body:not(.arcade-mode) .page-heading h1{font-size:40px}}
 @media(prefers-reduced-motion:reduce){body:not(.arcade-mode) *,body:not(.arcade-mode) *:before,body:not(.arcade-mode) *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+.examrevision-home-shell{width:100%;min-height:calc(100vh - 64px);margin:0;padding:0;background:#fff}
+#examrevision-home-frame{display:block;width:100%;height:calc(100vh - 64px);height:calc(100dvh - 64px);min-height:480px;border:0;background:#fff}
+body.examrevision-home-active #site-footer{display:none!important}
+@media(max-width:900px){.examrevision-home-shell{min-height:calc(100vh - 64px)}#examrevision-home-frame{height:calc(100vh - 64px);height:calc(100dvh - 64px)}}
+@media(max-width:500px){#examrevision-home-frame{min-height:420px}}
 </style>
 <!-- Embedded Manrope font license:
 Copyright 2018 The Manrope Project Authors (https://github.com/googlefonts/manrope)
@@ -905,7 +911,7 @@ let renderEpoch=0;
 async function render(){
  const epoch=++renderEpoch,r=route();closeModal();
  document.documentElement.classList.remove('game-running');document.body.classList.remove('game-running');
- document.body.classList.toggle('arcade-mode',arcadeVisible&&r==='/');document.body.classList.toggle('admin-mode',r==='/admin');
+ document.body.classList.toggle('arcade-mode',arcadeVisible&&r==='/');document.body.classList.toggle('admin-mode',r==='/admin');document.body.classList.toggle("examrevision-home-active",TEMPORARY_HOMEPAGE==="examrevision"&&r==="/"&&!arcadeVisible);
  if(r!=='/')arcadeVisible=false;renderPanic();
  $$('#mainnav a').forEach(a=>{const active=a.getAttribute('href')==='#'+r;a.classList.toggle('active',active);active?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')});$('#mainnav').classList.remove('open');$('#hamburger').setAttribute('aria-expanded','false');
  document.title=r==='/practice'?'Practice · Scholaris':r==='/pricing'?'Study access · Scholaris':r==='/admin'?'Admin · Scholaris':'Scholaris · Study and practice';
@@ -927,7 +933,7 @@ function renderFooter(){$("#site-footer").innerHTML=`<div class="wrap revision-f
 /* ---------- VIEW: Home (1:1) ---------- */
 let homeRevealObserver=null;
 function revealHome(){if(homeRevealObserver)homeRevealObserver.disconnect()}
-async function viewHome(){
+async function viewOriginalHome(){
  const app=$("#app");
  app.innerHTML=`<div class="revision-home">
  <section class="revision-hero"><div class="wrap">
@@ -945,6 +951,26 @@ async function viewHome(){
  $$("[data-revision-login]").forEach(b=>b.onclick=showLogin);
  $$("[data-expand]").forEach(b=>b.onclick=()=>{const card=b.closest('.subject');const open=card.classList.toggle('open');b.setAttribute('aria-expanded',String(open));b.innerHTML=open?'Hide topics <span aria-hidden="true">−</span>':'View topics <span aria-hidden="true">→</span>'});
 }
+const TEMPORARY_HOMEPAGE="examrevision";
+async function viewHome(){
+  if(TEMPORARY_HOMEPAGE!=="examrevision"||["/subjects","/references"].includes(route()))return viewOriginalHome();
+  const app=$("#app");
+  app.innerHTML='<section class="examrevision-home-shell" aria-label="ExamRevision education homepage"><iframe id="examrevision-home-frame" title="ExamRevision education homepage" src="/examrevision-home.html" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" loading="eager"></iframe></section>';
+  const frame=$("#examrevision-home-frame");
+  frame.onerror=()=>{if(!frame.isConnected)return;app.innerHTML='<section class="wrap page-error" role="alert"><h1>The temporary homepage could not load.</h1><p>The original Scholaris sections are still available from the navigation. Try again or choose Subjects.</p><a class="btn btn-outline" href="#/subjects">Open subjects</a></section>'};
+}
+window.addEventListener("message",event=>{
+  const frame=$("#examrevision-home-frame"),data=event.data;
+  if(!frame||event.source!==frame.contentWindow||event.origin!==location.origin||!data||data.type!=="scholaris-examrevision-action")return;
+  if(data.action==="login"){showLogin();return}
+  if(data.action==="signup"){showSignup();return}
+  if(data.action==="practice"){location.hash="#/practice";return}
+  if(data.action==="subjects"){location.hash="#/subjects";return}
+  if(data.action==="pricing"){location.hash="#/pricing";return}
+  if(data.action==="home"){location.hash="#/";return}
+  if(data.action==="contact")openModal(`<h2>Demo booking is not connected</h2><p>This temporary homepage comes from a static page capture. Scholaris does not have a demo-booking service or connected account system.</p><p class="hint">You can still browse the available study resources and practice questions.</p><div style="display:flex;gap:10px;justify-content:flex-end"><button class="btn btn-outline" onclick="closeModal()">Done</button><a class="btn btn-ink" href="#/pricing" onclick="closeModal()">Study access</a></div>`);
+});
+
 /* ---------- VIEW: Practice (1:1 engine) ---------- */
 let practiceState=LS.get('scholaris.practiceSession.v1',null);
 if(practiceState&&(!PRACTICE.some(t=>t.id===practiceState.topicId)||!Array.isArray(practiceState.order)))practiceState=null;

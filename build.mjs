@@ -29,6 +29,7 @@ if(seraphOnly&&process.env.VERCEL)throw new Error('SERAPH_ONLY is a local test m
 await fs.rm('dist',{recursive:true,force:true});
 await fs.mkdir('dist/library/assets',{recursive:true});
 await fs.copyFile('index.html','dist/index.html');
+await fs.copyFile('examrevision-home.html','dist/examrevision-home.html');
 for(const f of ['FONT-LICENSE.txt','LUCIDE-LICENSE.txt'])await fs.copyFile(f,`dist/${f}`);
 const games=[],skipped=[],warnings=[];
 let upstreamRevision='not-built (SERAPH_ONLY test mode)';

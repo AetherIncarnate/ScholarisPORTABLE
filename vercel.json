@@ -41,7 +41,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!library/|games/|storage/|images/|seraphim/|apps/).*)",
+      "source": "/((?!examrevision-home\\.html$|library/|games/|storage/|images/|seraphim/|apps/).*)",
       "destination": "/index.html"
     }
   ],
